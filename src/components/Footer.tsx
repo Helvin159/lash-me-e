@@ -23,7 +23,7 @@ function Footer({ copyrightHolder = 'Company Name' }: Props): JSX.Element {
 				<ul style={{ listStyleType: 'none' }}>
 					{links.map((link, k) => (
 						<li key={k}>
-							<Link href={`${link.url ?? ''}`}>
+							<Link href={`${link.url}`}>
 								<a href={link.url}>{link.label}</a>
 							</Link>
 						</li>

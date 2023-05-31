@@ -10,54 +10,59 @@ import styles from 'scss/pages/posts.module.scss';
 const POSTS_PER_PAGE = 6;
 
 export default function Page() {
-  const { query = {} } = useRouter();
-  const { postSlug, postCursor } = query;
-  const { usePosts, useQuery } = client;
-  const generalSettings = useQuery().generalSettings;
-  const isBefore = postSlug === 'before';
-  const posts = usePosts({
-    after: !isBefore ? (postCursor as string) : undefined,
-    before: isBefore ? (postCursor as string) : undefined,
-    first: !isBefore ? POSTS_PER_PAGE : undefined,
-    last: isBefore ? POSTS_PER_PAGE : undefined,
-  });
+	const { query = {} } = useRouter();
 
-  if (useQuery().$state.isLoading) {
-    return null;
-  }
+	const { postSlug, postCursor } = query;
 
-  return (
-    <>
-      <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
-      />
+	const { usePosts, useQuery } = client;
 
-      <Head>
-        <title>
-          {generalSettings.title} - {generalSettings.description}
-        </title>
-      </Head>
+	const generalSettings = useQuery().generalSettings;
 
-      <main className="content content-index">
-        <Posts
-          posts={posts.nodes}
-          heading="Blog Posts"
-          headingLevel="h2"
-          postTitleLevel="h3"
-          id={styles.post_list}
-        />
-        <Pagination pageInfo={posts.pageInfo} basePath="/posts" />
-      </main>
+	const isBefore = postSlug === 'before';
 
-      <Footer copyrightHolder={generalSettings.title} />
-    </>
-  );
+	const posts = usePosts({
+		after: !isBefore ? (postCursor as string) : undefined,
+		before: isBefore ? (postCursor as string) : undefined,
+		first: !isBefore ? POSTS_PER_PAGE : undefined,
+		last: isBefore ? POSTS_PER_PAGE : undefined,
+	});
+
+	if (useQuery().$state.isLoading) {
+		return null;
+	}
+
+	return (
+		<>
+			<Header
+				title={generalSettings.title}
+				description={generalSettings.description}
+			/>
+
+			<Head>
+				<title>
+					{generalSettings.title} - {generalSettings.description}
+				</title>
+			</Head>
+
+			<main className='content content-index'>
+				<Posts
+					posts={posts.nodes}
+					heading='Blog Posts'
+					headingLevel='h2'
+					postTitleLevel='h3'
+					id={styles.post_list}
+				/>
+				<Pagination pageInfo={posts.pageInfo} basePath='/posts' />
+			</main>
+
+			<Footer copyrightHolder={generalSettings.title} />
+		</>
+	);
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  return getNextStaticProps(context, {
-    Page,
-    client,
-  });
+	return getNextStaticProps(context, {
+		Page,
+		client,
+	});
 }

@@ -1,20 +1,36 @@
+import { MenuLocationEnum, client } from 'client';
+import Link from 'next/link';
 import React from 'react';
-import styles from 'scss/components/Footer.module.scss';
 
 interface Props {
-  copyrightHolder?: string;
+	copyrightHolder?: string;
 }
 
 function Footer({ copyrightHolder = 'Company Name' }: Props): JSX.Element {
-  const year = new Date().getFullYear();
+	const year = new Date().getFullYear();
 
-  return (
-    <footer className={styles.main}>
-      <div className={styles.wrap}>
-        <p>{`© ${year} ${copyrightHolder}. All rights reserved.`}</p>
-      </div>
-    </footer>
-  );
+	const { menuItems } = client.useQuery();
+
+	const links = menuItems({
+		where: { location: MenuLocationEnum.FOOTER },
+	}).nodes;
+
+	return (
+		<footer>
+			<div>
+				<p>{`© ${year} ${copyrightHolder}. All rights reserved.`}</p>
+				<ul style={{ listStyleType: 'none' }}>
+					{links.map((link) => (
+						<li key={link.id}>
+							<Link href={`${link.url ?? ''}`}>
+								<a href={link.url}>{link.label}</a>
+							</Link>
+						</li>
+					))}
+				</ul>
+			</div>
+		</footer>
+	);
 }
 
 export default Footer;

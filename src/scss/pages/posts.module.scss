@@ -1,10 +1,9 @@
 // CSS for the posts/index.tsx template.
 
-@import "scss/variables";
+@import 'scss/variables';
 
 #post_list {
 	padding: 5em 0 6em;
-	background-color: $color-light-gray;
 }
 
 @media screen and (min-width: $breakpoint-medium) {

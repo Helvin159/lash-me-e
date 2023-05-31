@@ -18,7 +18,7 @@ function Header({
 	}).nodes;
 
 	return (
-		<header>
+		<header className={styles.header}>
 			<div className={styles.wrap}>
 				<div className={styles['title-wrap']}>
 					<p className={styles['site-title']}>

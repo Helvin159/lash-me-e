@@ -8,6 +8,7 @@
 	},
 	"scripts": {
 		"dev": "next dev -p 10052",
+		"compile:sass": "node-sass src/scss/main.scss src/css/style.css -w",
 		"build": "next build",
 		"start": "next start",
 		"clean": "rimraf .next node_modules",
@@ -19,6 +20,7 @@
 		"@faustjs/core": "^0.15.10",
 		"@faustjs/next": "^0.15.10",
 		"next": "^12.2.4",
+		"node-sass": "^7.0.3",
 		"normalize.css": "^8.0.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",

@@ -2,6 +2,8 @@ import { MenuLocationEnum, client } from 'client';
 import Link from 'next/link';
 import React from 'react';
 
+import styles from '../scss/components/Header.module.scss';
+
 interface Props {
 	copyrightHolder?: string;
 }
@@ -17,8 +19,7 @@ function Footer({ copyrightHolder = 'Company Name' }: Props): JSX.Element {
 
 	return (
 		<footer>
-			<div>
-				<p>{`© ${year} ${copyrightHolder}. All rights reserved.`}</p>
+			<div className={`${styles.menu} mx-auto text-center`}>
 				<ul style={{ listStyleType: 'none' }}>
 					{links.map((link, k) => (
 						<li key={k}>
@@ -28,6 +29,9 @@ function Footer({ copyrightHolder = 'Company Name' }: Props): JSX.Element {
 						</li>
 					))}
 				</ul>
+				<div className='text-center mx-auto'>
+					<p>{`© ${year} ${copyrightHolder}. All rights reserved.`}</p>
+				</div>
 			</div>
 		</footer>
 	);

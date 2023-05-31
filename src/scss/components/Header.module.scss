@@ -1,6 +1,10 @@
 // CSS for the Header component in components/Header.tsx.
 
-@import "scss/variables";
+@import 'scss/variables';
+
+.header {
+	box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.15);
+}
 
 .site-title {
 	margin-bottom: 0;
@@ -57,7 +61,7 @@
 }
 
 .menu ul {
-	padding-left: 0
+	padding-left: 0;
 }
 
 .menu li {
@@ -65,7 +69,6 @@
 	list-style-type: none;
 	padding: 0 1em;
 }
-
 
 .menu li:first-of-type {
 	padding-left: 0;

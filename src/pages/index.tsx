@@ -9,12 +9,15 @@ import Hero from '../components/Hero';
 import Posts from '../components/Posts';
 
 import { client } from 'client';
+import Link from 'next/link';
+
+import btnStyles from '../scss/components/CTA.module.scss';
 
 export default function Page() {
 	const { usePosts, useQuery } = client;
 	const generalSettings = useQuery().generalSettings;
 	const posts = usePosts({
-		first: 6,
+		first: 16,
 		where: {
 			categoryName: 'uncategorized',
 		},
@@ -45,6 +48,11 @@ export default function Page() {
 			<main className='content'>
 				<Hero title='Lash Me E' />
 				<Posts posts={posts.nodes} headingLevel='h2' />
+				<div className='text-center mx-auto p-5'>
+					<Link href={'/posts'}>
+						<span className={`btn ${btnStyles.cta}`}>View all</span>
+					</Link>
+				</div>
 			</main>
 			<Footer copyrightHolder={generalSettings.title} />
 		</>

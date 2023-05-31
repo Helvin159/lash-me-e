@@ -1,11 +1,11 @@
 // CSS for the CTA component in components/CTA.tsx.
 
-@import "scss/variables";
+@import 'scss/variables';
 
 .cta {
 	background-color: $color-dark-gray;
 	color: $color-white;
-	padding: 10em 0 12em;
+	padding: 0.8rem 1.6rem;
 }
 
 .cta a {

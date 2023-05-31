@@ -11,7 +11,7 @@ function Hero({ title = 'Hero Title', id, children }: Props): JSX.Element {
 	return (
 		<section className={`section-${id} p-5`}>
 			<div>
-				<div className='text-center'>
+				<div className='text-center p-5'>
 					<h1>{title}</h1>
 				</div>
 				{children && (

@@ -20,8 +20,8 @@ function Footer({ copyrightHolder = 'Company Name' }: Props): JSX.Element {
 			<div>
 				<p>{`© ${year} ${copyrightHolder}. All rights reserved.`}</p>
 				<ul style={{ listStyleType: 'none' }}>
-					{links.map((link) => (
-						<li key={link.id}>
+					{links.map((link, k) => (
+						<li key={k}>
 							<Link href={`${link.url ?? ''}`}>
 								<a href={link.url}>{link.label}</a>
 							</Link>

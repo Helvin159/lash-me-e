@@ -3,7 +3,10 @@ import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import React from 'react';
-import { CTA, Footer, Header, Hero, Posts } from 'components';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import Posts from '../components/Posts';
 import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
 
@@ -20,10 +23,20 @@ export default function Page() {
 	return (
 		<>
 			<Head>
+				<meta name='viewport' content='width=device-width, initial-scale=1' />
+
 				<title>
 					{generalSettings.title} - {generalSettings.description}
 				</title>
+
+				<link
+					href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'
+					rel='stylesheet'
+					integrity='sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM'
+					crossOrigin='anonymous'
+				/>
 			</Head>
+
 			<Header
 				title={generalSettings.title}
 				description={generalSettings.description}
@@ -33,14 +46,7 @@ export default function Page() {
 				<Hero title='Lash Me E'>
 					<p>Lashes by Enya</p>
 				</Hero>
-				<Posts
-					posts={posts.nodes}
-					heading='Latest Posts'
-					intro='The Posts component in src/pages/index.tsx shows the latest six posts from the connected WordPress site.'
-					headingLevel='h2'
-					postTitleLevel='h3'
-					id={styles.post_list}
-				/>
+				<Posts posts={posts.nodes} headingLevel='h2' id={styles.post_list} />
 			</main>
 			<Footer copyrightHolder={generalSettings.title} />
 		</>

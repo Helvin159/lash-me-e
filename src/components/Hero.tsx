@@ -9,12 +9,16 @@ interface Props {
 
 function Hero({ title = 'Hero Title', id, children }: Props): JSX.Element {
 	return (
-		<section className={`section-${id}`}>
+		<section className={`section-${id} p-5`}>
 			<div>
-				<h1>{title}</h1>
-				<div>
-					<div>{children}</div>
+				<div className='text-center'>
+					<h1>{title}</h1>
 				</div>
+				{children && (
+					<div>
+						<div>{children}</div>
+					</div>
+				)}
 			</div>
 		</section>
 	);

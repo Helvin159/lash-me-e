@@ -17,19 +17,6 @@ export default function Page() {
 		},
 	});
 
-	const { title, description, url, email, timeFormat, language } =
-		generalSettings;
-	console.log(
-		title,
-		description,
-		url,
-		email,
-		timeFormat,
-		language,
-		// generalSettings,
-		'general setting'
-	);
-
 	return (
 		<>
 			<Head>
@@ -43,25 +30,8 @@ export default function Page() {
 			/>
 
 			<main className='content'>
-				<Hero
-					title='Get Started with Faust.js'
-					buttonText='Developer Docs'
-					buttonURL='https://faustjs.org'
-					button2Text='Faust.js on GitHub'
-					button2URL='https://github.com/wpengine/faustjs'
-					bgImage='/images/headless_hero_background.jpg'
-					id={styles.home_hero}>
-					<p>
-						WP&nbsp;Engine’s Faust.js Framework includes this example project,
-						the{' '}
-						<a href='https://wordpress.org/plugins/faustwp/'>FaustWP plugin</a>,{' '}
-						<a href='https://github.com/wpengine/faustjs'>headless packages</a>,
-						and{' '}
-						<a href='https://faustjs.org/docs/tutorial/dev-env-setup'>
-							tutorials
-						</a>{' '}
-						to make building headless WordPress sites fast and fun.
-					</p>
+				<Hero title='Lash Me E'>
+					<p>Lashes by Enya</p>
 				</Hero>
 				<Posts
 					posts={posts.nodes}

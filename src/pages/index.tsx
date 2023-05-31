@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Posts from '../components/Posts';
-import styles from 'scss/pages/home.module.scss';
+
 import { client } from 'client';
 
 export default function Page() {
@@ -43,10 +43,8 @@ export default function Page() {
 			/>
 
 			<main className='content'>
-				<Hero title='Lash Me E'>
-					<p>Lashes by Enya</p>
-				</Hero>
-				<Posts posts={posts.nodes} headingLevel='h2' id={styles.post_list} />
+				<Hero title='Lash Me E' />
+				<Posts posts={posts.nodes} headingLevel='h2' />
 			</main>
 			<Footer copyrightHolder={generalSettings.title} />
 		</>

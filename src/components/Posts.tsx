@@ -39,24 +39,24 @@ function Posts({
 									// width: '33.3%%',
 								}}>
 								<div>
-									<Heading level={postTitleLevel}>
+									{/* <Heading level={postTitleLevel}>
 										<Link href={`/posts/${post.slug}`}>
 											<a>{post.title()}</a>
 										</Link>
-									</Heading>
-									<div
+									</Heading> */}
+									{/* <div
 										// eslint-disable-next-line react/no-danger
 										dangerouslySetInnerHTML={{ __html: post.excerpt() ?? '' }}
-									/>
-									{console.log(post?.featuredImage?.node.sourceUrl())}
-									<Link href={`/posts/${post.slug}`}>
+									/> */}
+									{/* {console.log(post?.featuredImage?.node.sourceUrl())} */}
+									{/* <Link href={`/posts/${post.slug}`}>
 										<a
 											aria-label={`Read more about ${
 												post.title || 'the post'
 											}`}>
 											{readMoreText}
 										</a>
-									</Link>
+									</Link> */}
 								</div>
 							</div>
 						);

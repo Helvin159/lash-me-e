@@ -14,10 +14,12 @@
 	height: 300px;
 }
 
-.posts__row__col:hover {
-	transition: 0.32s ease-out;
-	transform: scale(1.05);
-	border-radius: 5px;
-	box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.3);
-	z-index: 5;
+@media (min-width: 768px) {
+	.posts__row__col:hover {
+		transition: 0.32s ease-out;
+		transform: scale(1.05);
+		border-radius: 5px;
+		box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.3);
+		z-index: 5;
+	}
 }

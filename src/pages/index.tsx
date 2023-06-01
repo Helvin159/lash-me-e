@@ -17,7 +17,7 @@ export default function Page() {
 	const { usePosts, useQuery } = client;
 	const generalSettings = useQuery().generalSettings;
 	const posts = usePosts({
-		first: 16,
+		first: 12,
 		where: {
 			categoryName: 'uncategorized',
 		},

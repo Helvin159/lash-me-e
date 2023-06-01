@@ -1,4 +1,6 @@
-New WordPress Headless Project
+Site Name: Lash Me E
+Preview site: https://lashmee.mrrymer.com
+WordPress: https://lashmee.mrrymer.tech
 
-Lash Me E
-MrRymer.tech
+Dev: https://MrRymer.tech
+WordPress Headless Project

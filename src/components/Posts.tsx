@@ -28,8 +28,10 @@ function Posts({ posts, id }: Props): JSX.Element {
 							role='img'
 							key={post.id ?? k}
 							tabIndex={0}
-							onClick={(e) => {
-								e.preventDefault();
+							onKeyDown={(e) => {
+								e.key === 'Enter' && handleClick(href);
+							}}
+							onClick={() => {
 								handleClick(href);
 							}}
 							style={{

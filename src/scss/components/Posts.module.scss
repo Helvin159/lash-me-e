@@ -23,3 +23,31 @@
 		z-index: 5;
 	}
 }
+
+@media (max-width: 768px) {
+	// .posts__row {
+	// 	width: auto;
+	// 	display: flex;
+	// 	position: sticky;
+	// 	top: 0;
+	// }
+
+	// .posts__row__col {
+	// 	display: flex;
+	// 	position: sticky;
+	// 	top: 0;
+	// }
+}
+
+// .stickycards {
+// 	width: 100px;
+// 	height: 100px;
+// 	display: flex;
+// 	background-color: rgba(0, 0, 0, 0.6);
+// 	color: white;
+// 	position: sticky;
+// 	justify-content: center;
+// 	align-items: center;
+// 	bottom: 0;
+// 	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+// }

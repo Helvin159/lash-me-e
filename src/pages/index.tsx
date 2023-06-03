@@ -17,7 +17,7 @@ export default function Page() {
 	const { usePosts, useQuery } = client;
 	const generalSettings = useQuery().generalSettings;
 	const posts = usePosts({
-		first: 12,
+		first: 6,
 		where: {
 			categoryName: 'uncategorized',
 		},
@@ -47,7 +47,9 @@ export default function Page() {
 
 			<main className='content'>
 				<Hero title='Lash Me E' />
-				<Posts posts={posts.nodes} headingLevel='h2' />
+
+				<Posts posts={posts.nodes} />
+
 				<div className='text-center mx-auto p-5'>
 					<Link href={'/posts'}>
 						<span className={`btn ${btnStyles.cta}`}>View all</span>

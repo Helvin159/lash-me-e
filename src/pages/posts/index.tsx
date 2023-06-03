@@ -2,6 +2,7 @@ import { getNextStaticProps } from '@faustjs/next';
 import { client, OrderEnum, PostObjectsConnectionOrderbyEnum } from 'client';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
+import Hero from 'components/Hero';
 import Pagination from 'components/Pagination';
 import Posts from 'components/Posts';
 
@@ -11,7 +12,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import styles from 'scss/pages/posts.module.scss';
 
-const POSTS_PER_PAGE = 8;
+const POSTS_PER_PAGE = 12;
 
 export default function Page() {
 	const { query = {} } = useRouter();
@@ -56,13 +57,8 @@ export default function Page() {
 			</Head>
 
 			<main>
-				<Posts
-					posts={posts.nodes}
-					// heading='Blog Posts'
-					headingLevel='h2'
-					postTitleLevel='h3'
-					id={styles.post_list}
-				/>
+				<Hero title='Work' />
+				<Posts posts={posts.nodes} id={styles.post_list} />
 				<Pagination pageInfo={posts.pageInfo} basePath='/posts' />
 			</main>
 

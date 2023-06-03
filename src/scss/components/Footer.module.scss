@@ -1,6 +1,6 @@
 // CSS for the Footer component in components/Footer.tsx.
 
-@import "scss/variables";
+@import 'scss/variables';
 
 .wrap {
 	margin: 0 auto;
@@ -23,4 +23,50 @@ footer.main p {
 	color: $color-dark-gray;
 	line-height: 100px;
 	margin: 0;
+}
+
+.footermenu ul {
+	padding-left: 0;
+}
+
+.footermenu li {
+	display: inline-block;
+	list-style-type: none;
+	padding: 0 1em;
+}
+
+.footermenu li:first-of-type {
+	padding-left: 0;
+}
+
+@media screen and (min-width: $breakpoint-small) {
+	.footermenu li:first-of-type {
+		padding-left: 1em;
+	}
+}
+
+.footermenu a {
+	color: $color-black;
+	font-family: $font-family;
+	font-weight: $font-weight-bold;
+	text-decoration: none;
+}
+
+.footermenu a:focus,
+.footermenu a:hover {
+	color: $color-primary;
+}
+
+.footermenu a:global(.button) {
+	background-color: $color-primary;
+	display: inline-block;
+	color: $color-white;
+	padding: 6px 16px;
+	border-radius: 4px;
+}
+
+.footermenu a:global(.button):focus,
+.footermenu a:global(.button):hover {
+	background-color: lighten($color-primary, 10);
+	color: $color-white;
 }

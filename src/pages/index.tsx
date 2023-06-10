@@ -54,7 +54,7 @@ export default function Page() {
 			/>
 
 			<main className='content'>
-				<Hero title='Lash Me E' />
+				<Hero title={generalSettings.title} />
 
 				<Posts posts={posts.nodes} />
 

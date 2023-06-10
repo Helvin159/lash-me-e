@@ -1,4 +1,5 @@
 import { getNextStaticProps, is404 } from '@faustjs/next';
+
 import { client, Post } from 'client';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
@@ -13,6 +14,10 @@ export interface PostProps {
 export function PostComponent({ post }: PostProps) {
 	const { useQuery } = client;
 	const generalSettings = useQuery().generalSettings;
+
+	// const contentTypes = useQuery().contentTypes()?.nodes;
+
+	// console.log(contentTypes, 'clg');
 
 	return (
 		<>

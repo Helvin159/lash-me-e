@@ -2,52 +2,28 @@
 
 // @import 'scss/variables';
 
-.posts {
-	width: auto;
-}
-
-.posts__row {
-	width: auto;
-}
-
-.posts__row__col {
+.posts__row__cards {
 	height: 300px;
+	position: sticky;
+	top: 0;
+	z-index: auto;
 }
 
 @media (min-width: 768px) {
-	.posts__row__col:hover {
+	.posts__row__cards:hover {
 		transition: 0.32s ease-out;
 		transform: scale(1.05);
 		border-radius: 5px;
 		box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.3);
-		z-index: 5;
+		z-index: 1;
 	}
 }
 
 @media (max-width: 768px) {
-	// .posts__row {
-	// 	width: auto;
-	// 	display: flex;
-	// 	position: sticky;
-	// 	top: 0;
-	// }
-
-	// .posts__row__col {
-	// 	display: flex;
-	// 	position: sticky;
-	// 	top: 0;
-	// }
+	.posts__row__cards {
+		height: 250px;
+		position: sticky;
+		top: 0;
+		z-index: auto;
+	}
 }
-
-// .stickycards {
-// 	width: 100px;
-// 	height: 100px;
-// 	display: flex;
-// 	background-color: rgba(0, 0, 0, 0.6);
-// 	color: white;
-// 	position: sticky;
-// 	justify-content: center;
-// 	align-items: center;
-// 	bottom: 0;
-// 	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
-// }

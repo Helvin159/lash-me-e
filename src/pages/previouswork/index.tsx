@@ -14,7 +14,10 @@ export default function Page() {
 
 	const { postSlug, postCursor } = query;
 
+	// console.log(query);
 	const { usePosts, useQuery } = client;
+
+	// console.log(client);
 
 	const genSettings = useQuery().generalSettings;
 
@@ -26,6 +29,8 @@ export default function Page() {
 		first: !isBefore ? POSTS_PER_PAGE : undefined,
 		last: isBefore ? POSTS_PER_PAGE : undefined,
 	});
+
+	// .postBy({ slug: 'new-lash-11' });
 
 	if (useQuery().$state.isLoading) {
 		return null;
@@ -43,8 +48,9 @@ export default function Page() {
 			</Head>
 
 			<main className='content content-index'>
+				<div>nothing</div>
 				<Posts posts={posts.nodes} />
-				<Pagination pageInfo={posts.pageInfo} basePath='/posts' />
+				<Pagination pageInfo={posts.pageInfo} basePath='/previouswork' />
 			</main>
 
 			<Footer copyrightHolder={genSettings.title} />

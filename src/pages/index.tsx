@@ -12,6 +12,7 @@ import { client } from 'client';
 import Link from 'next/link';
 
 import btnStyles from '../scss/components/CTA.module.scss';
+import LashTips from 'components/LashTips';
 
 export default function Page() {
 	const { usePosts, useQuery } = client;
@@ -19,7 +20,14 @@ export default function Page() {
 	const posts = usePosts({
 		first: 6,
 		where: {
-			categoryName: 'uncategorized',
+			categoryName: 'previous-work',
+		},
+	});
+
+	const tips = usePosts({
+		first: 6,
+		where: {
+			categoryName: 'lash-care-tips',
 		},
 	});
 
@@ -50,11 +58,11 @@ export default function Page() {
 
 				<Posts posts={posts.nodes} />
 
-				<div className='text-center mx-auto p-5'>
-					<Link href={'/posts'}>
-						<span className={`btn ${btnStyles.cta}`}>View all</span>
-					</Link>
-				</div>
+				<LashTips tips={tips.nodes} />
+
+				<section className='text-center'>
+					<h3>Calendly Section</h3>
+				</section>
 			</main>
 			<Footer copyrightHolder={generalSettings.title} />
 		</>

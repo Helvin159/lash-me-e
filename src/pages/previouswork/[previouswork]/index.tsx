@@ -7,11 +7,11 @@ import Hero from 'components/Hero';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
-export interface PostProps {
+export interface PreviousWorkProps {
 	post: Post | Post['preview']['node'] | null | undefined;
 }
 
-export function PostComponent({ post }: PostProps) {
+export function PreviousWorkComponent({ post }: PreviousWorkProps) {
 	const { useQuery } = client;
 	const generalSettings = useQuery().generalSettings;
 
@@ -52,7 +52,7 @@ export default function Page() {
 	const { usePost } = client;
 	const post = usePost();
 
-	return <PostComponent post={post} />;
+	return <PreviousWorkComponent post={post} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {

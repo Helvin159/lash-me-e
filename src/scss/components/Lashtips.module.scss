@@ -1,0 +1,33 @@
+.lash__tips {
+	width: 100%;
+}
+
+.lash__tips__rows {
+	width: 100%;
+}
+
+.lash__tips__cols {
+	position: relative;
+	height: 20rem;
+}
+
+.lash__tips__cols__content {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	// padding: 1rem;
+	width: 80%;
+	overflow: scroll;
+}
+
+.lash__tips__cols__content p {
+	max-width: 475px;
+	max-height: 115px;
+	white-space: pre-wrap;
+	overflow: scroll;
+	-webkit-line-clamp: 4;
+	line-clamp: 4;
+	text-overflow: ellipsis;
+	// -webkit-box-orient: vertical;
+}

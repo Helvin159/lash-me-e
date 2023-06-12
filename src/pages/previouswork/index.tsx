@@ -14,10 +14,9 @@ export default function Page() {
 
 	const { postSlug, postCursor } = query;
 
+	console.log(postSlug);
 	// console.log(query);
 	const { usePosts, useQuery } = client;
-
-	// console.log(client);
 
 	const genSettings = useQuery().generalSettings;
 
@@ -31,6 +30,8 @@ export default function Page() {
 	});
 
 	// .postBy({ slug: 'new-lash-11' });
+
+	console.log(test?.id);
 
 	if (useQuery().$state.isLoading) {
 		return null;

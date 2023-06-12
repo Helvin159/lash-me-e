@@ -60,8 +60,8 @@ export default function Page() {
 
 				<LashTips tips={tips.nodes} />
 
-				<section className='text-center'>
-					<h3>Calendly Section</h3>
+				<section className='text-center p-5'>
+					<h2>Booking Section</h2>
 				</section>
 			</main>
 			<Footer copyrightHolder={generalSettings.title} />

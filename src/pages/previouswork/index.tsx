@@ -31,7 +31,7 @@ export default function Page() {
 
 	// .postBy({ slug: 'new-lash-11' });
 
-	console.log(test?.id);
+	// console.log(test?.id);
 
 	if (useQuery().$state.isLoading) {
 		return null;

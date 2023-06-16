@@ -16,18 +16,21 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	// padding: 1rem;
 	width: 80%;
-	overflow: scroll;
 }
 
 .lash__tips__cols__content p {
 	max-width: 475px;
 	max-height: 115px;
-	white-space: pre-wrap;
-	overflow: scroll;
+	overflow: hidden;
+	display: -webkit-box;
 	-webkit-line-clamp: 4;
 	line-clamp: 4;
+	-webkit-box-orient: vertical;
 	text-overflow: ellipsis;
-	// -webkit-box-orient: vertical;
+}
+
+.lash__tips__cols__content__link h4:hover {
+	cursor: pointer !important;
+	transform: scale(1.5);
 }

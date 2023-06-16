@@ -6,6 +6,10 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Posts from 'components/Posts';
 import Pagination from 'components/Pagination';
+import { gql } from '@apollo/client';
+
+import { useContext } from 'react';
+import { PreviousWorkContext } from 'contexts/previousWorkContext';
 
 const POSTS_PER_PAGE = 6;
 
@@ -14,8 +18,6 @@ export default function Page() {
 
 	const { postSlug, postCursor } = query;
 
-	console.log(postSlug);
-	// console.log(query);
 	const { usePosts, useQuery } = client;
 
 	const genSettings = useQuery().generalSettings;
@@ -29,11 +31,12 @@ export default function Page() {
 		last: isBefore ? POSTS_PER_PAGE : undefined,
 	});
 
-	// .postBy({ slug: 'new-lash-11' });
+	const { previousWork, loading } = useContext(PreviousWorkContext);
+	// const { data } = previousWork;
 
-	// console.log(test?.id);
+	console.log(previousWork, loading, 'prevwork pge');
 
-	if (useQuery().$state.isLoading) {
+	if (loading) {
 		return null;
 	}
 

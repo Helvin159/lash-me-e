@@ -2,7 +2,7 @@ import { getNextStaticProps } from '@faustjs/next';
 
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Hero from '../components/Hero';

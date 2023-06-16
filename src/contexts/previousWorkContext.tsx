@@ -1,10 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
 import { getPrevWork } from 'utils/scripts';
 
-interface Props {
+interface ContextProps {
 	previousWork: null;
 	loading: Boolean;
-	setPreviousWork: Function;
 }
 
 export const PreviousWorkContext = createContext({

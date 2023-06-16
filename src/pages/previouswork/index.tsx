@@ -6,7 +6,6 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Posts from 'components/Posts';
 import Pagination from 'components/Pagination';
-import { gql } from '@apollo/client';
 
 import { useContext } from 'react';
 import { PreviousWorkContext } from 'contexts/previousWorkContext';
@@ -32,7 +31,6 @@ export default function Page() {
 	});
 
 	const { previousWork, loading } = useContext(PreviousWorkContext);
-	// const { data } = previousWork;
 
 	console.log(previousWork, loading, 'prevwork pge');
 

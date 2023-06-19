@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import styles from 'scss/pages/posts.module.scss';
 
-const POSTS_PER_PAGE = 12;
+const POSTS_PER_PAGE = 9;
 
 export default function Page() {
 	const { query = {} } = useRouter();
@@ -59,7 +59,7 @@ export default function Page() {
 			<main>
 				<Hero title='Work' />
 				<Posts posts={posts.nodes} id={styles.post_list} />
-				<Pagination pageInfo={posts.pageInfo} basePath='/posts' />
+				{/* <Pagination pageInfo={posts.pageInfo} basePath='/posts' /> */}
 			</main>
 
 			<Footer copyrightHolder={generalSettings.title} />

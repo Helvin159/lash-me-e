@@ -2,33 +2,26 @@ import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 
 import React from 'react';
-import Footer from '../components/Footer';
+import CustomHead from 'components/CustomHead';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 import Hero from '../components/Hero';
-import Posts from '../components/Posts';
+import LashTips from 'components/LashTips';
+import PreviousWork from 'components/PreviousWork';
 
 import { client } from 'client';
-import Link from 'next/link';
-
-import btnStyles from '../scss/components/CTA.module.scss';
-import LashTips from 'components/LashTips';
-import CustomHead from 'components/CustomHead';
 
 export default function Page() {
-	const { usePosts, useQuery } = client;
+	const { useQuery } = client;
 	const generalSettings = useQuery().generalSettings;
-	const posts = usePosts({
+
+	const prevWork = useQuery().previousWork({
 		first: 6,
-		where: {
-			categoryName: 'previous-work',
-		},
 	});
 
-	const tips = usePosts({
+	const tips = useQuery().lashTips({
 		first: 6,
-		where: {
-			categoryName: 'lash-care-tips',
-		},
 	});
 
 	return (
@@ -46,9 +39,8 @@ export default function Page() {
 			<main className='content'>
 				<Hero title={generalSettings.title} />
 
-				<Posts posts={posts.nodes} />
-
-				<LashTips tips={tips.nodes} />
+				<PreviousWork work={prevWork.nodes} />
+				<LashTips id='lashtipsComponent' tips={tips.nodes} />
 
 				<section className='text-center p-5'>
 					<h2>Booking Section</h2>

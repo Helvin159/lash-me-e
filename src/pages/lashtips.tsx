@@ -1,18 +1,18 @@
 import { client } from 'client';
 
+import CustomHead from 'components/CustomHead';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-
-import PreviousWork from 'components/PreviousWork';
-import CustomHead from 'components/CustomHead';
 import Hero from 'components/Hero';
+import LashTipCard from 'components/LashTipCard';
 
-export default function PreviousWorkPage() {
+export default function Page() {
 	const { useQuery } = client;
 
-	const { nodes } = useQuery().previousWork();
+	const { nodes } = useQuery().lashTips({ first: 6 });
 
 	const genSettings = useQuery().generalSettings;
+	console.log(genSettings);
 
 	return (
 		<>
@@ -25,9 +25,13 @@ export default function PreviousWorkPage() {
 				description={genSettings.description}
 			/>
 
-			<main className='content'>
-				<Hero title='My Work' />
-				<PreviousWork work={nodes} />
+			<main className='content content-index'>
+				<Hero title={'Lash Care Tips'} />
+				<div className='row p-3'>
+					{nodes.map((lashTip, k) => (
+						<LashTipCard lashTip={lashTip} key={k} />
+					))}
+				</div>
 			</main>
 
 			<Footer copyrightHolder={genSettings.title} />

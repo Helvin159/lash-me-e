@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from 'scss/components/Hero.module.scss';
+import btnStyles from '../scss/components/CTA.module.scss';
 
 interface Props {
 	title: string;
@@ -19,6 +20,11 @@ function Hero({ title = 'Hero Title', id, children }: Props): JSX.Element {
 						<div>{children}</div>
 					</div>
 				)}
+
+				<div className={`mx-auto w-100 text-center ${btnStyles.wrap}`}>
+					<button className={btnStyles.cta}>Book Now!</button>
+					<p>temporary Btn</p>
+				</div>
 			</div>
 		</section>
 	);

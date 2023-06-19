@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Post } from 'client';
-import Heading, { HeadingProps } from './Heading';
 import styles from '../scss/components/Posts.module.scss';
 import btnStyles from '../scss/components/CTA.module.scss';
 import { useRouter } from 'next/router';
@@ -20,7 +19,7 @@ function Posts({ posts, id }: Props): JSX.Element {
 		<section {...(id && { id })}>
 			<div className='row'>
 				{posts.map((post, k) => {
-					const href = `/posts${post.uri}`;
+					const href = `${post.uri}`;
 
 					return (
 						<div

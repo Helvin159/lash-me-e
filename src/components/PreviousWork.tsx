@@ -3,10 +3,11 @@ import PreviousWorkCard from './PreviousWorkCard';
 
 function PreviousWork({ work }) {
 	return (
-		<section>
-			<div className='row p-5'>
+		<section className='py-5'>
+			<div className='row '>
 				{work.map((workItem, k) => {
-					const href = `/previouswork/${workItem.slug}`;
+					const href = `${workItem.uri}`;
+					console.log(href);
 					const sourceUrl = workItem.featuredImage.node.sourceUrl();
 					return (
 						<PreviousWorkCard

@@ -14,12 +14,15 @@
 		"clean": "rimraf .next node_modules",
 		"lint": "next lint",
 		"generate": "gqty generate",
-		"wpe-build": "next build"
+		"wpe-build": "next build",
+		"codegen": "graphql-codegen"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.7.15",
 		"@faustjs/core": "^0.15.10",
 		"@faustjs/next": "^0.15.10",
+		"@graphql-codegen/cli": "^4.0.1",
+		"@graphql-codegen/client-preset": "^4.0.0",
 		"axios": "^1.4.0",
 		"graphql": "^16.6.0",
 		"next": "^12.2.4",

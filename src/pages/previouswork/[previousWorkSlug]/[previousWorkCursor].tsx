@@ -1,6 +1,5 @@
 import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
-
 import Page from '..';
 import { client } from 'client';
 

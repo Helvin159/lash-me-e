@@ -1,35 +1,53 @@
-import { GetStaticPropsContext } from 'next';
 import { getNextStaticProps, is404 } from '@faustjs/next';
-import React from 'react';
-import { useRouter } from 'next/router';
-import { Post, client } from 'client';
+import { client, Post } from 'client';
+import CustomHead from 'components/CustomHead';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
+import Hero from 'components/Hero';
+
+import { GetStaticPropsContext } from 'next';
 
 export interface PostProps {
-	post: {};
+	post: Post | Post['preview']['node'] | null | undefined;
 }
 
-const POSTS_PER_PAGE = 6;
-
-export const PrevuiousWorkPost = ({ post }: PostProps): JSX.Element => {
-	const { query = {} } = useRouter();
-
-	const { postSlug, postCursor } = query;
-
+export function PostComponent({ post }: PostProps) {
 	const { useQuery } = client;
+	const generalSettings = useQuery().generalSettings;
 
-	console.log(postSlug, 'postSlug');
-	console.log(post, 'post');
+	return (
+		<>
+			<Header
+				title={generalSettings.title}
+				description={generalSettings.description}
+			/>
 
-	// Pagination
+			<CustomHead
+				title={generalSettings.title}
+				description={generalSettings.description}
+			/>
 
-	return <div>PrevuiousWorkPost</div>;
-};
+			<Hero
+				title={post?.title()}
+				// bgImage={post?.featuredImage?.node?.sourceUrl()}
+			/>
+
+			<main className='content content-single'>
+				<div className='wrap'>
+					<div dangerouslySetInnerHTML={{ __html: post?.content() ?? '' }} />
+				</div>
+			</main>
+
+			<Footer copyrightHolder={generalSettings.title} />
+		</>
+	);
+}
 
 export default function Page() {
-	const { useQuery } = client;
-	const post = useQuery().previousWork();
+	const { usePost } = client;
+	const post = usePost();
 
-	return <PrevuiousWorkPost post={post} />;
+	return <PostComponent post={post} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {

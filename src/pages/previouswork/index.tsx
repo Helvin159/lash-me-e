@@ -5,7 +5,7 @@ import { CustomPostContext } from 'contexts/CustomPostsContext';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
-import PreviousWork from 'components/PreviousWork';
+import PreviousWork from 'components/PreviousWork/PreviousWork';
 import CustomHead from 'components/CustomHead';
 import Hero from 'components/Hero';
 

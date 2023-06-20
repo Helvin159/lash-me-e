@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 
 import Hero from '../components/Hero';
 import LashTips from 'components/LashTips';
-import PreviousWork from 'components/PreviousWork';
+import PreviousWork from 'components/PreviousWork/PreviousWork';
 
 import { client } from 'client';
 import ServiceCards from 'components/ServiceCards';

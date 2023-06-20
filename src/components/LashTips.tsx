@@ -21,7 +21,7 @@ function LashTips({ tips, id }) {
 				<h2 className='mx-auto text-center'>Lash Tips</h2>
 			</div>
 			<div className='w-100 mx-auto d-none d-md-block'>
-				{tips.map((tip, k) => {
+				{tips.slice(0, 3).map((tip, k) => {
 					const href = `${tip.uri}`;
 					return (
 						<div

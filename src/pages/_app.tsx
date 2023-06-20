@@ -4,6 +4,7 @@ import 'normalize.css/normalize.css';
 
 // Providers
 import { GeneralSettingsProvider } from 'contexts/GeneralSettingsContext';
+import { MenuProvider } from 'contexts/MenuContext';
 import { CustomPostProvider } from 'contexts/CustomPostsContext';
 
 // React Import
@@ -20,9 +21,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 		<>
 			<FaustProvider client={client} pageProps={pageProps}>
 				<GeneralSettingsProvider>
-					<CustomPostProvider>
-						<Component {...pageProps} />
-					</CustomPostProvider>
+					<MenuProvider>
+						<CustomPostProvider>
+							<Component {...pageProps} />
+						</CustomPostProvider>
+					</MenuProvider>
 				</GeneralSettingsProvider>
 			</FaustProvider>
 		</>

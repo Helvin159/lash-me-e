@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../scss/components/Posts.module.scss';
+import styles from '../../scss/components/Posts.module.scss';
 import { useRouter } from 'next/router';
 
 function PreviousWorkCard({ sourceUrl, href, work }) {
@@ -22,12 +22,7 @@ function PreviousWorkCard({ sourceUrl, href, work }) {
 				background: `url(${sourceUrl})`,
 				backgroundSize: 'cover',
 				backgroundPosition: 'center center',
-			}}>
-			{/* 
-							post slug
-							{/posts${post.uri}} 
-							*/}
-		</div>
+			}}></div>
 	);
 }
 

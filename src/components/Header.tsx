@@ -36,6 +36,7 @@ function Header({
 								</Link>
 							</li>
 						))}
+						<li>Book Now!</li>
 					</ul>
 				</div>
 			</div>

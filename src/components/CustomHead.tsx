@@ -4,9 +4,10 @@ import Head from 'next/head';
 interface HeadProps {
 	title: String;
 	description: String;
+	children?: React.ReactNode;
 }
 
-function CustomHead({ title, description }: HeadProps): JSX.Element {
+function CustomHead({ title, description, children }: HeadProps): JSX.Element {
 	return (
 		<Head>
 			<meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -21,6 +22,7 @@ function CustomHead({ title, description }: HeadProps): JSX.Element {
 				integrity='sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM'
 				crossOrigin='anonymous'
 			/>
+			{children}
 		</Head>
 	);
 }

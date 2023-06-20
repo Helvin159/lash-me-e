@@ -14,10 +14,14 @@ import LashTips from 'components/LashTips';
 import PreviousWork from 'components/PreviousWork';
 
 import { client } from 'client';
+import ServiceCards from 'components/ServiceCards';
 
 export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
-	const { previousWork, lashtips } = useContext(CustomPostContext);
+	const { loading, previousWork, lashtips, services } =
+		useContext(CustomPostContext);
+
+	console.log(loading, 'Loading...');
 
 	return (
 		<>
@@ -32,8 +36,22 @@ export default function Page() {
 
 				<LashTips id='lashtipsComponent' tips={lashtips} />
 
-				<section className='text-center p-5'>
-					<h2>Services</h2>
+				<section className='text-center'>
+					<div className='p-5'>
+						<h2>Services</h2>
+					</div>
+					<div className='row'>
+						{services.map((service) => {
+							return (
+								<ServiceCards
+									title={service.title()}
+									id={service.id}
+									imgUrl={service.featuredImage.node.sourceUrl()}
+									key={service.id}
+								/>
+							);
+						})}
+					</div>
 				</section>
 
 				<section className='text-center p-5'>

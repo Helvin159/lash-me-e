@@ -13,8 +13,7 @@ export default function PreviousWorkPage() {
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { loading, previousWork } = useContext(CustomPostContext);
 
-	console.log(loading, 'loading');
-	// if (loading) return 'Loading...';
+	if (loading) return 'Loading...';
 	return (
 		<>
 			{/* Navigation */}

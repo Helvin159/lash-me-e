@@ -1,7 +1,11 @@
 import React from 'react';
 
 const LashTipPage = () => {
-	return <div>LashTipPage</div>;
+	return (
+		<div>
+			<h1>Coming Soon...</h1>
+		</div>
+	);
 };
 
 export default LashTipPage;

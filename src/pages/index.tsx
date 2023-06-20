@@ -21,11 +21,10 @@ export default function Page() {
 	const { loading, previousWork, lashtips, services } =
 		useContext(CustomPostContext);
 
-	console.log(loading, 'Loading...');
-
+	if (loading) return 'Loading...';
 	return (
 		<>
-			<CustomHead title={title} description={description} />
+			<CustomHead title={title} description={description}></CustomHead>
 
 			<Header title={title} description={description} />
 

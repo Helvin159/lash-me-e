@@ -13,7 +13,7 @@ export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { loading, lashtips } = useContext(CustomPostContext);
 
-	if (loading) return 'Loading...';
+	if (loading) return <p>Loading...</p>;
 	return (
 		<>
 			{/* Navigation */}

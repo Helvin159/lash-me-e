@@ -21,7 +21,7 @@ export default function Page() {
 	const { loading, previousWork, lashtips, services } =
 		useContext(CustomPostContext);
 
-	if (loading) return 'Loading...';
+	if (loading) return <p>Loading...</p>;
 	return (
 		<>
 			<CustomHead title={title} description={description}></CustomHead>

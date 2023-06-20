@@ -16,8 +16,7 @@ export interface PageProps {
 
 export function PageComponent({ page }: PageProps) {
 	const { title, description } = useContext(GeneralSettingsContext);
-
-	console.log(page);
+	// const { typeName } = client.auth.usePreviewNode();
 
 	return (
 		<>

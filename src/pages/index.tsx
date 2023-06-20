@@ -1,7 +1,8 @@
 import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { client } from 'client';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
 
@@ -12,9 +13,8 @@ import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import LashTips from 'components/LashTips/LashTips';
 import PreviousWork from 'components/PreviousWork/PreviousWork';
-
-import { client } from 'client';
 import ServiceCards from 'components/ServiceCards';
+import ReactCalendar from 'components/ReactCalendar';
 
 export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
@@ -55,6 +55,10 @@ export default function Page() {
 
 				<section className='text-center p-5'>
 					<h2>Booking Section</h2>
+
+					<div className='p-5'>
+						<ReactCalendar />
+					</div>
 				</section>
 			</main>
 

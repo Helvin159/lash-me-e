@@ -1,18 +1,24 @@
 import { getNextStaticProps } from '@faustjs/next';
-import { client, OrderEnum, PostObjectsConnectionOrderbyEnum } from 'client';
+import { client } from 'client';
+
+import { GetStaticPropsContext } from 'next';
+
+import React from 'react';
+import { useRouter } from 'next/router';
+
+// Components
+import CustomHead from 'components/CustomHead';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
-import Pagination from 'components/Pagination';
 import Posts from 'components/Posts';
+import Pagination from 'components/Pagination';
 
-import { GetStaticPropsContext } from 'next';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import React from 'react';
+// Styles
 import styles from 'scss/pages/posts.module.scss';
+import PostsArchive from 'components/Posts/PostsArchive';
 
-const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 6;
 
 export default function Page() {
 	const { query = {} } = useRouter();
@@ -32,6 +38,10 @@ export default function Page() {
 		last: isBefore ? POSTS_PER_PAGE : undefined,
 	});
 
+	console.log(posts, 'posts');
+	console.log(isBefore, 'isBefore');
+	console.log(postSlug, 'postSlug');
+
 	if (useQuery().$state.isLoading) {
 		return null;
 	}
@@ -43,23 +53,15 @@ export default function Page() {
 				description={generalSettings.description}
 			/>
 
-			<Head>
-				<meta name='viewport' content='width=device-width, initial-scale=1' />
-				<title>
-					{generalSettings.title} - {generalSettings.description}
-				</title>
-				<link
-					href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'
-					rel='stylesheet'
-					integrity='sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM'
-					crossOrigin='anonymous'
-				/>
-			</Head>
+			<CustomHead
+				title={generalSettings.title}
+				description={generalSettings.description}
+			/>
 
 			<main>
 				<Hero title='Work' />
-				<Posts posts={posts.nodes} id={styles.post_list} />
-				{/* <Pagination pageInfo={posts.pageInfo} basePath='/posts' /> */}
+				<PostsArchive posts={posts.nodes} id={styles.post_list} />
+				<Pagination pageInfo={posts.pageInfo} basePath='/posts' />
 			</main>
 
 			<Footer copyrightHolder={generalSettings.title} />

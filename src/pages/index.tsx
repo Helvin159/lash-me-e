@@ -37,15 +37,22 @@ export default function Page() {
 			/>
 
 			<main className='content'>
-				<Hero title={generalSettings.title} />
+				<Hero title={generalSettings.title} showButton={true} />
 
 				<PreviousWork work={prevWork.nodes} />
+
 				<LashTips id='lashtipsComponent' tips={tips.nodes} />
+
+				<section className='text-center p-5'>
+					<h2>Services</h2>
+				</section>
 
 				<section className='text-center p-5'>
 					<h2>Booking Section</h2>
 				</section>
 			</main>
+
+			{/* Footer */}
 			<Footer copyrightHolder={generalSettings.title} />
 		</>
 	);

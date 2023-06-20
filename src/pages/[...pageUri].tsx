@@ -7,6 +7,7 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
 import Heading from 'components/Heading';
+import CustomHead from 'components/CustomHead';
 
 export interface PageProps {
 	page: PageType | PageType['preview']['node'] | null | undefined;
@@ -18,28 +19,19 @@ export function PageComponent({ page }: PageProps) {
 
 	return (
 		<>
+			<CustomHead
+				title={generalSettings.title}
+				description={generalSettings.description}
+			/>
 			<Header
 				title={generalSettings.title}
 				description={generalSettings.description}
 			/>
 
-			<Head>
-				<meta name='viewport' content='width=device-width, initial-scale=1' />
-				<title>
-					{page?.title()} - {generalSettings.title}
-				</title>
-				<link
-					href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'
-					rel='stylesheet'
-					integrity='sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM'
-					crossOrigin='anonymous'
-				/>
-			</Head>
-
-			<Hero title={page?.title()} />
-
 			<main className='content content-single'>
+				<Hero title={page?.title()} />
 				<div className='wrap' style={{ maxWidth: '850px' }}>
+					post
 					{/* <Heading level='h4'>{page?.title()}</Heading> */}
 					<div dangerouslySetInnerHTML={{ __html: page?.content() ?? '' }} />
 				</div>

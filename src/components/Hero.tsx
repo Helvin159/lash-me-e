@@ -5,10 +5,16 @@ import btnStyles from '../scss/components/CTA.module.scss';
 interface Props {
 	title: string;
 	id?: string;
+	showButton?: Boolean;
 	children?: React.ReactNode;
 }
 
-function Hero({ title = 'Hero Title', id, children }: Props): JSX.Element {
+function Hero({
+	title = 'Hero Title',
+	id,
+	showButton = false,
+	children,
+}: Props): JSX.Element {
 	return (
 		<section className={`section-${id} p-5`}>
 			<div>
@@ -21,10 +27,12 @@ function Hero({ title = 'Hero Title', id, children }: Props): JSX.Element {
 					</div>
 				)}
 
-				<div className={`mx-auto w-100 text-center ${btnStyles.wrap}`}>
-					<button className={btnStyles.cta}>Book Now!</button>
-					<p>temporary Btn</p>
-				</div>
+				{showButton && (
+					<div className={`mx-auto w-100 text-center ${btnStyles.wrap}`}>
+						<button className={btnStyles.cta}>Book Now!</button>
+						<p>temporary Btn</p>
+					</div>
+				)}
 			</div>
 		</section>
 	);

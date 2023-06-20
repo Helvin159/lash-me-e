@@ -2,31 +2,25 @@ import { getNextStaticProps, is404 } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 import { client, Page as PageType } from 'client';
 
-import Head from 'next/head';
+import { useContext } from 'react';
+import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
+
+import CustomHead from 'components/CustomHead';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
-import Heading from 'components/Heading';
-import CustomHead from 'components/CustomHead';
 
 export interface PageProps {
 	page: PageType | PageType['preview']['node'] | null | undefined;
 }
 
 export function PageComponent({ page }: PageProps) {
-	const { useQuery } = client;
-	const generalSettings = useQuery().generalSettings;
+	const { title, description } = useContext(GeneralSettingsContext);
 
 	return (
 		<>
-			<CustomHead
-				title={generalSettings.title}
-				description={generalSettings.description}
-			/>
-			<Header
-				title={generalSettings.title}
-				description={generalSettings.description}
-			/>
+			<CustomHead title={title} description={description} />
+			<Header title={title} description={description} />
 
 			<main className='content content-single'>
 				<Hero title={page?.title()} />
@@ -37,7 +31,7 @@ export function PageComponent({ page }: PageProps) {
 				</div>
 			</main>
 
-			<Footer copyrightHolder={generalSettings.title} />
+			<Footer copyrightHolder={title} />
 		</>
 	);
 }

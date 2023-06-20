@@ -1,4 +1,6 @@
-import { client } from 'client';
+import { useContext } from 'react';
+import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
+import { CustomPostContext } from 'contexts/CustomPostsContext';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -8,29 +10,25 @@ import CustomHead from 'components/CustomHead';
 import Hero from 'components/Hero';
 
 export default function PreviousWorkPage() {
-	const { useQuery } = client;
+	const { title, description } = useContext(GeneralSettingsContext);
+	const { loading, previousWork } = useContext(CustomPostContext);
 
-	const { nodes } = useQuery().previousWork();
-
-	const genSettings = useQuery().generalSettings;
-
+	console.log(loading, 'loading');
+	// if (loading) return 'Loading...';
 	return (
 		<>
 			{/* Navigation */}
-			<Header title={genSettings.title} description={genSettings.description} />
+			<Header title={title} description={description} />
 
 			{/* Head */}
-			<CustomHead
-				title={'Previous Work'}
-				description={genSettings.description}
-			/>
+			<CustomHead title={'Previous Work'} description={description} />
 
 			<main className='content'>
 				<Hero title='My Work' />
-				<PreviousWork work={nodes} />
+				<PreviousWork work={previousWork} />
 			</main>
 
-			<Footer copyrightHolder={genSettings.title} />
+			<Footer copyrightHolder={title} />
 		</>
 	);
 }

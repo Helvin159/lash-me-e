@@ -1,23 +1,29 @@
 import 'faust.config';
 import { FaustProvider } from '@faustjs/next';
 import 'normalize.css/normalize.css';
+
+// Providers
+import { GeneralSettingsProvider } from 'contexts/GeneralSettingsContext';
+import { CustomPostProvider } from 'contexts/CustomPostsContext';
+
+// React Import
 import React from 'react';
 
-import 'scss/main.scss';
 import { client } from 'client';
 import type { AppProps } from 'next/app';
-import { LashTipsProvider } from 'contexts/LashTipsContext';
-import { PreviousWorkProvider } from 'contexts/PreviousWorkContext';
+
+// CSS
+import 'scss/main.scss';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<FaustProvider client={client} pageProps={pageProps}>
-				<PreviousWorkProvider>
-					<LashTipsProvider>
+				<GeneralSettingsProvider>
+					<CustomPostProvider>
 						<Component {...pageProps} />
-					</LashTipsProvider>
-				</PreviousWorkProvider>
+					</CustomPostProvider>
+				</GeneralSettingsProvider>
 			</FaustProvider>
 		</>
 	);

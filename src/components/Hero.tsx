@@ -30,7 +30,6 @@ function Hero({
 				{showButton && (
 					<div className={`mx-auto w-100 text-center ${btnStyles.wrap}`}>
 						<button className={btnStyles.cta}>Book Now!</button>
-						<p>temporary Btn</p>
 					</div>
 				)}
 			</div>

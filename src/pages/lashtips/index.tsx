@@ -1,40 +1,38 @@
-import { client } from 'client';
+import { useContext } from 'react';
+import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
+import { CustomPostContext } from 'contexts/CustomPostsContext';
 
 import CustomHead from 'components/CustomHead';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+
 import Hero from 'components/Hero';
 import LashTipCard from 'components/LashTipCard';
 
 export default function Page() {
-	const { useQuery } = client;
+	const { title, description } = useContext(GeneralSettingsContext);
+	const { loading, lashtips } = useContext(CustomPostContext);
 
-	const { nodes } = useQuery().lashTips({ first: 6 });
-
-	const genSettings = useQuery().generalSettings;
-	console.log(genSettings);
+	console.log(loading, 'loading...');
 
 	return (
 		<>
 			{/* Navigation */}
-			<Header title={genSettings.title} description={genSettings.description} />
+			<Header title={title} description={description} />
 
 			{/* Head */}
-			<CustomHead
-				title={'Previous Work'}
-				description={genSettings.description}
-			/>
+			<CustomHead title={'Previous Work'} description={description} />
 
 			<main className='content content-index'>
 				<Hero title={'Lash Care Tips'} />
 				<div className='row p-3'>
-					{nodes.map((lashTip, k) => (
+					{lashtips.map((lashTip, k) => (
 						<LashTipCard lashTip={lashTip} key={k} />
 					))}
 				</div>
 			</main>
 
-			<Footer copyrightHolder={genSettings.title} />
+			<Footer copyrightHolder={title} />
 		</>
 	);
 }

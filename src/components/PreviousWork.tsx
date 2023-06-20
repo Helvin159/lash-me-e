@@ -7,7 +7,6 @@ function PreviousWork({ work }) {
 			<div className='row '>
 				{work.map((workItem, k) => {
 					const href = `${workItem.uri}`;
-					console.log(href);
 					const sourceUrl = workItem.featuredImage.node.sourceUrl();
 					return (
 						<PreviousWorkCard

@@ -1,7 +1,10 @@
 import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 
-import React from 'react';
+import React, { useContext } from 'react';
+import { CustomPostContext } from 'contexts/CustomPostsContext';
+import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
+
 import CustomHead from 'components/CustomHead';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -13,35 +16,21 @@ import PreviousWork from 'components/PreviousWork';
 import { client } from 'client';
 
 export default function Page() {
-	const { useQuery } = client;
-	const generalSettings = useQuery().generalSettings;
-
-	const prevWork = useQuery().previousWork({
-		first: 6,
-	});
-
-	const tips = useQuery().lashTips({
-		first: 6,
-	});
+	const { title, description } = useContext(GeneralSettingsContext);
+	const { previousWork, lashtips } = useContext(CustomPostContext);
 
 	return (
 		<>
-			<CustomHead
-				title={generalSettings.title}
-				description={generalSettings.description}
-			/>
+			<CustomHead title={title} description={description} />
 
-			<Header
-				title={generalSettings.title}
-				description={generalSettings.description}
-			/>
+			<Header title={title} description={description} />
 
 			<main className='content'>
-				<Hero title={generalSettings.title} showButton={true} />
+				<Hero title={title} showButton={true} />
 
-				<PreviousWork work={prevWork.nodes} />
+				<PreviousWork work={previousWork} />
 
-				<LashTips id='lashtipsComponent' tips={tips.nodes} />
+				<LashTips id='lashtipsComponent' tips={lashtips} />
 
 				<section className='text-center p-5'>
 					<h2>Services</h2>
@@ -53,7 +42,7 @@ export default function Page() {
 			</main>
 
 			{/* Footer */}
-			<Footer copyrightHolder={generalSettings.title} />
+			<Footer copyrightHolder={title} />
 		</>
 	);
 }

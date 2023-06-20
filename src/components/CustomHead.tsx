@@ -69,7 +69,9 @@ function CustomHead({ title, description, children }: HeadProps): JSX.Element {
 
 				.react-calendar{
 					width:400px !important;
+					max-width:95% !important;
 					padding:1rem !important;
+					border-radius:10px !important;
 				}
 				
 				`}

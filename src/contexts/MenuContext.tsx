@@ -18,6 +18,11 @@ export const MenuProvider = ({ children }) => {
 	}).nodes;
 
 	const mobileMenuHandler = () => {
+		if (!isOpen) {
+			document.body.style.overflowY = 'hidden';
+		} else {
+			document.body.style.overflowY = 'scroll';
+		}
 		setIsOpen(!isOpen);
 	};
 

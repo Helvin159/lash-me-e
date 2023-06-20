@@ -25,7 +25,7 @@ function Posts({ posts, id }: Props): JSX.Element {
 						<div
 							className={`col-md-4 ${styles.posts__row__cards} `}
 							role='img'
-							key={post.id ?? k}
+							key={`posts-${post.id}`}
 							tabIndex={0}
 							onKeyDown={(e) => {
 								e.key === 'Enter' && handleClick(href);

@@ -38,13 +38,14 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 					</ul>
 				</div>
 
-				<div className='d-block d-md-none' onClick={handler}>
-					tempMobileMenu
+				<div className={`d-block d-md-none ${styles.mobileMenuBtn}`}>
+					<button className='btn' onClick={handler}>
+						tempMobileMenu
+					</button>
 				</div>
 
 				{isOpen && (
-					<div
-						className={`d-block d-md-none p-5 text-center ${styles.mobileMenu}`}>
+					<div className={` d-md-none p-5 text-center ${styles.mobileMenu}`}>
 						<div onClick={handler} className={styles.closeMobileMenuBtn}>
 							&#10005;
 						</div>

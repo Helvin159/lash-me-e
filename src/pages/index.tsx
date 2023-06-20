@@ -10,7 +10,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import Hero from '../components/Hero';
-import LashTips from 'components/LashTips';
+import LashTips from 'components/LashTips/LashTips';
 import PreviousWork from 'components/PreviousWork/PreviousWork';
 
 import { client } from 'client';
@@ -46,7 +46,7 @@ export default function Page() {
 									title={service.title()}
 									id={service.id}
 									imgUrl={service.featuredImage.node.sourceUrl()}
-									key={service.id}
+									key={`services-component-${service.id}`}
 								/>
 							);
 						})}

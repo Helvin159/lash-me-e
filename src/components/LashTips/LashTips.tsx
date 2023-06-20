@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import { useRouter } from 'next/router';
-import styles from '../scss/components/Lashtips.module.scss';
+import styles from '../../scss/components/Lashtips.module.scss';
 
 interface Props {
 	tips: any;
@@ -29,7 +29,7 @@ function LashTips({ tips, id }) {
 								styles.lash__tips__rows
 							}`}
 							onClick={() => handleClick(href)}
-							key={tip.id}>
+							key={`lash-tip-${tip.id}`}>
 							<div
 								className={`col-6 ${styles.lash__tips__cols} p-4 text-center`}>
 								<div className={`content ${styles.lash__tips__cols__content}`}>

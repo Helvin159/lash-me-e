@@ -29,6 +29,21 @@
 	}
 }
 
+@media (max-width: 768px) {
+	.title-wrap {
+		display: flex;
+
+		flex-basis: 50%;
+	}
+
+	.mobileMenuBtn {
+		display: flex;
+		padding: 20px 0 0;
+		flex-basis: 50%;
+		text-align: right;
+	}
+}
+
 .title-wrap .description {
 	color: $color-mid-gray;
 	font-family: $font-family;
@@ -38,6 +53,15 @@
 
 .wrap {
 	padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+	.wrap {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		width: 100%;
+	}
 }
 
 @media screen and (min-width: $breakpoint-small) {

@@ -17,6 +17,8 @@ export interface PageProps {
 export function PageComponent({ page }: PageProps) {
 	const { title, description } = useContext(GeneralSettingsContext);
 
+	console.log(page);
+
 	return (
 		<>
 			<CustomHead title={title} description={description} />
@@ -39,6 +41,7 @@ export function PageComponent({ page }: PageProps) {
 export default function Page() {
 	const { usePage } = client;
 	const page = usePage();
+	// console.log(page, 'page');
 
 	return <PageComponent page={page} />;
 }

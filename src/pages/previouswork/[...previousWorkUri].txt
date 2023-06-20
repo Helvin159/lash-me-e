@@ -1,3 +1,4 @@
+import { client } from 'client';
 import React from 'react';
 
 const PreviousWorkPage = () => {

@@ -7,7 +7,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 import Hero from 'components/Hero';
-import LashTipCard from 'components/LashTipCard';
+import LashTipCard from 'components/LashTips/LashTipCard';
 
 export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);

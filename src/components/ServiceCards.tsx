@@ -16,7 +16,7 @@ const ServiceCards = ({ id, title, imgUrl }: ServiceCardProps): JSX.Element => {
 	};
 
 	return (
-		<div className='col-md-6' key={id} style={{ ...styles }}>
+		<div id={id} className='col-md-6' style={{ ...styles }}>
 			<h4>{title}</h4>
 		</div>
 	);

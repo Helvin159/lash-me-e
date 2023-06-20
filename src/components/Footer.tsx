@@ -22,7 +22,7 @@ function Footer({ copyrightHolder = 'Company Name' }: Props): JSX.Element {
 			<div className={`${styles.footermenu} mx-auto text-center`}>
 				<ul style={{ listStyleType: 'none' }}>
 					{links.map((link, k) => (
-						<li key={k}>
+						<li key={`footer-menu-${k}`}>
 							<Link href={`${link.url}`}>
 								<a href={link.url}>{link.label}</a>
 							</Link>

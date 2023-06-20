@@ -53,10 +53,10 @@ export default function Page() {
 					</div>
 				</section>
 
-				<section className='text-center p-5'>
+				<section className='text-center py-5'>
 					<h2>Booking Section</h2>
 
-					<div className='p-5'>
+					<div className='py-5'>
 						<ReactCalendar />
 					</div>
 				</section>

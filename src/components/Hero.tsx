@@ -6,7 +6,6 @@ interface Props {
 	title: string;
 	id?: string;
 	showButton?: Boolean;
-	children?: React.ReactNode;
 	handler?: Function;
 	featuredImage?: string;
 }
@@ -15,7 +14,6 @@ function Hero({
 	title = 'Hero Title',
 	id,
 	showButton = false,
-	children,
 	handler,
 	featuredImage,
 }: Props): JSX.Element {
@@ -30,20 +28,15 @@ function Hero({
 				<div className={styles.heroContentWrapper}>
 					<div className={styles.heroTitleWrapper}>
 						<h1>{title}</h1>
+						{showButton && (
+							<div
+								className={`mx-auto mt-5 w-100 text-center ${btnStyles.wrap}`}>
+								<button onClick={() => handler()} className={btnStyles.cta}>
+									Book Now!
+								</button>
+							</div>
+						)}
 					</div>
-					{children && (
-						<div>
-							<div>{children}</div>
-						</div>
-					)}
-
-					{showButton && (
-						<div className={`mx-auto w-100 text-center ${btnStyles.wrap}`}>
-							<button onClick={() => handler()} className={btnStyles.cta}>
-								Book Now!
-							</button>
-						</div>
-					)}
 				</div>
 			</div>
 		</section>

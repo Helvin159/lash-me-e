@@ -15,11 +15,11 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 	const { bookingModalHandler } = useContext(ModalConext);
 
 	const handler = () => {
-		mobileMenuHandler(true);
+		mobileMenuHandler();
 	};
 
 	const bookingHandler = () => {
-		mobileMenuHandler(false);
+		// mobileMenuHandler();
 		bookingModalHandler();
 	};
 

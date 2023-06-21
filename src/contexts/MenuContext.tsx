@@ -4,7 +4,7 @@ import { client, MenuLocationEnum } from 'client';
 export const MenuContext = createContext({
 	isOpen: false,
 	menuLinks: [],
-	mobileMenuHandler: (boolean) => null,
+	mobileMenuHandler: () => null,
 });
 
 export const MenuProvider = ({ children }) => {
@@ -21,13 +21,11 @@ export const MenuProvider = ({ children }) => {
 		setMenuLinks(links);
 	}, [links]);
 
-	const mobileMenuHandler = ({ handler }) => {
-		if (handler) {
-			if (!isOpen) {
-				document.body.style.overflowY = 'hidden';
-			} else {
-				document.body.style.overflowY = 'scroll';
-			}
+	const mobileMenuHandler = () => {
+		if (!isOpen) {
+			document.body.style.overflowY = 'hidden';
+		} else {
+			document.body.style.overflowY = 'scroll';
 		}
 		setIsOpen(!isOpen);
 	};

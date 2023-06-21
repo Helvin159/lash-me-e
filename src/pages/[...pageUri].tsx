@@ -9,6 +9,8 @@ import CustomHead from 'components/CustomHead';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
+import { CustomPostContext } from 'contexts/CustomPostsContext';
+import LoadingComponent from 'components/Loading';
 
 export interface PageProps {
 	page: PageType | PageType['preview']['node'] | null | undefined;
@@ -17,7 +19,9 @@ export interface PageProps {
 export function PageComponent({ page }: PageProps) {
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { sourceUrl } = page?.featuredImage?.node;
+	const { loading } = useContext(CustomPostContext);
 
+	if (loading) return <LoadingComponent />;
 	return (
 		<>
 			<CustomHead title={title} description={description} />

@@ -16,13 +16,14 @@ import PreviousWork from 'components/PreviousWork/PreviousWork';
 import CustomHead from 'components/CustomHead';
 import Hero from 'components/Hero';
 import Pagination from 'components/Pagination';
+import LoadingComponent from 'components/Loading';
 
 export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { loading, previousWork, previousWorkInfo } =
 		useContext(CustomPostContext);
 
-	if (loading) return <p>Loading...</p>;
+	if (loading) return <LoadingComponent />;
 	return (
 		<>
 			{/* Navigation */}

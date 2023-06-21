@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
 
+import LoadingComponent from 'components/Loading';
 import CustomHead from 'components/CustomHead';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -13,7 +14,7 @@ export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { loading, lashtips } = useContext(CustomPostContext);
 
-	if (loading) return <p>Loading...</p>;
+	if (loading) return <LoadingComponent />;
 	return (
 		<>
 			{/* Navigation */}

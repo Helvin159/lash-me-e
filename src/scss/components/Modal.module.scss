@@ -28,6 +28,11 @@
 	right: 2rem;
 }
 
+.modalCloseBtnWrapper {
+	position: relative;
+	width: 100%;
+}
+
 @media (max-width: 650px) {
 	.modalCloseBtn {
 		padding: 1rem;

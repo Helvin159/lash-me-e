@@ -1,7 +1,7 @@
 import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { client } from 'client';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
@@ -14,22 +14,21 @@ import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import LashTips from 'components/LashTips/LashTips';
 import PreviousWork from 'components/PreviousWork/PreviousWork';
-import ServiceCards from 'components/ServiceCards';
-import ReactCalendar from 'components/ReactCalendar';
 import CaldendarModal from 'components/CaldendarModal';
+import LoadingComponent from 'components/Loading';
 
 export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
-	const { loading, previousWork, lashtips, services } =
-		useContext(CustomPostContext);
+	const { loading, previousWork, lashtips } = useContext(CustomPostContext);
 	const { bookingModalHandler } = useContext(ModalConext);
 
-	if (loading) return <p>Loading...</p>;
+	if (loading) return <LoadingComponent />;
 	return (
 		<>
 			<CustomHead title={title} description={description}></CustomHead>
 
 			<Header title={title} description={description} />
+			<CaldendarModal />
 
 			{/* Main Content */}
 			<main className='content'>

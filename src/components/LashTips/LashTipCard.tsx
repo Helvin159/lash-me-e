@@ -13,6 +13,7 @@ const LashTipCard = ({ lashTip }) => {
 						backgroundRepeat: 'no-repeat',
 						width: '100%',
 						height: '260px',
+						cursor: 'pointer',
 					}}
 				/>
 				<div className='text-center p-4'>

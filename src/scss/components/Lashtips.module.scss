@@ -39,7 +39,8 @@
 	text-overflow: ellipsis;
 }
 
-.lash__tips__cols__content__link h4:hover {
+.lash__tips__cols__content__link__text:hover,
+.lash__tips__cols__content__copy:hover {
 	cursor: pointer !important;
-	transform: scale(1.5);
+	// transform: scale(1.5);
 }

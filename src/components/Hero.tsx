@@ -8,6 +8,7 @@ interface Props {
 	showButton?: Boolean;
 	children?: React.ReactNode;
 	handler?: Function;
+	featuredImage?: string;
 }
 
 function Hero({
@@ -16,11 +17,17 @@ function Hero({
 	showButton = false,
 	children,
 	handler,
+	featuredImage,
 }: Props): JSX.Element {
 	return (
-		<section className={`section-${id} p-5`}>
-			<div>
-				<div className='text-center p-5'>
+		<section className={`section-${id}`}>
+			<div
+				className={styles.hero}
+				style={{
+					backgroundImage: `linear-gradient(rgba(255, 255, 255, .65),rgba(255,255,255,.65)),url(${featuredImage}) 
+					`,
+				}}>
+				<div className={styles.heroTitleWrapper}>
 					<h1>{title}</h1>
 				</div>
 				{children && (

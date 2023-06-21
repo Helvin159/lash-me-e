@@ -3,14 +3,19 @@
 @import 'scss/variables';
 
 .hero {
-	background-color: $color-dark-gray;
-	background-position: 48% 72%;
+	// background-color: rgba(255, 255, 255, 0.8);
 
+	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	color: $color-white;
 	padding: 7em 0 9em;
 	position: relative;
+	backdrop-filter: blur(25px);
+}
+
+.heroTitleWrapper {
+	margin: 0 auto;
+	text-align: center;
 }
 
 .wrap {
@@ -52,6 +57,8 @@
 @media screen and (min-width: $breakpoint-medium) {
 	.hero h1 {
 		max-width: 80%;
+		margin: 0 auto;
+		text-align: center;
 	}
 
 	.intro {

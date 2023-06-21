@@ -16,7 +16,7 @@ export interface PageProps {
 
 export function PageComponent({ page }: PageProps) {
 	const { title, description } = useContext(GeneralSettingsContext);
-	// const { typeName } = client.auth.usePreviewNode();
+	const { sourceUrl } = page?.featuredImage?.node;
 
 	return (
 		<>
@@ -24,7 +24,7 @@ export function PageComponent({ page }: PageProps) {
 			<Header title={title} description={description} />
 
 			<main className='content content-single'>
-				<Hero title={page?.title()} />
+				<Hero title={page?.title()} featuredImage={sourceUrl()} />
 				<div className='wrap' style={{ maxWidth: '850px' }}>
 					{/* <Heading level='h4'>{page?.title()}</Heading> */}
 					<div dangerouslySetInnerHTML={{ __html: page?.content() ?? '' }} />

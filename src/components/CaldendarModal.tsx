@@ -12,11 +12,13 @@ const CaldendarModal = () => {
 
 	return (
 		<div className={styles.modal}>
-			<button
-				className={styles.modalCloseBtn}
-				onClick={() => bookingModalHandler()}>
-				&#10005;
-			</button>
+			<div className={styles.modalCloseBtnWrapper}>
+				<button
+					className={styles.modalCloseBtn}
+					onClick={() => bookingModalHandler()}>
+					&#10005;
+				</button>
+			</div>
 
 			<div className={styles.modalBookNowWrapper}>
 				<h4>Book Now</h4>

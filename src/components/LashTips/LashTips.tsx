@@ -36,10 +36,14 @@ function LashTips({ tips, id }) {
 									<Link
 										href={href}
 										className={styles.lash__tips__cols__content__link}>
-										<h4 className='py-1'>{tip.title()}</h4>
+										<h4
+											className={styles.lash__tips__cols__content__link__text}>
+											{tip.title()}
+										</h4>
 									</Link>
 
 									<div
+										className={styles.lash__tips__cols__content__copy}
 										dangerouslySetInnerHTML={{
 											__html: tip.content(),
 										}}

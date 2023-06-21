@@ -5,6 +5,11 @@
 .header {
 	margin: 0 auto;
 	box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.15);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: $color-white;
+	z-index: 100;
 }
 
 .site-title {

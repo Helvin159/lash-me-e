@@ -7,6 +7,7 @@ interface Props {
 	id?: string;
 	showButton?: Boolean;
 	children?: React.ReactNode;
+	handler?: Function;
 }
 
 function Hero({
@@ -14,6 +15,7 @@ function Hero({
 	id,
 	showButton = false,
 	children,
+	handler,
 }: Props): JSX.Element {
 	return (
 		<section className={`section-${id} p-5`}>
@@ -29,7 +31,9 @@ function Hero({
 
 				{showButton && (
 					<div className={`mx-auto w-100 text-center ${btnStyles.wrap}`}>
-						<button className={btnStyles.cta}>Book Now!</button>
+						<button onClick={() => handler()} className={btnStyles.cta}>
+							Book Now!
+						</button>
 					</div>
 				)}
 			</div>

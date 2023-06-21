@@ -23,60 +23,6 @@ function CustomHead({ title, description, children }: HeadProps): JSX.Element {
 				crossOrigin='anonymous'
 			/>
 
-			<style>
-				{`
-
-				.react-calendar__month-view__days__day{
-					color:palevioletred !important;
-				}
-				.react-calendar__month-view__days__day--weekend{
-					color:black !important;
-				}
-
-				.react-calendar__month-view__days__day--neighboringMonth{
-					color:grey !important;
-				}
-
-				.react-calendar__tile--now {
-					background-color: lightpink !important;
-					color:black !important;
-					border-radius:50% !important;
-				}
-				
-				.react-calendar__tile--active{
-					background-color:  rgba(219, 112, 147, .8) !important;
-					color:black !important;
-					border-radius: 50% !important;
-					
-				}
-
-				.react-calendar__tile{
-					width:50px;
-					height:50px;
-				}
-
-				.react-calendar__month-view__weekdays__weekday{
-					color:palevioletred !important;
-				}
-
-				.react-calendar__navigation__label__labelText{
-					color:palevioletred !important;
-				} 
-
-				.react-calendar__navigation__arrow{
-					color:palevioletred !important;
-				}
-
-				.react-calendar{
-					width:400px !important;
-					max-width:95% !important;
-					padding:1rem !important;
-					border-radius:10px !important;
-				}
-				
-				`}
-			</style>
-
 			{children}
 		</Head>
 	);

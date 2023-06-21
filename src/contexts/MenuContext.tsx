@@ -1,15 +1,15 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { client, MenuLocationEnum } from 'client';
 
 export const MenuContext = createContext({
 	isOpen: false,
-	links: [],
-
-	mobileMenuHandler: () => {},
+	menuLinks: [],
+	mobileMenuHandler: (boolean) => null,
 });
 
 export const MenuProvider = ({ children }) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [menuLinks, setMenuLinks] = useState([]);
 
 	const { menuItems } = client.useQuery();
 
@@ -17,16 +17,22 @@ export const MenuProvider = ({ children }) => {
 		where: { location: MenuLocationEnum.PRIMARY },
 	}).nodes;
 
-	const mobileMenuHandler = () => {
-		if (!isOpen) {
-			document.body.style.overflowY = 'hidden';
-		} else {
-			document.body.style.overflowY = 'scroll';
+	useEffect(() => {
+		setMenuLinks(links);
+	}, [links]);
+
+	const mobileMenuHandler = ({ handler }) => {
+		if (handler) {
+			if (!isOpen) {
+				document.body.style.overflowY = 'hidden';
+			} else {
+				document.body.style.overflowY = 'scroll';
+			}
 		}
 		setIsOpen(!isOpen);
 	};
 
-	const value = { isOpen, links, mobileMenuHandler };
+	const value = { isOpen, menuLinks, mobileMenuHandler };
 
 	return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 };

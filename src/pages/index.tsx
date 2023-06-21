@@ -5,6 +5,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { client } from 'client';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
+import { ModalConext } from 'contexts/ModalContext';
 
 import CustomHead from 'components/CustomHead';
 import Header from '../components/Header';
@@ -15,51 +16,28 @@ import LashTips from 'components/LashTips/LashTips';
 import PreviousWork from 'components/PreviousWork/PreviousWork';
 import ServiceCards from 'components/ServiceCards';
 import ReactCalendar from 'components/ReactCalendar';
+import CaldendarModal from 'components/CaldendarModal';
 
 export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { loading, previousWork, lashtips, services } =
 		useContext(CustomPostContext);
+	const { bookingModalHandler } = useContext(ModalConext);
 
-	// if (loading) return <p>Loading...</p>;
+	if (loading) return <p>Loading...</p>;
 	return (
 		<>
 			<CustomHead title={title} description={description}></CustomHead>
 
 			<Header title={title} description={description} />
 
+			{/* Main Content */}
 			<main className='content'>
-				<Hero title={title} showButton={true} />
+				<Hero title={title} showButton={true} handler={bookingModalHandler} />
 
 				<PreviousWork work={previousWork} />
 
 				<LashTips id='lashtipsComponent' tips={lashtips} />
-
-				<section className='text-center'>
-					<div className='p-5'>
-						<h2>Services</h2>
-					</div>
-					<div className='row'>
-						{services.map((service) => {
-							return (
-								<ServiceCards
-									title={service.title()}
-									id={service.id}
-									imgUrl={service.featuredImage.node.sourceUrl()}
-									key={`services-component-${service.id}`}
-								/>
-							);
-						})}
-					</div>
-				</section>
-
-				<section className='text-center py-5'>
-					<h2>Booking Section</h2>
-
-					<div className='py-5'>
-						<ReactCalendar />
-					</div>
-				</section>
 			</main>
 
 			{/* Footer */}

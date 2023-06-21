@@ -26,7 +26,6 @@ export function PageComponent({ page }: PageProps) {
 			<main className='content content-single'>
 				<Hero title={page?.title()} />
 				<div className='wrap' style={{ maxWidth: '850px' }}>
-					post
 					{/* <Heading level='h4'>{page?.title()}</Heading> */}
 					<div dangerouslySetInnerHTML={{ __html: page?.content() ?? '' }} />
 				</div>

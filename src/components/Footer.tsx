@@ -18,7 +18,7 @@ function Footer({ copyrightHolder = 'Company Name' }: Props): JSX.Element {
 	}).nodes;
 
 	return (
-		<footer>
+		<footer className='py-5'>
 			<div className={`${styles.footermenu} mx-auto text-center`}>
 				<ul style={{ listStyleType: 'none' }}>
 					{links.map((link, k) => (

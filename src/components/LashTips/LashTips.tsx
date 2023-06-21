@@ -17,8 +17,8 @@ function LashTips({ tips, id }) {
 
 	return (
 		<section id={id}>
-			<div className='py-5'>
-				<h2 className='mx-auto text-center'>Lash Tips</h2>
+			<div className={styles.lashTipsTitleWrapper}>
+				<h2 className='mx-auto text-center'>Lash Care</h2>
 			</div>
 			<div className='w-100 mx-auto '>
 				{tips.slice(0, 3).map((tip, k) => {

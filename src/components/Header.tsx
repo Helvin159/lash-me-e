@@ -3,6 +3,7 @@ import { MenuContext } from 'contexts/MenuContext';
 
 import Link from 'next/link';
 import styles from 'scss/components/Header.module.scss';
+import { ModalConext } from 'contexts/ModalContext';
 
 interface Props {
 	title?: string;
@@ -10,9 +11,16 @@ interface Props {
 }
 
 function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
-	const { isOpen, links, mobileMenuHandler } = useContext(MenuContext);
+	const { isOpen, menuLinks, mobileMenuHandler } = useContext(MenuContext);
+	const { bookingModalHandler } = useContext(ModalConext);
+
 	const handler = () => {
-		mobileMenuHandler();
+		mobileMenuHandler(true);
+	};
+
+	const bookingHandler = () => {
+		mobileMenuHandler(false);
+		bookingModalHandler();
 	};
 
 	return (
@@ -27,14 +35,14 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 				</div>
 				<div className={styles.menu}>
 					<ul>
-						{links?.map((link) => (
+						{menuLinks?.map((link) => (
 							<li key={`${link.label}$-main-menu`}>
 								<Link href={link.url ?? ''}>
 									<a href={link.url}>{link.label}</a>
 								</Link>
 							</li>
 						))}
-						<li>Book Now!</li>
+						<li onClick={() => bookingModalHandler()}>Book Now!</li>
 					</ul>
 				</div>
 
@@ -53,7 +61,7 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 							<li onClick={handler} className={styles.mobileMenuLi}>
 								<Link href='/'>Home</Link>{' '}
 							</li>
-							{links?.map((link) => (
+							{menuLinks?.map((link) => (
 								<li
 									key={`${link.label}$-mobile-menu`}
 									onClick={handler}
@@ -63,7 +71,7 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 									</Link>
 								</li>
 							))}
-							<li onClick={handler} className={styles.mobileMenuLi}>
+							<li onClick={bookingHandler} className={styles.mobileMenuLi}>
 								Book Now!
 							</li>
 						</ul>

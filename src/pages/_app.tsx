@@ -7,6 +7,7 @@ import { GeneralSettingsProvider } from 'contexts/GeneralSettingsContext';
 import { MenuProvider } from 'contexts/MenuContext';
 import { CustomPostProvider } from 'contexts/CustomPostsContext';
 import { ModalProvider } from 'contexts/ModalContext';
+import CaldendarModal from 'components/CaldendarModal';
 
 // React Import
 import React from 'react';
@@ -26,6 +27,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 						<ModalProvider>
 							<CustomPostProvider>
 								<Component {...pageProps} />
+								<CaldendarModal />
 							</CustomPostProvider>
 						</ModalProvider>
 					</MenuProvider>

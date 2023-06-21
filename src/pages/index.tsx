@@ -28,7 +28,6 @@ export default function Page() {
 			<CustomHead title={title} description={description}></CustomHead>
 
 			<Header title={title} description={description} />
-			<CaldendarModal />
 
 			{/* Main Content */}
 			<main className='content'>

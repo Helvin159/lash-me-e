@@ -30,8 +30,9 @@ export function PageComponent({ page }: PageProps) {
 			<main className='content content-single'>
 				<Hero title={page?.title()} featuredImage={sourceUrl()} />
 				<div className='wrap' style={{ maxWidth: '850px' }}>
-					{/* <Heading level='h4'>{page?.title()}</Heading> */}
-					<div dangerouslySetInnerHTML={{ __html: page?.content() ?? '' }} />
+					{page?.content() && (
+						<div dangerouslySetInnerHTML={{ __html: page?.content() }} />
+					)}
 				</div>
 			</main>
 

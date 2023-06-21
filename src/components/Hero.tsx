@@ -27,22 +27,24 @@ function Hero({
 					backgroundImage: `linear-gradient(rgba(255, 255, 255, .65),rgba(255,255,255,.65)),url(${featuredImage}) 
 					`,
 				}}>
-				<div className={styles.heroTitleWrapper}>
-					<h1>{title}</h1>
-				</div>
-				{children && (
-					<div>
-						<div>{children}</div>
+				<div className={styles.heroContentWrapper}>
+					<div className={styles.heroTitleWrapper}>
+						<h1>{title}</h1>
 					</div>
-				)}
+					{children && (
+						<div>
+							<div>{children}</div>
+						</div>
+					)}
 
-				{showButton && (
-					<div className={`mx-auto w-100 text-center ${btnStyles.wrap}`}>
-						<button onClick={() => handler()} className={btnStyles.cta}>
-							Book Now!
-						</button>
-					</div>
-				)}
+					{showButton && (
+						<div className={`mx-auto w-100 text-center ${btnStyles.wrap}`}>
+							<button onClick={() => handler()} className={btnStyles.cta}>
+								Book Now!
+							</button>
+						</div>
+					)}
+				</div>
 			</div>
 		</section>
 	);

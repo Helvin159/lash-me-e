@@ -5,7 +5,9 @@ import styles from '../scss/components/Loading.module.scss';
 const LoadingComponent = () => {
 	return (
 		<div className={styles.loadingComponent}>
-			<h1>Loading...</h1>
+			<div className={styles.titleWrapper}>
+				<h1>Loading...</h1>
+			</div>
 		</div>
 	);
 };

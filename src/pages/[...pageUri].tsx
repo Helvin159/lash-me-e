@@ -29,11 +29,11 @@ export function PageComponent({ page }: PageProps) {
 
 			<main className='content content-single'>
 				<Hero title={page?.title()} featuredImage={sourceUrl()} />
-				<div className='wrap' style={{ maxWidth: '850px' }}>
-					{page?.content() && (
+				{page?.content() && (
+					<div className='wrap' style={{ maxWidth: '850px' }}>
 						<div dangerouslySetInnerHTML={{ __html: page?.content() }} />
-					)}
-				</div>
+					</div>
+				)}
 			</main>
 
 			<Footer copyrightHolder={title} />

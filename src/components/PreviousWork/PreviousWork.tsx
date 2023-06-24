@@ -1,7 +1,17 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+
 import PreviousWorkCard from './PreviousWorkCard';
 
+import style from '../../scss/components/CTA.module.scss';
+
 function PreviousWork({ work }) {
+	const route = useRouter();
+	const handler = () => {
+		route.push('/previouswork');
+	};
+
+	console.log(window.location.pathname);
 	return (
 		<section className='py-5'>
 			<div className='row '>
@@ -18,6 +28,13 @@ function PreviousWork({ work }) {
 					);
 				})}
 
+				{window.location.pathname === '/' && (
+					<div className='px-4 py-5 mx-auto text-center'>
+						<button className={style.cta} onClick={handler}>
+							View All
+						</button>
+					</div>
+				)}
 				{/* If no posts, the show the following */}
 				{work && work?.length < 1 && <p>No posts found.</p>}
 			</div>

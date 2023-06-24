@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import { client } from 'client';
 import { useRouter } from 'next/router';
+import { fetchForms } from 'utils/acuitySchedulingUtils';
 
 export const CustomPostContext = createContext({
 	loading: true,
@@ -65,6 +66,7 @@ export const CustomPostProvider = ({ children }) => {
 		setServices(service.nodes);
 		setPreviousWorkInfo(pageInfo);
 		setLashInfo(lashInfo);
+		fetchForms();
 
 		setLoading(false);
 	}, [prevWork, lashes, service, pageInfo, lashInfo, loading]);

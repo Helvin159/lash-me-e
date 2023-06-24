@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { useRouter } from 'next/router';
 import styles from '../../scss/components/Lashtips.module.scss';
+import btnStyles from '../../scss/components/CTA.module.scss';
 
 interface Props {
 	tips: any;
@@ -62,6 +63,16 @@ function LashTips({ tips, id }) {
 					);
 				})}
 			</div>
+
+			{window.location.pathname === '/' && (
+				<div className='px-4 py-5 mx-auto text-center'>
+					<button
+						className={btnStyles.cta}
+						onClick={() => handleClick('/lashtips')}>
+						View All
+					</button>
+				</div>
+			)}
 			{tips && tips?.length < 1 && <p>No posts found.</p>}
 		</section>
 	);

@@ -16,6 +16,7 @@ import LashTips from 'components/LashTips/LashTips';
 import PreviousWork from 'components/PreviousWork/PreviousWork';
 import CaldendarModal from 'components/CaldendarModal';
 import LoadingComponent from 'components/Loading';
+import ServicesSection from 'components/ServicesSection/ServicesSection';
 
 export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
@@ -34,11 +35,14 @@ export default function Page() {
 				<Hero title={title} showButton={true} handler={bookingModalHandler} />
 
 				<PreviousWork work={previousWork} />
-
+				<ServicesSection />
 				<LashTips id='lashtipsComponent' tips={lashtips} />
 			</main>
 
 			{/* Footer */}
+			<script
+				src='https://embed.acuityscheduling.com/js/embed.js'
+				type='text/javascript'></script>
 			<Footer copyrightHolder={title} />
 		</>
 	);

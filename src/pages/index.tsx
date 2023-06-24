@@ -40,9 +40,7 @@ export default function Page() {
 			</main>
 
 			{/* Footer */}
-			<script
-				src='https://embed.acuityscheduling.com/js/embed.js'
-				type='text/javascript'></script>
+
 			<Footer copyrightHolder={title} />
 		</>
 	);

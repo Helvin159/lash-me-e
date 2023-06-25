@@ -67,7 +67,7 @@ export const CustomPostProvider = ({ children }) => {
 		setServices(service.nodes);
 		setPreviousWorkInfo(pageInfo);
 		setLashInfo(lashInfo);
-		fetchForms();
+		// fetchForms();
 
 		setLoading(false);
 	}, [prevWork, lashes, service, pageInfo, lashInfo, loading]);

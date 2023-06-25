@@ -17,6 +17,7 @@ import type { AppProps } from 'next/app';
 
 // CSS
 import 'scss/main.scss';
+import IframModal from 'components/Modals/IframModal';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -26,8 +27,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 					<MenuProvider>
 						<ModalProvider>
 							<CustomPostProvider>
+								{/* Component */}
 								<Component {...pageProps} />
+
+								{/* Modals */}
 								<CaldendarModal />
+								<IframModal />
 							</CustomPostProvider>
 						</ModalProvider>
 					</MenuProvider>

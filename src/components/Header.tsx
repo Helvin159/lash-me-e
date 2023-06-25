@@ -12,15 +12,10 @@ interface Props {
 
 function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 	const { isOpen, menuLinks, mobileMenuHandler } = useContext(MenuContext);
-	const { bookingModalHandler } = useContext(ModalConext);
+	const { bookingModalHandler, iframeModalHandler } = useContext(ModalConext);
 
 	const handler = () => {
 		mobileMenuHandler();
-	};
-
-	const bookingHandler = () => {
-		// mobileMenuHandler();
-		bookingModalHandler();
 	};
 
 	return (
@@ -43,13 +38,19 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 							</li>
 						))}
 						<li onClick={() => bookingModalHandler()}>Book Now!</li>
+						<li onClick={() => iframeModalHandler()}>iFrame!</li>
 					</ul>
 				</div>
 
 				<div className={`d-block d-md-none ${styles.mobileMenuBtn}`}>
-					<button className='btn' onClick={handler}>
-						tempMobileMenu
-					</button>
+					{/* <div className='row'>
+						<div className='col-6'>Book Now</div> */}
+					{/* <div className='col-6'> */}
+					<div className={styles.menuButtonWrapper}>
+						<div className={styles.menuButton} onClick={handler} />
+					</div>
+					{/* </div> */}
+					{/* </div> */}
 				</div>
 
 				{isOpen && (
@@ -71,8 +72,15 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 									</Link>
 								</li>
 							))}
-							<li onClick={bookingHandler} className={styles.mobileMenuLi}>
+							<li
+								onClick={() => bookingModalHandler()}
+								className={styles.mobileMenuLi}>
 								Book Now!
+							</li>
+							<li
+								onClick={() => iframeModalHandler()}
+								className={styles.mobileMenuLi}>
+								iframe!
 							</li>
 						</ul>
 					</div>

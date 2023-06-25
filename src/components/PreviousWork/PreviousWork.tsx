@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 
 import PreviousWorkCard from './PreviousWorkCard';
 
+import CardStyle from '../../scss/components/Posts.module.scss';
 import style from '../../scss/components/CTA.module.scss';
 
 function PreviousWork({ work }) {

@@ -27,20 +27,17 @@ export default function Page() {
 	return (
 		<>
 			<CustomHead title={title} description={description}></CustomHead>
-
 			<Header title={title} description={description} />
 
 			{/* Main Content */}
 			<main className='content'>
 				<Hero title={title} showButton={true} handler={bookingModalHandler} />
-
-				<PreviousWork work={previousWork} />
+				<PreviousWork work={previousWork.slice(0, 3)} />
 				<ServicesSection />
 				<LashTips id='lashtipsComponent' tips={lashtips} />
 			</main>
 
 			{/* Footer */}
-
 			<Footer copyrightHolder={title} />
 		</>
 	);

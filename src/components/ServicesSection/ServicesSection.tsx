@@ -12,18 +12,16 @@ const ServicesSection = () => {
 					<h2>Services</h2>
 				</div>
 				<div className='row'>
-					{services.map((service) => {
+					{services.map((service, k) => {
 						return (
-							<>
-								<ServiceCards
-									title={service.title()}
-									id={service.id}
-									imgAlt={service.featuredImage.node.altText}
-									imgUrl={service.featuredImage.node.sourceUrl()}
-									content={service.excerpt()}
-									key={`services-component-${service.id}`}
-								/>
-							</>
+							<ServiceCards
+								title={service.title()}
+								id={service.id}
+								imgAlt={service.featuredImage.node.altText}
+								imgUrl={service.featuredImage.node.sourceUrl()}
+								content={service.excerpt()}
+								key={`services_component_${service.id}_${k}`}
+							/>
 						);
 					})}
 				</div>

@@ -7,28 +7,31 @@ import style from '../../scss/components/CTA.module.scss';
 
 function PreviousWork({ work }) {
 	const route = useRouter();
+
 	const handler = () => {
 		route.push('/previouswork');
 	};
 
-	console.log(window.location.pathname);
+	const path = window.location.pathname;
+
 	return (
 		<section className='py-5'>
 			<div className='row '>
 				{work.map((workItem, k) => {
 					const href = `${workItem.uri}`;
 					const sourceUrl = workItem.featuredImage.node.sourceUrl();
+
 					return (
 						<PreviousWorkCard
 							work={workItem}
 							sourceUrl={sourceUrl}
 							href={href}
-							key={k}
+							key={`${workItem.id}_${k}`}
 						/>
 					);
 				})}
 
-				{window.location.pathname === '/' && (
+				{path === '/' && (
 					<div className='px-4 py-5 mx-auto text-center'>
 						<button className={style.cta} onClick={handler}>
 							View All

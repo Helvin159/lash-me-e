@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
+import { MenuContext } from './MenuContext';
 
 export const ModalConext = createContext({
 	bookingIsOpen: false,
@@ -11,6 +12,14 @@ export const ModalProvider = ({ children }) => {
 	const [bookingIsOpen, setBookingIsOpen] = useState(false);
 	const [iframeIsOpen, setIframeIsOpen] = useState(false);
 
+	const { isOpen, modalMobileMenuHandler } = useContext(MenuContext);
+
+	const menuHandler = () => {
+		if (!isOpen) return null;
+
+		if (isOpen === true) return modalMobileMenuHandler();
+	};
+
 	const bookingModalHandler = () => {
 		if (!bookingIsOpen) {
 			document.body.style.overflowY = 'hidden';
@@ -19,6 +28,7 @@ export const ModalProvider = ({ children }) => {
 		}
 
 		setBookingIsOpen(!bookingIsOpen);
+		menuHandler();
 	};
 
 	const iframeModalHandler = () => {
@@ -29,6 +39,9 @@ export const ModalProvider = ({ children }) => {
 		}
 
 		setIframeIsOpen(!iframeIsOpen);
+		setTimeout(() => {
+			menuHandler();
+		}, 500);
 	};
 
 	const value = {

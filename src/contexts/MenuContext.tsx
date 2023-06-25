@@ -5,6 +5,7 @@ export const MenuContext = createContext({
 	isOpen: false,
 	menuLinks: [],
 	mobileMenuHandler: () => null,
+	modalMobileMenuHandler: () => null,
 });
 
 export const MenuProvider = ({ children }) => {
@@ -30,7 +31,16 @@ export const MenuProvider = ({ children }) => {
 		setIsOpen(!isOpen);
 	};
 
-	const value = { isOpen, menuLinks, mobileMenuHandler };
+	const modalMobileMenuHandler = () => {
+		setIsOpen(!isOpen);
+	};
+
+	const value = {
+		isOpen,
+		menuLinks,
+		mobileMenuHandler,
+		modalMobileMenuHandler,
+	};
 
 	return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 };

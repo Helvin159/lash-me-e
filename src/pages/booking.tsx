@@ -26,14 +26,12 @@ export function PageComponent({ page }: PageProps) {
 			<CustomHead title={title} description={description} />
 			<Header title={title} description={description} />
 			<main className='content content-single'>
-				{page?.content() && (
-					<iframe
-						src='https://app.acuityscheduling.com/schedule.php?owner=26143141'
-						title='Schedule Appointment'
-						width='100%'
-						height='800'
-					/>
-				)}
+				<iframe
+					src='https://app.acuityscheduling.com/schedule.php?owner=26143141'
+					title='Schedule Appointment'
+					width='100%'
+					height='100%'
+				/>
 			</main>
 		</>
 	);

@@ -14,14 +14,13 @@ import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import LashTips from 'components/LashTips/LashTips';
 import PreviousWork from 'components/PreviousWork/PreviousWork';
-import CaldendarModal from 'components/CaldendarModal';
 import LoadingComponent from 'components/Loading';
 import ServicesSection from 'components/ServicesSection/ServicesSection';
 
 export default function Page() {
+	const { iframeModalHandler } = useContext(ModalConext);
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { loading, previousWork, lashtips } = useContext(CustomPostContext);
-	const { bookingModalHandler } = useContext(ModalConext);
 
 	if (loading) return <LoadingComponent />;
 	return (
@@ -31,7 +30,7 @@ export default function Page() {
 
 			{/* Main Content */}
 			<main className='content'>
-				<Hero title={title} showButton={true} handler={bookingModalHandler} />
+				<Hero title={title} showButton={true} handler={iframeModalHandler} />
 				<PreviousWork work={previousWork.slice(0, 3)} />
 				<ServicesSection />
 				<LashTips id='lashtipsComponent' tips={lashtips} />

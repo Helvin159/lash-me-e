@@ -32,7 +32,7 @@ function Hero({
 				</div>
 			</div>
 			{showButton && (
-				<div className={`mx-auto w-100 text-center ${btnStyles.wrap}`}>
+				<div className={`mx-auto w-100 text-center pb-5 ${btnStyles.wrap}`}>
 					<button onClick={() => handler()} className={btnStyles.cta}>
 						Book Now!
 					</button>

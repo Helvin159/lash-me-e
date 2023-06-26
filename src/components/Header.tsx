@@ -19,7 +19,7 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 	};
 
 	return (
-		<header className={styles.header}>
+		<header className={styles.header} id='lashMeHeader'>
 			<div className={styles.wrap}>
 				<div className={styles['title-wrap']}>
 					<p className={styles['site-title']}>
@@ -37,8 +37,6 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 								</Link>
 							</li>
 						))}
-						<li onClick={() => bookingModalHandler()}>Book Now!</li>
-						<li onClick={() => iframeModalHandler()}>iFrame!</li>
 					</ul>
 				</div>
 

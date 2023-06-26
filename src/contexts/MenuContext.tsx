@@ -18,7 +18,22 @@ export const MenuProvider = ({ children }) => {
 		where: { location: MenuLocationEnum.PRIMARY },
 	}).nodes;
 
+	const setFixedStyle = () => {
+		window.addEventListener('scroll', () => {
+			// 85
+			const windowY = window.scrollY;
+			const header = document.querySelector('header');
+
+			if (windowY >= 85) {
+				header.style.position = 'fixed';
+			} else {
+				header.style.position = 'relative';
+			}
+		});
+	};
+
 	useEffect(() => {
+		setFixedStyle();
 		setMenuLinks(links);
 	}, [links]);
 

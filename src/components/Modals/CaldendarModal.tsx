@@ -3,7 +3,7 @@ import { ModalConext } from 'contexts/ModalContext';
 
 import ReactCalendar from '../ReactCalendar';
 
-import styles from '../scss/components/Modal.module.scss';
+import styles from '../../scss/components/Modal.module.scss';
 
 const CaldendarModal = () => {
 	const { bookingIsOpen, bookingModalHandler } = useContext(ModalConext);

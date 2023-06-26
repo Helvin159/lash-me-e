@@ -7,7 +7,7 @@ import { GeneralSettingsProvider } from 'contexts/GeneralSettingsContext';
 import { MenuProvider } from 'contexts/MenuContext';
 import { CustomPostProvider } from 'contexts/CustomPostsContext';
 import { ModalProvider } from 'contexts/ModalContext';
-import CaldendarModal from 'components/CaldendarModal';
+import CaldendarModal from 'components/Modals/CaldendarModal';
 
 // React Import
 import React from 'react';

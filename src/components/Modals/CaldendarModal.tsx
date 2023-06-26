@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ModalConext } from 'contexts/ModalContext';
 
-import ReactCalendar from './ReactCalendar';
+import ReactCalendar from '../ReactCalendar';
 
 import styles from '../scss/components/Modal.module.scss';
 

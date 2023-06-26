@@ -19,7 +19,7 @@ const IframModal = () => {
 				src='https://app.acuityscheduling.com/schedule.php?owner=26143141'
 				title='Schedule Appointment'
 				width='100%'
-				height='100%'
+				height='800'
 			/>
 			{/* </div> */}
 		</div>

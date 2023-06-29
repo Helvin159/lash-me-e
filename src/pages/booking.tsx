@@ -33,6 +33,7 @@ export function PageComponent({ page }: PageProps) {
 					height='800'
 				/>
 			</main>
+			<Footer copyrightHolder={title} />
 		</>
 	);
 }

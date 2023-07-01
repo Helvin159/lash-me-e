@@ -25,7 +25,7 @@ const ServiceCards = ({
 	};
 
 	return (
-		<div id={id} className='col-md-6 p-5'>
+		<div id={id} className='col-md-6'>
 			<div className={style.card}>
 				<div className={style.cardImgWrapper}>
 					<div

@@ -16,7 +16,7 @@ function PreviousWork({ work }) {
 	const path = window.location.pathname;
 
 	return (
-		<section className='py-5'>
+		<section>
 			<div className='row '>
 				{work.map((workItem, k) => {
 					const href = `${workItem.uri}`;
@@ -32,15 +32,15 @@ function PreviousWork({ work }) {
 					);
 				})}
 
-				{path === '/' && (
+				{/* {path === '/' && (
 					<div className='px-4 py-5 mx-auto text-center'>
 						<button className={style.cta} onClick={handler}>
 							View All
 						</button>
 					</div>
-				)}
+				)} */}
 				{/* If no posts, the show the following */}
-				{work && work?.length < 1 && <p>No posts found.</p>}
+				{work && work?.length < 1 && <p>Nothing found.</p>}
 			</div>
 		</section>
 	);

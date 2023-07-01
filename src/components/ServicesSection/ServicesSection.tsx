@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
 import ServiceCards from './ServiceCards';
+import SectionHero from 'components/SectionHero';
 
 const ServicesSection = () => {
 	const { loading, services } = useContext(CustomPostContext);
@@ -8,9 +9,7 @@ const ServicesSection = () => {
 	return (
 		<>
 			<section className='text-center'>
-				<div className='p-5'>
-					<h2>Services</h2>
-				</div>
+				<SectionHero title={'Services'} />
 				<div className='row'>
 					{services.map((service, k) => {
 						return (

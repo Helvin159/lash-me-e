@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../../scss/components/Lashtips.module.scss';
 import btnStyles from '../../scss/components/CTA.module.scss';
+import SectionHero from 'components/SectionHero';
 
 interface Props {
 	tips: any;
@@ -18,9 +19,7 @@ function LashTips({ tips, id }) {
 
 	return (
 		<section id={id}>
-			<div className={styles.lashTipsTitleWrapper}>
-				<h2 className='mx-auto text-center'>Lash Care</h2>
-			</div>
+			<SectionHero title={'Lash Care'} />
 			<div className='w-100 mx-auto '>
 				{tips.slice(0, 3).map((tip, k) => {
 					const href = `${tip.uri}`;

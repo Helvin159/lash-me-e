@@ -31,7 +31,7 @@ export default function Page() {
 			{/* Main Content */}
 			<main className='content'>
 				<Hero title={title} showButton={true} handler={iframeModalHandler} />
-				<PreviousWork work={previousWork.slice(0, 3)} />
+				<PreviousWork work={previousWork.slice(0, 6)} />
 				<ServicesSection />
 				<LashTips id='lashtipsComponent' tips={lashtips} />
 			</main>

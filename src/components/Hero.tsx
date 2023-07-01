@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from 'scss/components/Hero.module.scss';
 import btnStyles from '../scss/components/CTA.module.scss';
+import Heading from './Heading';
+import CTA from './CTA';
 
 interface Props {
 	title: string;
@@ -27,17 +29,11 @@ function Hero({
 				}}>
 				<div className={styles.heroContentWrapper}>
 					<div className={styles.heroTitleWrapper}>
-						<h1>{title}</h1>
+						<Heading level='h1'>{title}</Heading>
+						{showButton && <CTA handler={handler} />}
 					</div>
 				</div>
 			</div>
-			{showButton && (
-				<div className={`mx-auto w-100 text-center pb-5 ${btnStyles.wrap}`}>
-					<button onClick={() => handler()} className={btnStyles.cta}>
-						Book Now!
-					</button>
-				</div>
-			)}
 		</section>
 	);
 }

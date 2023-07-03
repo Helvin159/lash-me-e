@@ -41,18 +41,20 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 				</div>
 
 				<div className={`d-block d-md-none ${styles.mobileMenuBtn}`}>
-					{/* <div className='row'>
-						<div className='col-6'>Book Now</div> */}
-					{/* <div className='col-6'> */}
-					<div className={styles.menuButtonWrapper}>
-						<div className={styles.menuButton} onClick={handler} />
+					<div className='row'>
+						<div className='col-9' onClick={() => iframeModalHandler()}>
+							Book Now
+						</div>
+						<div className='col-3'>
+							<div className={styles.menuButtonWrapper}>
+								<div className={styles.menuButton} onClick={handler} />
+							</div>
+						</div>
 					</div>
-					{/* </div> */}
-					{/* </div> */}
 				</div>
 
 				{isOpen && (
-					<div className={` d-md-none p-5 text-center ${styles.mobileMenu}`}>
+					<div className={` d-md-none  p-5 text-center ${styles.mobileMenu}`}>
 						<div onClick={handler} className={styles.closeMobileMenuBtn}>
 							&#10005;
 						</div>
@@ -70,16 +72,6 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 									</Link>
 								</li>
 							))}
-							<li
-								onClick={() => bookingModalHandler()}
-								className={styles.mobileMenuLi}>
-								Book Now!
-							</li>
-							<li
-								onClick={() => iframeModalHandler()}
-								className={styles.mobileMenuLi}>
-								iframe!
-							</li>
 						</ul>
 					</div>
 				)}

@@ -150,6 +150,12 @@
 	backdrop-filter: blur(25px);
 }
 
+.mobileMenuBtn {
+	width: 50%;
+	text-align: right;
+	padding: 0.8rem;
+}
+
 .mobileMenuUl {
 	list-style-type: none;
 	position: absolute;
@@ -171,6 +177,8 @@
 	padding: 1rem;
 	z-index: 11;
 	font-size: 36px;
+	width: 100%;
+	text-align: right;
 	cursor: pointer;
 }
 // .mobileMenuBtn {

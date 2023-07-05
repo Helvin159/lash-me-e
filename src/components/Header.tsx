@@ -43,7 +43,7 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 				<div className={`d-block d-md-none ${styles.mobileMenuBtn}`}>
 					<div className='row'>
 						<div className='col-9' onClick={() => iframeModalHandler()}>
-							Book Now
+							<div className='pt-2'>Book Now</div>
 						</div>
 						<div className='col-3'>
 							<div className={styles.menuButtonWrapper}>

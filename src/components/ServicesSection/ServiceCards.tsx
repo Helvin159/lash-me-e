@@ -16,7 +16,7 @@ const ServiceCards = ({
 	imgUrl,
 	content,
 }: ServiceCardProps): JSX.Element => {
-	const styles = {
+	const bgStyles = {
 		backgroundImage: `url(${imgUrl}), linear-gradient(90deg,rgba(0,0,0,0.8), rgba(0,0,0,0.8))`,
 		backgroundSize: 'cover',
 		backgroundPosition: 'center center',
@@ -33,7 +33,7 @@ const ServiceCards = ({
 						role='img'
 						tabIndex={0}
 						aria-label={imgAlt}
-						style={{ ...styles }}
+						style={{ ...bgStyles }}
 					/>
 				</div>
 				<div className='pt-3'>

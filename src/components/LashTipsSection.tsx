@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 
 import { useRouter } from 'next/router';
-import styles from '../../scss/components/Lashtips.module.scss';
-import btnStyles from '../../scss/components/CTA.module.scss';
+import styles from '../scss/components/Lashtips.module.scss';
+import btnStyles from '../scss/components/CTA.module.scss';
 import SectionHero from 'components/SectionHero';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 	randomNum: any;
 }
 
-function LashTips({ tips, id }) {
+function LashTipsSection({ tips, id }) {
 	const router = useRouter();
 
 	const handleClick = (href) => router.push(href);
@@ -77,4 +77,4 @@ function LashTips({ tips, id }) {
 	);
 }
 
-export default LashTips;
+export default LashTipsSection;

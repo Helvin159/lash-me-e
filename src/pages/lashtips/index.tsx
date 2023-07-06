@@ -8,7 +8,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 import Hero from 'components/Hero';
-import LashTipCard from 'components/LashTips/LashTipCard';
+import Card from 'components/Card';
 
 export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
@@ -25,11 +25,21 @@ export default function Page() {
 
 			<main className='content content-index'>
 				<Hero title={'Lash Care Tips'} />
-				<div className='row p-3'>
-					{lashtips.map((lashTip, k) => (
-						<LashTipCard lashTip={lashTip} key={k} />
-					))}
-				</div>
+				<section className='text-center'>
+					<div className='row'>
+						{lashtips.map((lashTip, k) => (
+							<Card
+								id={lashTip.id}
+								colWidth='col-md-4'
+								title={lashTip.title()}
+								imgUrl={lashTip.featuredImage.node.sourceUrl()}
+								imgAlt={lashTip.featuredImage.node.alt}
+								content={lashTip.content()}
+								key={k}
+							/>
+						))}
+					</div>
+				</section>
 			</main>
 
 			<Footer copyrightHolder={title} />

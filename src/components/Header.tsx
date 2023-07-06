@@ -12,7 +12,7 @@ interface Props {
 
 function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 	const { isOpen, menuLinks, mobileMenuHandler } = useContext(MenuContext);
-	const { bookingModalHandler, iframeModalHandler } = useContext(ModalConext);
+	const { iframeModalHandler } = useContext(ModalConext);
 
 	const handler = () => {
 		mobileMenuHandler();

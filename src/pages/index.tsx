@@ -1,7 +1,7 @@
 import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { client } from 'client';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
@@ -12,10 +12,10 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import Hero from '../components/Hero';
-import LashTips from 'components/LashTips/LashTips';
+import LashTipsSection from 'components/LashTipsSection';
 import PreviousWork from 'components/PreviousWork/PreviousWork';
 import LoadingComponent from 'components/Loading';
-import ServicesSection from 'components/ServicesSection/ServicesSection';
+import ServicesSection from 'components/ServicesSection';
 
 export default function Page() {
 	const { iframeModalHandler } = useContext(ModalConext);
@@ -33,7 +33,7 @@ export default function Page() {
 				<Hero title={title} showButton={true} handler={iframeModalHandler} />
 				<PreviousWork work={previousWork.slice(0, 6)} />
 				<ServicesSection />
-				<LashTips id='lashtipsComponent' tips={lashtips} />
+				<LashTipsSection id='lashtipsComponent' tips={lashtips} />
 			</main>
 
 			{/* Footer */}

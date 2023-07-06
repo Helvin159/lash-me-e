@@ -1,6 +1,7 @@
 .card {
 	max-width: 300px;
 	min-height: 421.32px;
+
 	margin: 0 auto;
 	border-radius: 10px;
 	box-shadow: 0.5px 0.5px 6px rgba(0, 0, 0, 0.25);
@@ -44,4 +45,16 @@
 .cardImgWrapper:hover,
 .contentWrapper:hover {
 	cursor: pointer;
+}
+
+.cardTitleWrapper {
+	text-align: center;
+	white-space: nowrap;
+	max-width: 80%;
+	margin: 0 auto;
+}
+.cardTitleWrapper h4 {
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
 }

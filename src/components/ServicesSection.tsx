@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
-import ServiceCards from './ServiceCards';
 import SectionHero from 'components/SectionHero';
+import Card from 'components/Card';
 
 const ServicesSection = () => {
-	const { loading, services } = useContext(CustomPostContext);
+	const { services } = useContext(CustomPostContext);
 	const colWidth = services.length <= 2 ? 'col-md-6' : 'col-md-4';
 
 	return (
@@ -14,7 +14,7 @@ const ServicesSection = () => {
 				<div className='row'>
 					{services.map((service, k) => {
 						return (
-							<ServiceCards
+							<Card
 								title={service.title()}
 								id={service.id}
 								imgAlt={service?.featuredImage?.node.altText}

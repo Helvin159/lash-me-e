@@ -3,6 +3,7 @@
 	margin: 0 auto;
 	border-radius: 10px;
 	box-shadow: 0.5px 0.5px 6px rgba(0, 0, 0, 0.25);
+	transition: ease 0.5s;
 }
 
 .cardImg {
@@ -36,8 +37,7 @@
 // Hover styles
 
 .card:hover {
-	transform: scale(1.02);
-	transition: ease 0.5s;
+	transform: scale(1.01);
 }
 
 .cardImgWrapper:hover,

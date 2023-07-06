@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from 'scss/components/Hero.module.scss';
-import btnStyles from '../scss/components/CTA.module.scss';
 import Heading from './Heading';
 import CTA from './CTA';
 
@@ -13,7 +12,7 @@ interface Props {
 }
 
 function Hero({
-	title = 'Hero Title',
+	title = 'Lash Me.E',
 	id,
 	showButton = false,
 	handler,

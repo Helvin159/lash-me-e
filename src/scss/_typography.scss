@@ -1,15 +1,21 @@
-@import "variables";
+@import 'variables';
 
 body {
-	font-family: $font-family;
+	font-family: $font-family-one;
 	font-weight: $font-weight-normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: $font-family;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: $font-weight-bold;
 	line-height: 1.2;
 	margin-bottom: 0.5em;
+	font-family: $font-family-one;
+	font-family: $font-family-two;
 }
 
 h1 {

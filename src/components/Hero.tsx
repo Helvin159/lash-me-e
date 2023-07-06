@@ -29,7 +29,7 @@ function Hero({
 				<div className={styles.heroContentWrapper}>
 					<div className={styles.heroTitleWrapper}>
 						<Heading level='h1'>{title}</Heading>
-						{showButton && <CTA handler={handler} />}
+						{/* {showButton && <CTA handler={handler} />} */}
 					</div>
 				</div>
 			</div>

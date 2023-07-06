@@ -15,6 +15,7 @@
 .site-title {
 	margin-bottom: 0;
 	font-family: $font-family-two;
+	font-weight: $font-weight-bold;
 }
 
 .site-title a {
@@ -106,7 +107,7 @@
 .menu a,
 .mobileMenuLi a {
 	color: $color-black;
-	font-family: $font-family-one;
+	font-family: $font-family-two;
 	font-weight: $font-weight-bold;
 	text-decoration: none;
 	white-space: nowrap;

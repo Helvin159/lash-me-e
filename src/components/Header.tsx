@@ -18,6 +18,8 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 		mobileMenuHandler();
 	};
 
+	// const path = window.location.pathname;
+
 	return (
 		<header className={styles.header} id='lashMeHeader'>
 			<div className={styles.wrap}>
@@ -43,8 +45,11 @@ function Header({ title = 'Lash Me.E', description }: Props): JSX.Element {
 				<div className={`d-block d-md-none ${styles.mobileMenuBtn}`}>
 					<div className='row'>
 						<div className='col-9' onClick={() => iframeModalHandler()}>
-							<div className='pt-2'>Book Now</div>
+							<div className='pt-2 didot bold' role='button'>
+								Book Now
+							</div>
 						</div>
+
 						<div className='col-3'>
 							<div className={styles.menuButtonWrapper}>
 								<div className={styles.menuButton} onClick={handler} />

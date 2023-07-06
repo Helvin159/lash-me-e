@@ -35,9 +35,9 @@ export default function Page() {
 			<main className='content'>
 				<Hero title='My Work' />
 				<PreviousWork work={previousWork} />
-				{previousWork.length > 5 && (
+				{/* {previousWork.length > 5 && (
 					<Pagination pageInfo={previousWorkInfo} basePath='/previouswork' />
-				)}
+				)} */}
 			</main>
 
 			<Footer copyrightHolder={title} />

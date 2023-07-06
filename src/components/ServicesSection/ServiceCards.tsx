@@ -27,7 +27,7 @@ const ServiceCards = ({
 	};
 
 	return (
-		<div id={id} className={`${colWidth} py-5 py-md-0`}>
+		<div id={id} className={`${colWidth} pb-5 pb-md-0`}>
 			<div className={style.card}>
 				<div className={style.cardImgWrapper}>
 					<div

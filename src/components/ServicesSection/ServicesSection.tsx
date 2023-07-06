@@ -6,6 +6,7 @@ import SectionHero from 'components/SectionHero';
 const ServicesSection = () => {
 	const { loading, services } = useContext(CustomPostContext);
 	const colWidth = services.length <= 2 ? 'col-md-6' : 'col-md-4';
+
 	return (
 		<>
 			<section className='text-center'>

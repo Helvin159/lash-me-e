@@ -7,6 +7,7 @@ interface ServiceCardProps {
 	title: string;
 	imgAlt: string;
 	content: string;
+	colWidth: string;
 }
 
 const ServiceCards = ({
@@ -15,6 +16,7 @@ const ServiceCards = ({
 	imgAlt,
 	imgUrl,
 	content,
+	colWidth,
 }: ServiceCardProps): JSX.Element => {
 	const bgStyles = {
 		backgroundImage: `url(${imgUrl}), linear-gradient(90deg,rgba(0,0,0,0.8), rgba(0,0,0,0.8))`,
@@ -25,7 +27,7 @@ const ServiceCards = ({
 	};
 
 	return (
-		<div id={id} className='col-md-6 py-5 py-md-0'>
+		<div id={id} className={`${colWidth} py-5 py-md-0`}>
 			<div className={style.card}>
 				<div className={style.cardImgWrapper}>
 					<div

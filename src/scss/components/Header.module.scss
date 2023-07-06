@@ -103,7 +103,8 @@
 	}
 }
 
-.menu a {
+.menu a,
+.mobileMenuLi a {
 	color: $color-black;
 	font-family: $font-family;
 	font-weight: $font-weight-bold;
@@ -111,11 +112,14 @@
 }
 
 .menu a:focus,
-.menu a:hover {
+.menu a:hover,
+.mobileMenuLi a:focus,
+.mobileMenuLi a:hover {
 	color: $color-primary;
 }
 
-.menu a:global(.button) {
+.menu a:global(.button),
+.mobileMenuLi a:global(.button) {
 	background-color: $color-primary;
 	display: inline-block;
 	color: $color-white;
@@ -124,7 +128,9 @@
 }
 
 .menu a:global(.button):focus,
-.menu a:global(.button):hover {
+.menu a:global(.button):hover,
+.mobileMenuLi a:global(.button):focus,
+.mobileMenuLi a:global(.button):hover {
 	background-color: lighten($color-primary, 10);
 	color: $color-white;
 }

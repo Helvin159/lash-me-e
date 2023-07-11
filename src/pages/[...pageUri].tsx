@@ -17,13 +17,9 @@ export interface PageProps {
 }
 
 export function PageComponent({ page }: PageProps) {
-	const { usePost } = client;
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { sourceUrl } = page?.featuredImage?.node;
 	const { loading } = useContext(CustomPostContext);
-
-	const post = usePost({ id: page.id });
-	console.log(post);
 
 	if (loading) return <LoadingComponent />;
 	return (
@@ -46,7 +42,7 @@ export function PageComponent({ page }: PageProps) {
 }
 
 export default function Page() {
-	const { usePage, usePost } = client;
+	const { usePage } = client;
 	const page = usePage();
 
 	return <PageComponent page={page} />;
@@ -62,7 +58,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
 export function getStaticPaths() {
 	return {
-		paths: ['/previouswork'],
+		paths: [''],
 		fallback: 'blocking',
 	};
 }

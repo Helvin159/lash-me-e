@@ -75,7 +75,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
 export const getStaticPaths = () => {
 	return {
-		paths: [],
+		paths: [''],
 		fallback: 'blocking',
 	};
 };

@@ -1,8 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { client } from 'client';
 import { useRouter } from 'next/router';
-import { fetchForms } from 'utils/acuitySchedulingUtils';
-import axios from 'axios';
 
 export const CustomPostContext = createContext({
 	loading: true,

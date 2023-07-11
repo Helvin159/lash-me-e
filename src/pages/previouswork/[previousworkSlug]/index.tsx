@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import CustomHead from 'components/CustomHead';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import Hero from 'components/Hero';
 import Image from 'next/image';
 
 import Heading from 'components/Heading';

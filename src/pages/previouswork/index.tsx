@@ -20,8 +20,7 @@ import LoadingComponent from 'components/Loading';
 
 const Page = () => {
 	const { title, description } = useContext(GeneralSettingsContext);
-	const { loading, previousWork, previousWorkInfo } =
-		useContext(CustomPostContext);
+	const { loading, previousWork } = useContext(CustomPostContext);
 
 	if (loading) return <LoadingComponent />;
 	return (

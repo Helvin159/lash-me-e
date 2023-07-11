@@ -44,7 +44,6 @@ export function PageComponent({ page }: PageProps) {
 export default function Page() {
 	const { usePage } = client;
 	const page = usePage();
-	// console.log(page, 'page');
 
 	return <PageComponent page={page} />;
 }

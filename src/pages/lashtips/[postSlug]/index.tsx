@@ -11,7 +11,7 @@ export interface PostProps {
 	post: Post | Post['preview']['node'] | null | undefined;
 }
 
-export function PostComponent({ post }: PostProps) {
+export const PostComponent = ({ post }: PostProps) => {
 	const { useQuery } = client;
 	const generalSettings = useQuery().generalSettings;
 
@@ -34,6 +34,7 @@ export function PostComponent({ post }: PostProps) {
 
 			<main className='content content-single'>
 				<div className='wrap'>
+					<h1>Hello Lash Care</h1>
 					<div dangerouslySetInnerHTML={{ __html: post?.content() ?? '' }} />
 				</div>
 			</main>
@@ -41,7 +42,7 @@ export function PostComponent({ post }: PostProps) {
 			<Footer copyrightHolder={generalSettings.title} />
 		</>
 	);
-}
+};
 
 export default function Page() {
 	const { usePost } = client;
@@ -54,7 +55,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	return getNextStaticProps(context, {
 		Page,
 		client,
-		notFound: await is404(context, { client }),
+		// notFound: await is404(context, { client }),
 	});
 }
 

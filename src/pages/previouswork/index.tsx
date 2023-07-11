@@ -7,7 +7,7 @@ import { client } from 'client';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
 
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -15,10 +15,10 @@ import Footer from 'components/Footer';
 import PreviousWork from 'components/PreviousWork/PreviousWork';
 import CustomHead from 'components/CustomHead';
 import Hero from 'components/Hero';
-import Pagination from 'components/Pagination';
+// import Pagination from 'components/Pagination';
 import LoadingComponent from 'components/Loading';
 
-export default function Page() {
+const Page = () => {
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { loading, previousWork, previousWorkInfo } =
 		useContext(CustomPostContext);
@@ -43,7 +43,7 @@ export default function Page() {
 			<Footer copyrightHolder={title} />
 		</>
 	);
-}
+};
 
 export async function getStaticProps(context: GetStaticPropsContext) {
 	return getNextStaticProps(context, {
@@ -51,3 +51,5 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 		client,
 	});
 }
+
+export default Page;

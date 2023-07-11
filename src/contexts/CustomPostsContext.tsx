@@ -74,6 +74,7 @@ export const CustomPostProvider = ({ children }) => {
 		loading,
 		previousWork,
 		previousWorkInfo,
+
 		lashtips,
 		lashtipsInfo,
 		services,

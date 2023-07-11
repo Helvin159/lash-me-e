@@ -64,19 +64,19 @@ const Page = () => {
 	return <PostComponent post={post} featuredImg={imgUrl} />;
 };
 
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-	return getNextStaticProps(context, {
-		Page,
-		client,
-		// notFound: await is404(context, { client }),
-	});
-};
+// export const getStaticProps = async (context: GetStaticPropsContext) => {
+// 	return getNextStaticProps(context, {
+// 		Page,
+// 		client,
+// 		notFound: await is404(context, { client }),
+// 	});
+// };
 
-export const getStaticPaths = () => {
-	return {
-		paths: [],
-		fallback: 'blocking',
-	};
-};
+// export const getStaticPaths = () => {
+// 	return {
+// 		paths: [],
+// 		fallback: 'blocking',
+// 	};
+// };
 
 export default Page;

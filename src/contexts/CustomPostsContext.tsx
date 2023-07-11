@@ -31,14 +31,14 @@ export const CustomPostProvider = ({ children }) => {
 	const isBefore = postSlug === 'before';
 
 	// Archives
-	const prevWork = useQuery().previousWork({
+	const prevWork = useQuery().previousWorks({
 		after: !isBefore ? (postCursor as string) : undefined,
 		before: isBefore ? (postCursor as string) : undefined,
 		first: !isBefore ? POSTS_PER_PAGE : undefined,
 		last: isBefore ? POSTS_PER_PAGE : undefined,
 	});
 
-	const pageInfo = useQuery().previousWork({
+	const pageInfo = useQuery().previousWorks({
 		after: !isBefore ? (postCursor as string) : undefined,
 		before: isBefore ? (postCursor as string) : undefined,
 		first: !isBefore ? POSTS_PER_PAGE : undefined,

@@ -1,17 +1,21 @@
 import { getNextStaticProps, is404 } from '@faustjs/next';
+import { GetStaticPropsContext } from 'next';
 import { client, Post } from 'client';
+import { useRouter } from 'next/router';
 import CustomHead from 'components/CustomHead';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
+import Image from 'next/image';
 
-import { GetStaticPropsContext } from 'next';
+import Heading from 'components/Heading';
 
 export interface PostProps {
 	post: Post | Post['preview']['node'] | null | undefined;
+	featuredImg: string;
 }
 
-export const PostComponent = ({ post }: PostProps) => {
+export const PostComponent = ({ post, featuredImg }: PostProps) => {
 	const { useQuery } = client;
 	const generalSettings = useQuery().generalSettings;
 
@@ -21,20 +25,27 @@ export const PostComponent = ({ post }: PostProps) => {
 				title={generalSettings.title}
 				description={generalSettings.description}
 			/>
-
 			<CustomHead
 				title={generalSettings.title}
 				description={generalSettings.description}
 			/>
 
-			<Hero
-				title={post?.title()}
-				featuredImage={post?.featuredImage?.node?.sourceUrl()}
-			/>
-
 			<main className='content content-single'>
 				<div className='wrap text-center'>
-					<div dangerouslySetInnerHTML={{ __html: post?.content() ?? '' }} />
+					<div className='mx-auto w-100'>
+						<Image
+							loader={() => featuredImg}
+							src={featuredImg}
+							width={'700px'}
+							height={'700px'}
+							alt='featured image'
+						/>
+					</div>
+
+					<Heading level='h1'>{post?.title()}</Heading>
+					{post.content() && (
+						<div dangerouslySetInnerHTML={{ __html: post.content() }} />
+					)}
 				</div>
 			</main>
 
@@ -44,17 +55,21 @@ export const PostComponent = ({ post }: PostProps) => {
 };
 
 const Page = () => {
-	const { usePost } = client;
-	const post = usePost();
+	const { useQuery } = client;
 
-	return <PostComponent post={post} />;
+	const { asPath } = useRouter();
+	const post = useQuery().postBy({ slug: asPath });
+
+	const imgUrl = post.featuredImage.node.sourceUrl();
+
+	return <PostComponent post={post} featuredImg={imgUrl} />;
 };
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
 	return getNextStaticProps(context, {
 		Page,
 		client,
-		notFound: await is404(context, { client }),
+		// notFound: await is404(context, { client }),
 	});
 };
 

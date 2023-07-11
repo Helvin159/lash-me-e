@@ -58,7 +58,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
 export function getStaticPaths() {
 	return {
-		paths: [''],
+		paths: [],
 		fallback: 'blocking',
 	};
 }

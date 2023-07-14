@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { client } from 'client';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
 
@@ -10,6 +11,8 @@ import Footer from 'components/Footer';
 import Hero from 'components/Hero';
 import Card from 'components/Card';
 import Pagination from 'components/Pagination';
+import { GetStaticPropsContext } from 'next';
+import { getNextStaticProps } from '@faustjs/next';
 
 export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
@@ -47,4 +50,11 @@ export default function Page() {
 			<Footer copyrightHolder={title} />
 		</>
 	);
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+	return getNextStaticProps(context, {
+		Page,
+		client,
+	});
 }

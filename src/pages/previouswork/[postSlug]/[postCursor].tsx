@@ -23,7 +23,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
 export function getStaticPaths() {
 	return {
-		paths: ['/previouswork/[postSlug]/[postCursor]'],
+		paths: [],
 		fallback: 'blocking',
 	};
 }

@@ -1,11 +1,10 @@
 import { getNextStaticProps, is404 } from '@faustjs/next';
+import { GetStaticPropsContext } from 'next';
 import { client, Post } from 'client';
 import CustomHead from 'components/CustomHead';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
-
-import { GetStaticPropsContext } from 'next';
 
 export interface PostProps {
 	post: Post | Post['preview']['node'] | null | undefined;

@@ -7,10 +7,11 @@ export default Page;
 
 export async function getStaticProps(context: GetStaticPropsContext) {
 	const { postSlug } = context.params;
+	console.log(context.params);
 
 	if (!(postSlug === 'after' || postSlug === 'before')) {
 		return {
-			notFound: true,
+			notFound: false,
 		};
 	}
 
@@ -22,7 +23,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
 export function getStaticPaths() {
 	return {
-		paths: [],
+		paths: ['/previouswork/[postSlug]/[postCursor]'],
 		fallback: 'blocking',
 	};
 }

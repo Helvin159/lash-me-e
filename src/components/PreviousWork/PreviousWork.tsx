@@ -3,18 +3,7 @@ import { useRouter } from 'next/router';
 
 import PreviousWorkCard from './PreviousWorkCard';
 
-import CardStyle from '../../scss/components/Posts.module.scss';
-import style from '../../scss/components/CTA.module.scss';
-
 function PreviousWork({ work }) {
-	const route = useRouter();
-
-	const handler = () => {
-		route.push('/previouswork');
-	};
-
-	const path = window.location.pathname;
-
 	return (
 		<section>
 			<div className='row '>
@@ -32,13 +21,6 @@ function PreviousWork({ work }) {
 					);
 				})}
 
-				{/* {path === '/' && (
-					<div className='px-4 py-5 mx-auto text-center'>
-						<button className={style.cta} onClick={handler}>
-							View All
-						</button>
-					</div>
-				)} */}
 				{/* If no posts, the show the following */}
 				{work && work?.length < 1 && <p>Nothing found.</p>}
 			</div>

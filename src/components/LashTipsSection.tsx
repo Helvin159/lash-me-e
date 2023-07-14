@@ -63,7 +63,7 @@ function LashTipsSection({ tips, id }) {
 				})}
 			</div>
 
-			{window.location.pathname === '/' && (
+			{/* {window.location.pathname === '/' && (
 				<div className='px-4 py-5 mx-auto text-center'>
 					<button
 						className={btnStyles.cta}
@@ -71,7 +71,7 @@ function LashTipsSection({ tips, id }) {
 						View All
 					</button>
 				</div>
-			)}
+			)} */}
 			{tips && tips?.length < 1 && <p>No posts found.</p>}
 		</section>
 	);

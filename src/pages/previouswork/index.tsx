@@ -17,10 +17,13 @@ import CustomHead from 'components/CustomHead';
 import Hero from 'components/Hero';
 // import Pagination from 'components/Pagination';
 import LoadingComponent from 'components/Loading';
+import { useRouter } from 'next/router';
+import Pagination from 'components/Pagination';
 
-const Page = () => {
+export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
-	const { loading, previousWork } = useContext(CustomPostContext);
+	const { loading, previousWork, previousWorkInfo } =
+		useContext(CustomPostContext);
 
 	if (loading) return <LoadingComponent />;
 	return (
@@ -34,15 +37,15 @@ const Page = () => {
 			<main className='content'>
 				<Hero title='My Work' />
 				<PreviousWork work={previousWork} />
-				{/* {previousWork.length > 5 && (
+				{previousWork.length > 5 && (
 					<Pagination pageInfo={previousWorkInfo} basePath='/previouswork' />
-				)} */}
+				)}
 			</main>
 
 			<Footer copyrightHolder={title} />
 		</>
 	);
-};
+}
 
 export async function getStaticProps(context: GetStaticPropsContext) {
 	return getNextStaticProps(context, {
@@ -50,5 +53,3 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 		client,
 	});
 }
-
-export default Page;

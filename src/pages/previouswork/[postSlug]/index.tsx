@@ -1,8 +1,8 @@
 import { getNextStaticProps, is404 } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
-import { client, Post } from 'client';
+import { client, PreviousWork } from 'client';
 
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
 
 import CustomHead from 'components/CustomHead';
@@ -14,12 +14,12 @@ import LoadingComponent from 'components/Loading';
 import { useRouter } from 'next/router';
 
 export interface PageProps {
-	post: Post | Post['preview']['node'] | null | undefined;
+	workItem: PreviousWork | PreviousWork['preview']['node'] | null | undefined;
 }
 
-export function PostComponent({ post }: PageProps) {
+export function PostComponent({ workItem }: PageProps) {
 	const { title, description } = useContext(GeneralSettingsContext);
-	const { sourceUrl } = post?.featuredImage?.node;
+	const { sourceUrl } = workItem?.featuredImage?.node;
 	const { loading } = useContext(CustomPostContext);
 
 	if (loading) return <LoadingComponent />;
@@ -29,10 +29,11 @@ export function PostComponent({ post }: PageProps) {
 			<Header title={title} description={description} />
 
 			<main className='content content-single'>
-				<Hero title={post?.title()} featuredImage={sourceUrl()} />
-				{post?.content() && (
+				<Hero title={workItem?.title()} featuredImage={sourceUrl()} />
+				<p>[previousWork]</p>
+				{workItem?.content() && (
 					<div className='wrap' style={{ maxWidth: '850px' }}>
-						<div dangerouslySetInnerHTML={{ __html: post?.content() }} />
+						<div dangerouslySetInnerHTML={{ __html: workItem?.content() }} />
 					</div>
 				)}
 			</main>
@@ -43,26 +44,35 @@ export function PostComponent({ post }: PageProps) {
 }
 
 export default function Page() {
-	const { usePost, useQuery } = client;
+	const { useQuery, usePost } = client;
 
 	const { asPath } = useRouter();
 
-	const post = useQuery();
+	const workItem = useQuery().previousWorkBy({
+		uri: '/work-four',
+	});
+	const l = usePost();
 
-	return <PostComponent post={null} />;
+	useEffect(() => {
+		console.log(l?.title(), 'L');
+		console.log(workItem?.title(), 'URI');
+		console.log('rendered');
+	}, [workItem, l]);
+
+	return <PostComponent workItem={workItem} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
 	return getNextStaticProps(context, {
 		Page,
 		client,
-		notFound: await is404(context, { client }),
+		// notFound: await is404(context, { client }),
 	});
 }
 
 export function getStaticPaths() {
 	return {
-		paths: ['/previouswork'],
+		paths: ['/previouswork/[postSlug]'],
 		fallback: 'blocking',
 	};
 }

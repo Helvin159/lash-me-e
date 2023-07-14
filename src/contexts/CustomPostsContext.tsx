@@ -28,6 +28,10 @@ export const CustomPostProvider = ({ children }) => {
 	const { postSlug, postCursor } = query;
 	const isBefore = postSlug === 'before';
 
+	const load = useQuery().$state.isLoading ? 'loading' : 'not loading';
+
+	// console.log(load, 'load');
+
 	// Archives
 	const prevWork = useQuery().previousWorks({
 		after: !isBefore ? (postCursor as string) : undefined,
@@ -65,16 +69,14 @@ export const CustomPostProvider = ({ children }) => {
 		setServices(service.nodes);
 		setPreviousWorkInfo(pageInfo);
 		setLashInfo(lashInfo);
-		// fetchForms();
 
-		setLoading(false);
-	}, [prevWork, lashes, service, pageInfo, lashInfo, loading]);
+		setLoading(!load);
+	}, [prevWork, lashes, service, pageInfo, lashInfo, load]);
 
 	const value = {
 		loading,
 		previousWork,
 		previousWorkInfo,
-
 		lashtips,
 		lashtipsInfo,
 		services,

@@ -17,6 +17,7 @@ import Pagination from 'components/Pagination';
 // Styles
 import styles from 'scss/pages/posts.module.scss';
 import PostsArchive from 'components/Posts/PostsArchive';
+import LoadingComponent from 'components/Loading';
 
 const POSTS_PER_PAGE = 6;
 
@@ -38,12 +39,8 @@ export default function Page() {
 		last: isBefore ? POSTS_PER_PAGE : undefined,
 	});
 
-	console.log(posts, 'posts');
-	console.log(isBefore, 'isBefore');
-	console.log(postSlug, 'postSlug');
-
 	if (useQuery().$state.isLoading) {
-		return null;
+		return <LoadingComponent />;
 	}
 
 	return (

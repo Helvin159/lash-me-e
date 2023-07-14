@@ -22,7 +22,7 @@ export default function Page() {
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { loading, previousWork, lashtips } = useContext(CustomPostContext);
 
-	if (loading) return <LoadingComponent />;
+	// if (loading) return <LoadingComponent />;
 	return (
 		<>
 			<CustomHead title={title} description={description}></CustomHead>

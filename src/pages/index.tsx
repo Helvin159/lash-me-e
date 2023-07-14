@@ -1,7 +1,7 @@
 import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { client } from 'client';
 import { CustomPostContext } from 'contexts/CustomPostsContext';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';

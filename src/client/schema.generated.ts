@@ -403,7 +403,7 @@ export enum ContentTypeEnum {
   /** The Type of Content object */
   POST = "POST",
   /** The Type of Content object */
-  PREVWORK = "PREVWORK",
+  PREVIOUSWORK = "PREVIOUSWORK",
   /** The Type of Content object */
   SERVICES = "SERVICES",
 }
@@ -628,8 +628,8 @@ export interface CreatePostInput {
   toPing?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 }
 
-/** Input for the createPrevious_work mutation. */
-export interface CreatePrevious_workInput {
+/** Input for the createPreviousWork mutation. */
+export interface CreatePreviousWorkInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars["String"]>;
   /** The content of the object */
@@ -854,13 +854,13 @@ export interface DeletePostInput {
   ignoreEditLock?: InputMaybe<Scalars["Boolean"]>;
 }
 
-/** Input for the deletePrevious_work mutation. */
-export interface DeletePrevious_workInput {
+/** Input for the deletePreviousWork mutation. */
+export interface DeletePreviousWorkInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars["String"]>;
   /** Whether the object should be force deleted instead of being moved to the trash */
   forceDelete?: InputMaybe<Scalars["Boolean"]>;
-  /** The ID of the previous_work to delete */
+  /** The ID of the previousWork to delete */
   id: Scalars["ID"];
   /** Override the edit lock when another user is editing the post */
   ignoreEditLock?: InputMaybe<Scalars["Boolean"]>;
@@ -2077,7 +2077,7 @@ export interface PostToTermNodeConnectionWhereArgs {
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
-export enum Previous_workIdType {
+export enum PreviousWorkIdType {
   /** Identify a resource by the Database ID. */
   DATABASE_ID = "DATABASE_ID",
   /** Identify a resource by the (hashed) Global ID. */
@@ -2536,8 +2536,8 @@ export interface RootQueryToPostFormatConnectionWhereArgs {
   updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
 }
 
-/** Arguments for filtering the RootQueryToPrevious_workConnection connection */
-export interface RootQueryToPrevious_workConnectionWhereArgs {
+/** Arguments for filtering the RootQueryToPreviousWorkConnection connection */
+export interface RootQueryToPreviousWorkConnectionWhereArgs {
   /** Filter the connection based on dates */
   dateQuery?: InputMaybe<DateQueryInput>;
   /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -3188,8 +3188,8 @@ export interface UpdatePostInput {
   toPing?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 }
 
-/** Input for the updatePrevious_work mutation. */
-export interface UpdatePrevious_workInput {
+/** Input for the updatePreviousWork mutation. */
+export interface UpdatePreviousWorkInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars["String"]>;
   /** The content of the object */
@@ -3198,7 +3198,7 @@ export interface UpdatePrevious_workInput {
   date?: InputMaybe<Scalars["String"]>;
   /** The excerpt of the object */
   excerpt?: InputMaybe<Scalars["String"]>;
-  /** The ID of the previous_work object */
+  /** The ID of the previousWork object */
   id: Scalars["ID"];
   /** Override the edit lock when another user is editing the post */
   ignoreEditLock?: InputMaybe<Scalars["Boolean"]>;
@@ -3735,7 +3735,7 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   PostObjectsConnectionDateColumnEnum: true,
   PostObjectsConnectionOrderbyEnum: true,
   PostStatusEnum: true,
-  Previous_workIdType: true,
+  PreviousWorkIdType: true,
   RelationEnum: true,
   ServiceIdType: true,
   String: true,
@@ -4579,7 +4579,7 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     post: { __type: "Post" },
   },
-  CreatePrevious_workInput: {
+  CreatePreviousWorkInput: {
     clientMutationId: { __type: "String" },
     content: { __type: "String" },
     date: { __type: "String" },
@@ -4591,10 +4591,10 @@ export const generatedSchema = {
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
   },
-  CreatePrevious_workPayload: {
+  CreatePreviousWorkPayload: {
     __typename: { __type: "String!" },
     clientMutationId: { __type: "String" },
-    previous_work: { __type: "Previous_work" },
+    previousWork: { __type: "PreviousWork" },
   },
   CreateServiceInput: {
     clientMutationId: { __type: "String" },
@@ -4762,17 +4762,17 @@ export const generatedSchema = {
     deletedId: { __type: "ID" },
     post: { __type: "Post" },
   },
-  DeletePrevious_workInput: {
+  DeletePreviousWorkInput: {
     clientMutationId: { __type: "String" },
     forceDelete: { __type: "Boolean" },
     id: { __type: "ID!" },
     ignoreEditLock: { __type: "Boolean" },
   },
-  DeletePrevious_workPayload: {
+  DeletePreviousWorkPayload: {
     __typename: { __type: "String!" },
     clientMutationId: { __type: "String" },
     deletedId: { __type: "ID" },
-    previous_work: { __type: "Previous_work" },
+    previousWork: { __type: "PreviousWork" },
   },
   DeleteServiceInput: {
     clientMutationId: { __type: "String" },
@@ -6522,13 +6522,7 @@ export const generatedSchema = {
     previewRevisionId: { __type: "ID" },
     $on: { __type: "$Previewable!" },
   },
-  PreviousWorkConnectionEdge: {
-    __typename: { __type: "String!" },
-    cursor: { __type: "String" },
-    node: { __type: "Previous_work!" },
-    $on: { __type: "$PreviousWorkConnectionEdge!" },
-  },
-  Previous_work: {
+  PreviousWork: {
     __typename: { __type: "String!" },
     ancestors: {
       __type: "HierarchicalContentNodeToContentNodeAncestorsConnection",
@@ -6595,10 +6589,10 @@ export const generatedSchema = {
     },
     parentDatabaseId: { __type: "Int" },
     parentId: { __type: "ID" },
-    preview: { __type: "Previous_workToPreviewConnectionEdge" },
+    preview: { __type: "PreviousWorkToPreviewConnectionEdge" },
     previewRevisionDatabaseId: { __type: "Int" },
     previewRevisionId: { __type: "ID" },
-    previous_workId: { __type: "Int!" },
+    previousWorkId: { __type: "Int!" },
     slug: { __type: "String" },
     status: { __type: "String" },
     template: { __type: "ContentTemplate" },
@@ -6609,18 +6603,31 @@ export const generatedSchema = {
     },
     uri: { __type: "String" },
   },
-  Previous_workConnectionPageInfo: {
+  PreviousWorkConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[PreviousWorkConnectionEdge!]!" },
+    nodes: { __type: "[PreviousWork!]!" },
+    pageInfo: { __type: "PreviousWorkConnectionPageInfo!" },
+    $on: { __type: "$PreviousWorkConnection!" },
+  },
+  PreviousWorkConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "PreviousWork!" },
+    $on: { __type: "$PreviousWorkConnectionEdge!" },
+  },
+  PreviousWorkConnectionPageInfo: {
     __typename: { __type: "String!" },
     endCursor: { __type: "String" },
     hasNextPage: { __type: "Boolean!" },
     hasPreviousPage: { __type: "Boolean!" },
     startCursor: { __type: "String" },
-    $on: { __type: "$Previous_workConnectionPageInfo!" },
+    $on: { __type: "$PreviousWorkConnectionPageInfo!" },
   },
-  Previous_workToPreviewConnectionEdge: {
+  PreviousWorkToPreviewConnectionEdge: {
     __typename: { __type: "String!" },
     cursor: { __type: "String" },
-    node: { __type: "Previous_work!" },
+    node: { __type: "PreviousWork!" },
   },
   ReadingSettings: {
     __typename: { __type: "String!" },
@@ -7100,25 +7107,25 @@ export const generatedSchema = {
     termTaxonomyId: { __type: "[ID]" },
     updateTermMetaCache: { __type: "Boolean" },
   },
-  RootQueryToPrevious_workConnection: {
+  RootQueryToPreviousWorkConnection: {
     __typename: { __type: "String!" },
-    edges: { __type: "[RootQueryToPrevious_workConnectionEdge!]!" },
-    nodes: { __type: "[Previous_work!]!" },
-    pageInfo: { __type: "RootQueryToPrevious_workConnectionPageInfo!" },
+    edges: { __type: "[RootQueryToPreviousWorkConnectionEdge!]!" },
+    nodes: { __type: "[PreviousWork!]!" },
+    pageInfo: { __type: "RootQueryToPreviousWorkConnectionPageInfo!" },
   },
-  RootQueryToPrevious_workConnectionEdge: {
+  RootQueryToPreviousWorkConnectionEdge: {
     __typename: { __type: "String!" },
     cursor: { __type: "String" },
-    node: { __type: "Previous_work!" },
+    node: { __type: "PreviousWork!" },
   },
-  RootQueryToPrevious_workConnectionPageInfo: {
+  RootQueryToPreviousWorkConnectionPageInfo: {
     __typename: { __type: "String!" },
     endCursor: { __type: "String" },
     hasNextPage: { __type: "Boolean!" },
     hasPreviousPage: { __type: "Boolean!" },
     startCursor: { __type: "String" },
   },
-  RootQueryToPrevious_workConnectionWhereArgs: {
+  RootQueryToPreviousWorkConnectionWhereArgs: {
     dateQuery: { __type: "DateQueryInput" },
     hasPassword: { __type: "Boolean" },
     id: { __type: "Int" },
@@ -8149,7 +8156,7 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     post: { __type: "Post" },
   },
-  UpdatePrevious_workInput: {
+  UpdatePreviousWorkInput: {
     clientMutationId: { __type: "String" },
     content: { __type: "String" },
     date: { __type: "String" },
@@ -8163,10 +8170,10 @@ export const generatedSchema = {
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
   },
-  UpdatePrevious_workPayload: {
+  UpdatePreviousWorkPayload: {
     __typename: { __type: "String!" },
     clientMutationId: { __type: "String" },
-    previous_work: { __type: "Previous_work" },
+    previousWork: { __type: "PreviousWork" },
   },
   UpdateServiceInput: {
     clientMutationId: { __type: "String" },
@@ -8741,9 +8748,9 @@ export const generatedSchema = {
       __type: "CreatePostFormatPayload",
       __args: { input: "CreatePostFormatInput!" },
     },
-    createPrevious_work: {
-      __type: "CreatePrevious_workPayload",
-      __args: { input: "CreatePrevious_workInput!" },
+    createPreviousWork: {
+      __type: "CreatePreviousWorkPayload",
+      __args: { input: "CreatePreviousWorkInput!" },
     },
     createService: {
       __type: "CreateServicePayload",
@@ -8785,9 +8792,9 @@ export const generatedSchema = {
       __type: "DeletePostFormatPayload",
       __args: { input: "DeletePostFormatInput!" },
     },
-    deletePrevious_work: {
-      __type: "DeletePrevious_workPayload",
-      __args: { input: "DeletePrevious_workInput!" },
+    deletePreviousWork: {
+      __type: "DeletePreviousWorkPayload",
+      __args: { input: "DeletePreviousWorkInput!" },
     },
     deleteService: {
       __type: "DeleteServicePayload",
@@ -8850,9 +8857,9 @@ export const generatedSchema = {
       __type: "UpdatePostFormatPayload",
       __args: { input: "UpdatePostFormatInput!" },
     },
-    updatePrevious_work: {
-      __type: "UpdatePrevious_workPayload",
-      __args: { input: "UpdatePrevious_workInput!" },
+    updatePreviousWork: {
+      __type: "UpdatePreviousWorkPayload",
+      __args: { input: "UpdatePreviousWorkInput!" },
     },
     updateService: {
       __type: "UpdateServicePayload",
@@ -9062,25 +9069,21 @@ export const generatedSchema = {
       },
     },
     previousWork: {
-      __type: "Previous_work",
-      __args: {
-        asPreview: "Boolean",
-        id: "ID!",
-        idType: "Previous_workIdType",
-      },
+      __type: "PreviousWork",
+      __args: { asPreview: "Boolean", id: "ID!", idType: "PreviousWorkIdType" },
     },
     previousWorkBy: {
-      __type: "Previous_work",
-      __args: { id: "ID", previous_workId: "Int", uri: "String" },
+      __type: "PreviousWork",
+      __args: { id: "ID", previousWorkId: "Int", uri: "String" },
     },
     previousWorks: {
-      __type: "RootQueryToPrevious_workConnection",
+      __type: "RootQueryToPreviousWorkConnection",
       __args: {
         after: "String",
         before: "String",
         first: "Int",
         last: "Int",
-        where: "RootQueryToPrevious_workConnectionWhereArgs",
+        where: "RootQueryToPreviousWorkConnectionWhereArgs",
       },
     },
     readingSettings: { __type: "ReadingSettings" },
@@ -9201,7 +9204,7 @@ export const generatedSchema = {
       "Page",
       "Post",
       "PostFormat",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tag",
       "Tip",
@@ -9211,7 +9214,7 @@ export const generatedSchema = {
       "Category",
       "MediaItem",
       "Page",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tip",
     ],
@@ -9220,7 +9223,7 @@ export const generatedSchema = {
       "Category",
       "Page",
       "Post",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tag",
       "Tip",
@@ -9239,7 +9242,7 @@ export const generatedSchema = {
       "Plugin",
       "Post",
       "PostFormat",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tag",
       "Taxonomy",
@@ -9256,7 +9259,7 @@ export const generatedSchema = {
       "Page",
       "Post",
       "PostFormat",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tag",
       "Tip",
@@ -9306,7 +9309,7 @@ export const generatedSchema = {
       "RootQueryToPluginConnection",
       "RootQueryToPostConnection",
       "RootQueryToPostFormatConnection",
-      "RootQueryToPrevious_workConnection",
+      "RootQueryToPreviousWorkConnection",
       "RootQueryToRevisionsConnection",
       "RootQueryToServiceConnection",
       "RootQueryToTagConnection",
@@ -9379,7 +9382,7 @@ export const generatedSchema = {
       "PostToRevisionConnectionEdge",
       "PostToTagConnectionEdge",
       "PostToTermNodeConnectionEdge",
-      "Previous_workToPreviewConnectionEdge",
+      "PreviousWorkToPreviewConnectionEdge",
       "RootQueryToCategoryConnectionEdge",
       "RootQueryToCommentConnectionEdge",
       "RootQueryToContentNodeConnectionEdge",
@@ -9393,7 +9396,7 @@ export const generatedSchema = {
       "RootQueryToPluginConnectionEdge",
       "RootQueryToPostConnectionEdge",
       "RootQueryToPostFormatConnectionEdge",
-      "RootQueryToPrevious_workConnectionEdge",
+      "RootQueryToPreviousWorkConnectionEdge",
       "RootQueryToRevisionsConnectionEdge",
       "RootQueryToServiceConnectionEdge",
       "RootQueryToTagConnectionEdge",
@@ -9464,7 +9467,7 @@ export const generatedSchema = {
       "RootQueryToPluginConnectionPageInfo",
       "RootQueryToPostConnectionPageInfo",
       "RootQueryToPostFormatConnectionPageInfo",
-      "RootQueryToPrevious_workConnectionPageInfo",
+      "RootQueryToPreviousWorkConnectionPageInfo",
       "RootQueryToRevisionsConnectionPageInfo",
       "RootQueryToServiceConnectionPageInfo",
       "RootQueryToTagConnectionPageInfo",
@@ -9526,7 +9529,7 @@ export const generatedSchema = {
       "RootQueryToPluginConnectionPageInfo",
       "RootQueryToPostConnectionPageInfo",
       "RootQueryToPostFormatConnectionPageInfo",
-      "RootQueryToPrevious_workConnectionPageInfo",
+      "RootQueryToPreviousWorkConnectionPageInfo",
       "RootQueryToRevisionsConnectionPageInfo",
       "RootQueryToServiceConnectionPageInfo",
       "RootQueryToTagConnectionPageInfo",
@@ -9604,7 +9607,7 @@ export const generatedSchema = {
       "PageToPreviewConnectionEdge",
       "PostFormatToTaxonomyConnectionEdge",
       "PostToPreviewConnectionEdge",
-      "Previous_workToPreviewConnectionEdge",
+      "PreviousWorkToPreviewConnectionEdge",
       "ServiceToPreviewConnectionEdge",
       "TagToTaxonomyConnectionEdge",
       "TipToPreviewConnectionEdge",
@@ -9733,14 +9736,14 @@ export const generatedSchema = {
       "MediaItem",
       "Page",
       "Post",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tip",
     ],
     HierarchicalContentNode: [
       "MediaItem",
       "Page",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tip",
     ],
@@ -9750,7 +9753,7 @@ export const generatedSchema = {
       "MediaItem",
       "Page",
       "Post",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tip",
     ],
@@ -9758,7 +9761,7 @@ export const generatedSchema = {
       "MediaItem",
       "Page",
       "Post",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tip",
     ],
@@ -9766,7 +9769,7 @@ export const generatedSchema = {
       "Category",
       "Page",
       "Post",
-      "Previous_work",
+      "PreviousWork",
       "Service",
       "Tag",
       "Tip",
@@ -9798,11 +9801,11 @@ export const generatedSchema = {
       "RootQueryToMediaItemConnectionEdge",
       "UserToMediaItemConnectionEdge",
     ],
-    NodeWithContentEditor: ["Page", "Post", "Previous_work", "Service", "Tip"],
-    NodeWithFeaturedImage: ["Page", "Post", "Previous_work", "Service", "Tip"],
+    NodeWithContentEditor: ["Page", "Post", "PreviousWork", "Service", "Tip"],
+    NodeWithFeaturedImage: ["Page", "Post", "PreviousWork", "Service", "Tip"],
     NodeWithPageAttributes: ["Page"],
     NodeWithRevisions: ["Page", "Post"],
-    Previewable: ["Page", "Post", "Previous_work", "Service", "Tip"],
+    Previewable: ["Page", "Post", "PreviousWork", "Service", "Tip"],
     PageConnectionEdge: [
       "PageToPreviewConnectionEdge",
       "PageToRevisionConnectionEdge",
@@ -9819,7 +9822,7 @@ export const generatedSchema = {
       "RootQueryToPageConnectionPageInfo",
       "UserToPageConnectionPageInfo",
     ],
-    NodeWithExcerpt: ["Post", "Previous_work", "Service", "Tip"],
+    NodeWithExcerpt: ["Post", "PreviousWork", "Service", "Tip"],
     NodeWithTrackbacks: ["Post"],
     PostFormatConnection: [
       "PostToPostFormatConnection",
@@ -9855,8 +9858,8 @@ export const generatedSchema = {
       "RootQueryToTermNodeConnectionPageInfo",
     ],
     PreviousWorkConnectionEdge: [
-      "Previous_workToPreviewConnectionEdge",
-      "RootQueryToPrevious_workConnectionEdge",
+      "PreviousWorkToPreviewConnectionEdge",
+      "RootQueryToPreviousWorkConnectionEdge",
     ],
     ContentTypeConnection: [
       "RootQueryToContentTypeConnection",
@@ -9879,8 +9882,9 @@ export const generatedSchema = {
     PluginConnection: ["RootQueryToPluginConnection"],
     PluginConnectionEdge: ["RootQueryToPluginConnectionEdge"],
     PluginConnectionPageInfo: ["RootQueryToPluginConnectionPageInfo"],
-    Previous_workConnectionPageInfo: [
-      "RootQueryToPrevious_workConnectionPageInfo",
+    PreviousWorkConnection: ["RootQueryToPreviousWorkConnection"],
+    PreviousWorkConnectionPageInfo: [
+      "RootQueryToPreviousWorkConnectionPageInfo",
     ],
     ServiceConnection: ["RootQueryToServiceConnection"],
     ServiceConnectionEdge: [
@@ -11080,7 +11084,7 @@ export interface Connection {
     | "RootQueryToPluginConnection"
     | "RootQueryToPostConnection"
     | "RootQueryToPostFormatConnection"
-    | "RootQueryToPrevious_workConnection"
+    | "RootQueryToPreviousWorkConnection"
     | "RootQueryToRevisionsConnection"
     | "RootQueryToServiceConnection"
     | "RootQueryToTagConnection"
@@ -11126,7 +11130,7 @@ export interface ContentNode {
     | "MediaItem"
     | "Page"
     | "Post"
-    | "Previous_work"
+    | "PreviousWork"
     | "Service"
     | "Tip";
   /**
@@ -11997,10 +12001,10 @@ export interface CreatePostPayload {
 }
 
 /**
- * The payload for the createPrevious_work mutation.
+ * The payload for the createPreviousWork mutation.
  */
-export interface CreatePrevious_workPayload {
-  __typename?: "CreatePrevious_workPayload";
+export interface CreatePreviousWorkPayload {
+  __typename?: "CreatePreviousWorkPayload";
   /**
    * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
    */
@@ -12008,7 +12012,7 @@ export interface CreatePrevious_workPayload {
   /**
    * The Post object mutation type.
    */
-  previous_work?: Maybe<Previous_work>;
+  previousWork?: Maybe<PreviousWork>;
 }
 
 /**
@@ -12085,7 +12089,7 @@ export interface DatabaseIdentifier {
     | "Page"
     | "Post"
     | "PostFormat"
-    | "Previous_work"
+    | "PreviousWork"
     | "Service"
     | "Tag"
     | "Tip"
@@ -12223,10 +12227,10 @@ export interface DeletePostPayload {
 }
 
 /**
- * The payload for the deletePrevious_work mutation.
+ * The payload for the deletePreviousWork mutation.
  */
-export interface DeletePrevious_workPayload {
-  __typename?: "DeletePrevious_workPayload";
+export interface DeletePreviousWorkPayload {
+  __typename?: "DeletePreviousWorkPayload";
   /**
    * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
    */
@@ -12238,7 +12242,7 @@ export interface DeletePrevious_workPayload {
   /**
    * The object before it was deleted
    */
-  previous_work?: Maybe<Previous_work>;
+  previousWork?: Maybe<PreviousWork>;
 }
 
 /**
@@ -12378,7 +12382,7 @@ export interface Edge {
     | "PostToRevisionConnectionEdge"
     | "PostToTagConnectionEdge"
     | "PostToTermNodeConnectionEdge"
-    | "Previous_workToPreviewConnectionEdge"
+    | "PreviousWorkToPreviewConnectionEdge"
     | "RootQueryToCategoryConnectionEdge"
     | "RootQueryToCommentConnectionEdge"
     | "RootQueryToContentNodeConnectionEdge"
@@ -12392,7 +12396,7 @@ export interface Edge {
     | "RootQueryToPluginConnectionEdge"
     | "RootQueryToPostConnectionEdge"
     | "RootQueryToPostFormatConnectionEdge"
-    | "RootQueryToPrevious_workConnectionEdge"
+    | "RootQueryToPreviousWorkConnectionEdge"
     | "RootQueryToRevisionsConnectionEdge"
     | "RootQueryToServiceConnectionEdge"
     | "RootQueryToTagConnectionEdge"
@@ -12745,7 +12749,7 @@ export interface GenerateAuthorizationCodePayload {
  * Content node with hierarchical (parent/child) relationships
  */
 export interface HierarchicalContentNode {
-  __typename?: "MediaItem" | "Page" | "Previous_work" | "Service" | "Tip";
+  __typename?: "MediaItem" | "Page" | "PreviousWork" | "Service" | "Tip";
   /**
    * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
    */
@@ -13091,7 +13095,7 @@ export interface HierarchicalNode {
     | "Category"
     | "MediaItem"
     | "Page"
-    | "Previous_work"
+    | "PreviousWork"
     | "Service"
     | "Tip";
   /**
@@ -14141,7 +14145,7 @@ export interface MenuItemLinkable {
     | "Category"
     | "Page"
     | "Post"
-    | "Previous_work"
+    | "PreviousWork"
     | "Service"
     | "Tag"
     | "Tip";
@@ -14197,7 +14201,7 @@ export interface MenuItemObjectUnion {
     | "Category"
     | "Page"
     | "Post"
-    | "Previous_work"
+    | "PreviousWork"
     | "Service"
     | "Tag"
     | "Tip";
@@ -14366,7 +14370,7 @@ export interface Node {
     | "Plugin"
     | "Post"
     | "PostFormat"
-    | "Previous_work"
+    | "PreviousWork"
     | "Service"
     | "Tag"
     | "Taxonomy"
@@ -14444,7 +14448,7 @@ export interface NodeWithComments {
  * A node that supports the content editor
  */
 export interface NodeWithContentEditor {
-  __typename?: "Page" | "Post" | "Previous_work" | "Service" | "Tip";
+  __typename?: "Page" | "Post" | "PreviousWork" | "Service" | "Tip";
   /**
    * The content of the post.
    */
@@ -14465,7 +14469,7 @@ export interface NodeWithContentEditor {
  * A node that can have an excerpt
  */
 export interface NodeWithExcerpt {
-  __typename?: "Post" | "Previous_work" | "Service" | "Tip";
+  __typename?: "Post" | "PreviousWork" | "Service" | "Tip";
   /**
    * The excerpt of the post.
    */
@@ -14486,7 +14490,7 @@ export interface NodeWithExcerpt {
  * A node that can have a featured image set
  */
 export interface NodeWithFeaturedImage {
-  __typename?: "Page" | "Post" | "Previous_work" | "Service" | "Tip";
+  __typename?: "Page" | "Post" | "PreviousWork" | "Service" | "Tip";
   /**
    * Connection between the NodeWithFeaturedImage type and the MediaItem type
    */
@@ -14580,7 +14584,7 @@ export interface NodeWithTemplate {
     | "MediaItem"
     | "Page"
     | "Post"
-    | "Previous_work"
+    | "PreviousWork"
     | "Service"
     | "Tip";
   /**
@@ -14602,7 +14606,7 @@ export interface NodeWithTitle {
     | "MediaItem"
     | "Page"
     | "Post"
-    | "Previous_work"
+    | "PreviousWork"
     | "Service"
     | "Tip";
   /**
@@ -14667,7 +14671,7 @@ export interface OneToOneConnection {
     | "PageToPreviewConnectionEdge"
     | "PostFormatToTaxonomyConnectionEdge"
     | "PostToPreviewConnectionEdge"
-    | "Previous_workToPreviewConnectionEdge"
+    | "PreviousWorkToPreviewConnectionEdge"
     | "ServiceToPreviewConnectionEdge"
     | "TagToTaxonomyConnectionEdge"
     | "TipToPreviewConnectionEdge";
@@ -15139,7 +15143,7 @@ export interface PageInfo {
     | "RootQueryToPluginConnectionPageInfo"
     | "RootQueryToPostConnectionPageInfo"
     | "RootQueryToPostFormatConnectionPageInfo"
-    | "RootQueryToPrevious_workConnectionPageInfo"
+    | "RootQueryToPreviousWorkConnectionPageInfo"
     | "RootQueryToRevisionsConnectionPageInfo"
     | "RootQueryToServiceConnectionPageInfo"
     | "RootQueryToTagConnectionPageInfo"
@@ -16714,7 +16718,7 @@ export interface PostTypeLabelDetails {
  * Nodes that can be seen in a preview (unpublished) state.
  */
 export interface Previewable {
-  __typename?: "Page" | "Post" | "Previous_work" | "Service" | "Tip";
+  __typename?: "Page" | "Post" | "PreviousWork" | "Service" | "Tip";
   /**
    * Whether the object is a node in the preview state
    */
@@ -16731,28 +16735,10 @@ export interface Previewable {
 }
 
 /**
- * Edge between a Node and a connected previous_work
+ * The previousWork type
  */
-export interface PreviousWorkConnectionEdge {
-  __typename?:
-    | "Previous_workToPreviewConnectionEdge"
-    | "RootQueryToPrevious_workConnectionEdge";
-  /**
-   * Opaque reference to the nodes position in the connection. Value can be used with pagination args.
-   */
-  cursor?: Maybe<ScalarsEnums["String"]>;
-  /**
-   * The connected previous_work Node
-   */
-  node: Previous_work;
-  $on: $PreviousWorkConnectionEdge;
-}
-
-/**
- * The previous_work type
- */
-export interface Previous_work {
-  __typename?: "Previous_work";
+export interface PreviousWork {
+  __typename?: "PreviousWork";
   /**
    * Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root).
    */
@@ -16916,7 +16902,7 @@ export interface Previous_work {
    */
   guid?: Maybe<ScalarsEnums["String"]>;
   /**
-   * The globally unique identifier of the prevwork object.
+   * The globally unique identifier of the previouswork object.
    */
   id: ScalarsEnums["ID"];
   /**
@@ -16964,9 +16950,9 @@ export interface Previous_work {
    */
   parentId?: Maybe<ScalarsEnums["ID"]>;
   /**
-   * Connection between the Previous_work type and the previous_work type
+   * Connection between the PreviousWork type and the previousWork type
    */
-  preview?: Maybe<Previous_workToPreviewConnectionEdge>;
+  preview?: Maybe<PreviousWorkToPreviewConnectionEdge>;
   /**
    * The database id of the preview node
    */
@@ -16979,7 +16965,7 @@ export interface Previous_work {
    * The id field matches the WP_Post-&gt;ID field.
    * @deprecated Deprecated in favor of the databaseId field
    */
-  previous_workId: ScalarsEnums["Int"];
+  previousWorkId: ScalarsEnums["Int"];
   /**
    * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
    */
@@ -17009,10 +16995,48 @@ export interface Previous_work {
 }
 
 /**
+ * Connection to previousWork Nodes
+ */
+export interface PreviousWorkConnection {
+  __typename?: "RootQueryToPreviousWorkConnection";
+  /**
+   * A list of edges (relational context) between RootQuery and connected previousWork Nodes
+   */
+  edges: Array<PreviousWorkConnectionEdge>;
+  /**
+   * A list of connected previousWork Nodes
+   */
+  nodes: Array<PreviousWork>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo: PreviousWorkConnectionPageInfo;
+  $on: $PreviousWorkConnection;
+}
+
+/**
+ * Edge between a Node and a connected previousWork
+ */
+export interface PreviousWorkConnectionEdge {
+  __typename?:
+    | "PreviousWorkToPreviewConnectionEdge"
+    | "RootQueryToPreviousWorkConnectionEdge";
+  /**
+   * Opaque reference to the nodes position in the connection. Value can be used with pagination args.
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The connected previousWork Node
+   */
+  node: PreviousWork;
+  $on: $PreviousWorkConnectionEdge;
+}
+
+/**
  * Page Info on the connected PreviousWorkConnectionEdge
  */
-export interface Previous_workConnectionPageInfo {
-  __typename?: "RootQueryToPrevious_workConnectionPageInfo";
+export interface PreviousWorkConnectionPageInfo {
+  __typename?: "RootQueryToPreviousWorkConnectionPageInfo";
   /**
    * When paginating forwards, the cursor to continue.
    */
@@ -17029,14 +17053,14 @@ export interface Previous_workConnectionPageInfo {
    * When paginating backwards, the cursor to continue.
    */
   startCursor?: Maybe<ScalarsEnums["String"]>;
-  $on: $Previous_workConnectionPageInfo;
+  $on: $PreviousWorkConnectionPageInfo;
 }
 
 /**
- * Connection between the Previous_work type and the previous_work type
+ * Connection between the PreviousWork type and the previousWork type
  */
-export interface Previous_workToPreviewConnectionEdge {
-  __typename?: "Previous_workToPreviewConnectionEdge";
+export interface PreviousWorkToPreviewConnectionEdge {
+  __typename?: "PreviousWorkToPreviewConnectionEdge";
   /**
    * Opaque reference to the nodes position in the connection. Value can be used with pagination args.
    */
@@ -17044,7 +17068,7 @@ export interface Previous_workToPreviewConnectionEdge {
   /**
    * The node of the connection, without the edges
    */
-  node: Previous_work;
+  node: PreviousWork;
 }
 
 /**
@@ -17861,29 +17885,29 @@ export interface RootQueryToPostFormatConnectionPageInfo {
 }
 
 /**
- * Connection between the RootQuery type and the previous_work type
+ * Connection between the RootQuery type and the previousWork type
  */
-export interface RootQueryToPrevious_workConnection {
-  __typename?: "RootQueryToPrevious_workConnection";
+export interface RootQueryToPreviousWorkConnection {
+  __typename?: "RootQueryToPreviousWorkConnection";
   /**
-   * Edges for the RootQueryToPrevious_workConnection connection
+   * Edges for the RootQueryToPreviousWorkConnection connection
    */
-  edges: Array<RootQueryToPrevious_workConnectionEdge>;
+  edges: Array<RootQueryToPreviousWorkConnectionEdge>;
   /**
    * The nodes of the connection, without the edges
    */
-  nodes: Array<Previous_work>;
+  nodes: Array<PreviousWork>;
   /**
    * Information about pagination in a connection.
    */
-  pageInfo: RootQueryToPrevious_workConnectionPageInfo;
+  pageInfo: RootQueryToPreviousWorkConnectionPageInfo;
 }
 
 /**
  * An edge in a connection
  */
-export interface RootQueryToPrevious_workConnectionEdge {
-  __typename?: "RootQueryToPrevious_workConnectionEdge";
+export interface RootQueryToPreviousWorkConnectionEdge {
+  __typename?: "RootQueryToPreviousWorkConnectionEdge";
   /**
    * A cursor for use in pagination
    */
@@ -17891,14 +17915,14 @@ export interface RootQueryToPrevious_workConnectionEdge {
   /**
    * The item at the end of the edge
    */
-  node: Previous_work;
+  node: PreviousWork;
 }
 
 /**
- * Page Info on the &quot;RootQueryToPrevious_workConnection&quot;
+ * Page Info on the &quot;RootQueryToPreviousWorkConnection&quot;
  */
-export interface RootQueryToPrevious_workConnectionPageInfo {
-  __typename?: "RootQueryToPrevious_workConnectionPageInfo";
+export interface RootQueryToPreviousWorkConnectionPageInfo {
+  __typename?: "RootQueryToPreviousWorkConnectionPageInfo";
   /**
    * When paginating forwards, the cursor to continue.
    */
@@ -20224,7 +20248,7 @@ export interface UniformResourceIdentifiable {
     | "Page"
     | "Post"
     | "PostFormat"
-    | "Previous_work"
+    | "PreviousWork"
     | "Service"
     | "Tag"
     | "Tip"
@@ -20348,10 +20372,10 @@ export interface UpdatePostPayload {
 }
 
 /**
- * The payload for the updatePrevious_work mutation.
+ * The payload for the updatePreviousWork mutation.
  */
-export interface UpdatePrevious_workPayload {
-  __typename?: "UpdatePrevious_workPayload";
+export interface UpdatePreviousWorkPayload {
+  __typename?: "UpdatePreviousWorkPayload";
   /**
    * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
    */
@@ -20359,7 +20383,7 @@ export interface UpdatePrevious_workPayload {
   /**
    * The Post object mutation type.
    */
-  previous_work?: Maybe<Previous_work>;
+  previousWork?: Maybe<PreviousWork>;
 }
 
 /**
@@ -21418,7 +21442,7 @@ export interface WPPageInfo {
     | "RootQueryToPluginConnectionPageInfo"
     | "RootQueryToPostConnectionPageInfo"
     | "RootQueryToPostFormatConnectionPageInfo"
-    | "RootQueryToPrevious_workConnectionPageInfo"
+    | "RootQueryToPreviousWorkConnectionPageInfo"
     | "RootQueryToRevisionsConnectionPageInfo"
     | "RootQueryToServiceConnectionPageInfo"
     | "RootQueryToTagConnectionPageInfo"
@@ -21495,9 +21519,9 @@ export interface Mutation {
   createPostFormat: (args: {
     input: CreatePostFormatInput;
   }) => Maybe<CreatePostFormatPayload>;
-  createPrevious_work: (args: {
-    input: CreatePrevious_workInput;
-  }) => Maybe<CreatePrevious_workPayload>;
+  createPreviousWork: (args: {
+    input: CreatePreviousWorkInput;
+  }) => Maybe<CreatePreviousWorkPayload>;
   createService: (args: {
     input: CreateServiceInput;
   }) => Maybe<CreateServicePayload>;
@@ -21518,9 +21542,9 @@ export interface Mutation {
   deletePostFormat: (args: {
     input: DeletePostFormatInput;
   }) => Maybe<DeletePostFormatPayload>;
-  deletePrevious_work: (args: {
-    input: DeletePrevious_workInput;
-  }) => Maybe<DeletePrevious_workPayload>;
+  deletePreviousWork: (args: {
+    input: DeletePreviousWorkInput;
+  }) => Maybe<DeletePreviousWorkPayload>;
   deleteService: (args: {
     input: DeleteServiceInput;
   }) => Maybe<DeleteServicePayload>;
@@ -21559,9 +21583,9 @@ export interface Mutation {
   updatePostFormat: (args: {
     input: UpdatePostFormatInput;
   }) => Maybe<UpdatePostFormatPayload>;
-  updatePrevious_work: (args: {
-    input: UpdatePrevious_workInput;
-  }) => Maybe<UpdatePrevious_workPayload>;
+  updatePreviousWork: (args: {
+    input: UpdatePreviousWorkInput;
+  }) => Maybe<UpdatePreviousWorkPayload>;
   updateService: (args: {
     input: UpdateServiceInput;
   }) => Maybe<UpdateServicePayload>;
@@ -21734,20 +21758,20 @@ export interface Query {
   previousWork: (args: {
     asPreview?: Maybe<Scalars["Boolean"]>;
     id: Scalars["ID"];
-    idType?: Maybe<Previous_workIdType>;
-  }) => Maybe<Previous_work>;
+    idType?: Maybe<PreviousWorkIdType>;
+  }) => Maybe<PreviousWork>;
   previousWorkBy: (args?: {
     id?: Maybe<Scalars["ID"]>;
-    previous_workId?: Maybe<Scalars["Int"]>;
+    previousWorkId?: Maybe<Scalars["Int"]>;
     uri?: Maybe<Scalars["String"]>;
-  }) => Maybe<Previous_work>;
+  }) => Maybe<PreviousWork>;
   previousWorks: (args?: {
     after?: Maybe<Scalars["String"]>;
     before?: Maybe<Scalars["String"]>;
     first?: Maybe<Scalars["Int"]>;
     last?: Maybe<Scalars["Int"]>;
-    where?: Maybe<RootQueryToPrevious_workConnectionWhereArgs>;
-  }) => Maybe<RootQueryToPrevious_workConnection>;
+    where?: Maybe<RootQueryToPreviousWorkConnectionWhereArgs>;
+  }) => Maybe<RootQueryToPreviousWorkConnection>;
   readingSettings?: Maybe<ReadingSettings>;
   registeredScripts: (args?: {
     after?: Maybe<Scalars["String"]>;
@@ -21906,7 +21930,7 @@ export interface SchemaObjectTypes {
   CreatePagePayload: CreatePagePayload;
   CreatePostFormatPayload: CreatePostFormatPayload;
   CreatePostPayload: CreatePostPayload;
-  CreatePrevious_workPayload: CreatePrevious_workPayload;
+  CreatePreviousWorkPayload: CreatePreviousWorkPayload;
   CreateServicePayload: CreateServicePayload;
   CreateTagPayload: CreateTagPayload;
   CreateTipPayload: CreateTipPayload;
@@ -21918,7 +21942,7 @@ export interface SchemaObjectTypes {
   DeletePagePayload: DeletePagePayload;
   DeletePostFormatPayload: DeletePostFormatPayload;
   DeletePostPayload: DeletePostPayload;
-  DeletePrevious_workPayload: DeletePrevious_workPayload;
+  DeletePreviousWorkPayload: DeletePreviousWorkPayload;
   DeleteServicePayload: DeleteServicePayload;
   DeleteTagPayload: DeleteTagPayload;
   DeleteTipPayload: DeleteTipPayload;
@@ -21994,8 +22018,8 @@ export interface SchemaObjectTypes {
   PostToTermNodeConnectionEdge: PostToTermNodeConnectionEdge;
   PostToTermNodeConnectionPageInfo: PostToTermNodeConnectionPageInfo;
   PostTypeLabelDetails: PostTypeLabelDetails;
-  Previous_work: Previous_work;
-  Previous_workToPreviewConnectionEdge: Previous_workToPreviewConnectionEdge;
+  PreviousWork: PreviousWork;
+  PreviousWorkToPreviewConnectionEdge: PreviousWorkToPreviewConnectionEdge;
   Query: Query;
   ReadingSettings: ReadingSettings;
   RegisterUserPayload: RegisterUserPayload;
@@ -22040,9 +22064,9 @@ export interface SchemaObjectTypes {
   RootQueryToPostFormatConnection: RootQueryToPostFormatConnection;
   RootQueryToPostFormatConnectionEdge: RootQueryToPostFormatConnectionEdge;
   RootQueryToPostFormatConnectionPageInfo: RootQueryToPostFormatConnectionPageInfo;
-  RootQueryToPrevious_workConnection: RootQueryToPrevious_workConnection;
-  RootQueryToPrevious_workConnectionEdge: RootQueryToPrevious_workConnectionEdge;
-  RootQueryToPrevious_workConnectionPageInfo: RootQueryToPrevious_workConnectionPageInfo;
+  RootQueryToPreviousWorkConnection: RootQueryToPreviousWorkConnection;
+  RootQueryToPreviousWorkConnectionEdge: RootQueryToPreviousWorkConnectionEdge;
+  RootQueryToPreviousWorkConnectionPageInfo: RootQueryToPreviousWorkConnectionPageInfo;
   RootQueryToRevisionsConnection: RootQueryToRevisionsConnection;
   RootQueryToRevisionsConnectionEdge: RootQueryToRevisionsConnectionEdge;
   RootQueryToRevisionsConnectionPageInfo: RootQueryToRevisionsConnectionPageInfo;
@@ -22104,7 +22128,7 @@ export interface SchemaObjectTypes {
   UpdatePagePayload: UpdatePagePayload;
   UpdatePostFormatPayload: UpdatePostFormatPayload;
   UpdatePostPayload: UpdatePostPayload;
-  UpdatePrevious_workPayload: UpdatePrevious_workPayload;
+  UpdatePreviousWorkPayload: UpdatePreviousWorkPayload;
   UpdateServicePayload: UpdateServicePayload;
   UpdateSettingsPayload: UpdateSettingsPayload;
   UpdateTagPayload: UpdateTagPayload;
@@ -22186,7 +22210,7 @@ export type SchemaObjectTypesNames =
   | "CreatePagePayload"
   | "CreatePostFormatPayload"
   | "CreatePostPayload"
-  | "CreatePrevious_workPayload"
+  | "CreatePreviousWorkPayload"
   | "CreateServicePayload"
   | "CreateTagPayload"
   | "CreateTipPayload"
@@ -22198,7 +22222,7 @@ export type SchemaObjectTypesNames =
   | "DeletePagePayload"
   | "DeletePostFormatPayload"
   | "DeletePostPayload"
-  | "DeletePrevious_workPayload"
+  | "DeletePreviousWorkPayload"
   | "DeleteServicePayload"
   | "DeleteTagPayload"
   | "DeleteTipPayload"
@@ -22274,8 +22298,8 @@ export type SchemaObjectTypesNames =
   | "PostToTermNodeConnectionEdge"
   | "PostToTermNodeConnectionPageInfo"
   | "PostTypeLabelDetails"
-  | "Previous_work"
-  | "Previous_workToPreviewConnectionEdge"
+  | "PreviousWork"
+  | "PreviousWorkToPreviewConnectionEdge"
   | "Query"
   | "ReadingSettings"
   | "RegisterUserPayload"
@@ -22320,9 +22344,9 @@ export type SchemaObjectTypesNames =
   | "RootQueryToPostFormatConnection"
   | "RootQueryToPostFormatConnectionEdge"
   | "RootQueryToPostFormatConnectionPageInfo"
-  | "RootQueryToPrevious_workConnection"
-  | "RootQueryToPrevious_workConnectionEdge"
-  | "RootQueryToPrevious_workConnectionPageInfo"
+  | "RootQueryToPreviousWorkConnection"
+  | "RootQueryToPreviousWorkConnectionEdge"
+  | "RootQueryToPreviousWorkConnectionPageInfo"
   | "RootQueryToRevisionsConnection"
   | "RootQueryToRevisionsConnectionEdge"
   | "RootQueryToRevisionsConnectionPageInfo"
@@ -22384,7 +22408,7 @@ export type SchemaObjectTypesNames =
   | "UpdatePagePayload"
   | "UpdatePostFormatPayload"
   | "UpdatePostPayload"
-  | "UpdatePrevious_workPayload"
+  | "UpdatePreviousWorkPayload"
   | "UpdateServicePayload"
   | "UpdateSettingsPayload"
   | "UpdateTagPayload"
@@ -22515,7 +22539,7 @@ export interface $Connection {
   RootQueryToPluginConnection?: RootQueryToPluginConnection;
   RootQueryToPostConnection?: RootQueryToPostConnection;
   RootQueryToPostFormatConnection?: RootQueryToPostFormatConnection;
-  RootQueryToPrevious_workConnection?: RootQueryToPrevious_workConnection;
+  RootQueryToPreviousWorkConnection?: RootQueryToPreviousWorkConnection;
   RootQueryToRevisionsConnection?: RootQueryToRevisionsConnection;
   RootQueryToServiceConnection?: RootQueryToServiceConnection;
   RootQueryToTagConnection?: RootQueryToTagConnection;
@@ -22544,7 +22568,7 @@ export interface $ContentNode {
   MediaItem?: MediaItem;
   Page?: Page;
   Post?: Post;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tip?: Tip;
 }
@@ -22620,7 +22644,7 @@ export interface $DatabaseIdentifier {
   Page?: Page;
   Post?: Post;
   PostFormat?: PostFormat;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tag?: Tag;
   Tip?: Tip;
@@ -22669,7 +22693,7 @@ export interface $Edge {
   PostToRevisionConnectionEdge?: PostToRevisionConnectionEdge;
   PostToTagConnectionEdge?: PostToTagConnectionEdge;
   PostToTermNodeConnectionEdge?: PostToTermNodeConnectionEdge;
-  Previous_workToPreviewConnectionEdge?: Previous_workToPreviewConnectionEdge;
+  PreviousWorkToPreviewConnectionEdge?: PreviousWorkToPreviewConnectionEdge;
   RootQueryToCategoryConnectionEdge?: RootQueryToCategoryConnectionEdge;
   RootQueryToCommentConnectionEdge?: RootQueryToCommentConnectionEdge;
   RootQueryToContentNodeConnectionEdge?: RootQueryToContentNodeConnectionEdge;
@@ -22683,7 +22707,7 @@ export interface $Edge {
   RootQueryToPluginConnectionEdge?: RootQueryToPluginConnectionEdge;
   RootQueryToPostConnectionEdge?: RootQueryToPostConnectionEdge;
   RootQueryToPostFormatConnectionEdge?: RootQueryToPostFormatConnectionEdge;
-  RootQueryToPrevious_workConnectionEdge?: RootQueryToPrevious_workConnectionEdge;
+  RootQueryToPreviousWorkConnectionEdge?: RootQueryToPreviousWorkConnectionEdge;
   RootQueryToRevisionsConnectionEdge?: RootQueryToRevisionsConnectionEdge;
   RootQueryToServiceConnectionEdge?: RootQueryToServiceConnectionEdge;
   RootQueryToTagConnectionEdge?: RootQueryToTagConnectionEdge;
@@ -22761,7 +22785,7 @@ export interface $EnqueuedStylesheetConnectionPageInfo {
 export interface $HierarchicalContentNode {
   MediaItem?: MediaItem;
   Page?: Page;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tip?: Tip;
 }
@@ -22770,7 +22794,7 @@ export interface $HierarchicalNode {
   Category?: Category;
   MediaItem?: MediaItem;
   Page?: Page;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tip?: Tip;
 }
@@ -22830,7 +22854,7 @@ export interface $MenuItemLinkable {
   Category?: Category;
   Page?: Page;
   Post?: Post;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tag?: Tag;
   Tip?: Tip;
@@ -22844,7 +22868,7 @@ export interface $MenuItemObjectUnion {
   Category?: Category;
   Page?: Page;
   Post?: Post;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tag?: Tag;
   Tip?: Tip;
@@ -22864,7 +22888,7 @@ export interface $Node {
   Plugin?: Plugin;
   Post?: Post;
   PostFormat?: PostFormat;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tag?: Tag;
   Taxonomy?: Taxonomy;
@@ -22889,14 +22913,14 @@ export interface $NodeWithComments {
 export interface $NodeWithContentEditor {
   Page?: Page;
   Post?: Post;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tip?: Tip;
 }
 
 export interface $NodeWithExcerpt {
   Post?: Post;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tip?: Tip;
 }
@@ -22904,7 +22928,7 @@ export interface $NodeWithExcerpt {
 export interface $NodeWithFeaturedImage {
   Page?: Page;
   Post?: Post;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tip?: Tip;
 }
@@ -22922,7 +22946,7 @@ export interface $NodeWithTemplate {
   MediaItem?: MediaItem;
   Page?: Page;
   Post?: Post;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tip?: Tip;
 }
@@ -22931,7 +22955,7 @@ export interface $NodeWithTitle {
   MediaItem?: MediaItem;
   Page?: Page;
   Post?: Post;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tip?: Tip;
 }
@@ -22958,7 +22982,7 @@ export interface $OneToOneConnection {
   PageToPreviewConnectionEdge?: PageToPreviewConnectionEdge;
   PostFormatToTaxonomyConnectionEdge?: PostFormatToTaxonomyConnectionEdge;
   PostToPreviewConnectionEdge?: PostToPreviewConnectionEdge;
-  Previous_workToPreviewConnectionEdge?: Previous_workToPreviewConnectionEdge;
+  PreviousWorkToPreviewConnectionEdge?: PreviousWorkToPreviewConnectionEdge;
   ServiceToPreviewConnectionEdge?: ServiceToPreviewConnectionEdge;
   TagToTaxonomyConnectionEdge?: TagToTaxonomyConnectionEdge;
   TipToPreviewConnectionEdge?: TipToPreviewConnectionEdge;
@@ -23021,7 +23045,7 @@ export interface $PageInfo {
   RootQueryToPluginConnectionPageInfo?: RootQueryToPluginConnectionPageInfo;
   RootQueryToPostConnectionPageInfo?: RootQueryToPostConnectionPageInfo;
   RootQueryToPostFormatConnectionPageInfo?: RootQueryToPostFormatConnectionPageInfo;
-  RootQueryToPrevious_workConnectionPageInfo?: RootQueryToPrevious_workConnectionPageInfo;
+  RootQueryToPreviousWorkConnectionPageInfo?: RootQueryToPreviousWorkConnectionPageInfo;
   RootQueryToRevisionsConnectionPageInfo?: RootQueryToRevisionsConnectionPageInfo;
   RootQueryToServiceConnectionPageInfo?: RootQueryToServiceConnectionPageInfo;
   RootQueryToTagConnectionPageInfo?: RootQueryToTagConnectionPageInfo;
@@ -23104,18 +23128,22 @@ export interface $PostFormatConnectionPageInfo {
 export interface $Previewable {
   Page?: Page;
   Post?: Post;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tip?: Tip;
 }
 
-export interface $PreviousWorkConnectionEdge {
-  Previous_workToPreviewConnectionEdge?: Previous_workToPreviewConnectionEdge;
-  RootQueryToPrevious_workConnectionEdge?: RootQueryToPrevious_workConnectionEdge;
+export interface $PreviousWorkConnection {
+  RootQueryToPreviousWorkConnection?: RootQueryToPreviousWorkConnection;
 }
 
-export interface $Previous_workConnectionPageInfo {
-  RootQueryToPrevious_workConnectionPageInfo?: RootQueryToPrevious_workConnectionPageInfo;
+export interface $PreviousWorkConnectionEdge {
+  PreviousWorkToPreviewConnectionEdge?: PreviousWorkToPreviewConnectionEdge;
+  RootQueryToPreviousWorkConnectionEdge?: RootQueryToPreviousWorkConnectionEdge;
+}
+
+export interface $PreviousWorkConnectionPageInfo {
+  RootQueryToPreviousWorkConnectionPageInfo?: RootQueryToPreviousWorkConnectionPageInfo;
 }
 
 export interface $ServiceConnection {
@@ -23217,7 +23245,7 @@ export interface $UniformResourceIdentifiable {
   Page?: Page;
   Post?: Post;
   PostFormat?: PostFormat;
-  Previous_work?: Previous_work;
+  PreviousWork?: PreviousWork;
   Service?: Service;
   Tag?: Tag;
   Tip?: Tip;
@@ -23292,7 +23320,7 @@ export interface $WPPageInfo {
   RootQueryToPluginConnectionPageInfo?: RootQueryToPluginConnectionPageInfo;
   RootQueryToPostConnectionPageInfo?: RootQueryToPostConnectionPageInfo;
   RootQueryToPostFormatConnectionPageInfo?: RootQueryToPostFormatConnectionPageInfo;
-  RootQueryToPrevious_workConnectionPageInfo?: RootQueryToPrevious_workConnectionPageInfo;
+  RootQueryToPreviousWorkConnectionPageInfo?: RootQueryToPreviousWorkConnectionPageInfo;
   RootQueryToRevisionsConnectionPageInfo?: RootQueryToRevisionsConnectionPageInfo;
   RootQueryToServiceConnectionPageInfo?: RootQueryToServiceConnectionPageInfo;
   RootQueryToTagConnectionPageInfo?: RootQueryToTagConnectionPageInfo;
@@ -23360,7 +23388,7 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
     | PostObjectsConnectionOrderbyEnum
     | undefined;
   PostStatusEnum: PostStatusEnum | undefined;
-  Previous_workIdType: Previous_workIdType | undefined;
+  PreviousWorkIdType: PreviousWorkIdType | undefined;
   RelationEnum: RelationEnum | undefined;
   ServiceIdType: ServiceIdType | undefined;
   TagIdType: TagIdType | undefined;

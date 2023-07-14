@@ -1,82 +1,68 @@
 import { getNextStaticProps, is404 } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 import { client, Post } from 'client';
-import { useRouter } from 'next/router';
+
+import { useContext } from 'react';
+import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
+
 import CustomHead from 'components/CustomHead';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import Image from 'next/image';
+import Hero from 'components/Hero';
+import { CustomPostContext } from 'contexts/CustomPostsContext';
+import LoadingComponent from 'components/Loading';
+import { useRouter } from 'next/router';
 
-import Heading from 'components/Heading';
-
-export interface PostProps {
+export interface PageProps {
 	post: Post | Post['preview']['node'] | null | undefined;
-	featuredImg: string;
 }
 
-export const PostComponent = ({ post, featuredImg }: PostProps) => {
-	const { useQuery } = client;
-	const generalSettings = useQuery().generalSettings;
+export function PostComponent({ post }: PageProps) {
+	const { title, description } = useContext(GeneralSettingsContext);
+	const { sourceUrl } = post?.featuredImage?.node;
+	const { loading } = useContext(CustomPostContext);
 
+	if (loading) return <LoadingComponent />;
 	return (
 		<>
-			<Header
-				title={generalSettings.title}
-				description={generalSettings.description}
-			/>
-			<CustomHead
-				title={generalSettings.title}
-				description={generalSettings.description}
-			/>
+			<CustomHead title={title} description={description} />
+			<Header title={title} description={description} />
 
 			<main className='content content-single'>
-				<div className='wrap text-center'>
-					<div className='mx-auto w-100'>
-						<Image
-							loader={() => featuredImg}
-							src={featuredImg}
-							width={'700px'}
-							height={'700px'}
-							alt='featured image'
-						/>
+				<Hero title={post?.title()} featuredImage={sourceUrl()} />
+				{post?.content() && (
+					<div className='wrap' style={{ maxWidth: '850px' }}>
+						<div dangerouslySetInnerHTML={{ __html: post?.content() }} />
 					</div>
-
-					<Heading level='h1'>{post?.title()}</Heading>
-					{post.content() && (
-						<div dangerouslySetInnerHTML={{ __html: post.content() }} />
-					)}
-				</div>
+				)}
 			</main>
 
-			<Footer copyrightHolder={generalSettings.title} />
+			<Footer copyrightHolder={title} />
 		</>
 	);
-};
+}
 
-const Page = () => {
-	const { useQuery } = client;
+export default function Page() {
+	const { usePost, useQuery } = client;
 
 	const { asPath } = useRouter();
-	const post = useQuery().postBy({ slug: asPath });
 
-	const imgUrl = post.featuredImage.node.sourceUrl();
+	const post = useQuery();
 
-	return <PostComponent post={post} featuredImg={imgUrl} />;
-};
+	return <PostComponent post={null} />;
+}
 
-// export const getStaticProps = async (context: GetStaticPropsContext) => {
-// 	return getNextStaticProps(context, {
-// 		Page,
-// 		client,
-// 		notFound: await is404(context, { client }),
-// 	});
-// };
+export async function getStaticProps(context: GetStaticPropsContext) {
+	return getNextStaticProps(context, {
+		Page,
+		client,
+		notFound: await is404(context, { client }),
+	});
+}
 
-// export const getStaticPaths = () => {
-// 	return {
-// 		paths: [],
-// 		fallback: 'blocking',
-// 	};
-// };
-
-export default Page;
+export function getStaticPaths() {
+	return {
+		paths: ['/previouswork'],
+		fallback: 'blocking',
+	};
+}

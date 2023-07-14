@@ -66,7 +66,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	return getNextStaticProps(context, {
 		Page,
 		client,
-		// notFound: await is404(context, { client }),
+		notFound: await is404(context, { client }),
 	});
 }
 

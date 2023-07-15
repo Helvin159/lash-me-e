@@ -32,18 +32,7 @@ export default function Page() {
 			<main className='content'>
 				<Hero title={title} showButton={true} handler={iframeModalHandler} />
 				<PreviousWork work={previousWork.slice(0, 6)} />
-				<div>
-					<video
-						className='x1lliihq x5yr21d xh8yej3'
-						playsInline={false}
-						preload='none'
-						src='https://www.instagram.com/f8fae7d2-4796-4e7c-a2a6-d3b29be7274d'
-						style={{
-							display: 'block',
-							width: '300px',
-							height: '300px',
-						}}></video>
-				</div>
+
 				<ServicesSection />
 				<LashTipsSection id='lashtipsComponent' tips={lashtips} />
 			</main>

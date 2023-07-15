@@ -1,17 +1,17 @@
 import { getNextStaticProps, is404 } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 import { client, PreviousWork } from 'client';
+import { useRouter } from 'next/router';
 
 import { useContext, useEffect } from 'react';
 import { GeneralSettingsContext } from 'contexts/GeneralSettingsContext';
+import { CustomPostContext } from 'contexts/CustomPostsContext';
 
 import CustomHead from 'components/CustomHead';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Hero from 'components/Hero';
-import { CustomPostContext } from 'contexts/CustomPostsContext';
 import LoadingComponent from 'components/Loading';
-import { useRouter } from 'next/router';
 
 export interface PageProps {
 	workItem: PreviousWork | PreviousWork['preview']['node'] | null | undefined;
@@ -63,6 +63,8 @@ export default function Page() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
+	console.log(context?.params, 'ctx');
+
 	return getNextStaticProps(context, {
 		Page,
 		client,

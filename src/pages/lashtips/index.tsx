@@ -31,17 +31,22 @@ export default function Page() {
 				<Hero title={'Lash Care Tips'} />
 				<section className='text-center'>
 					<div className='row'>
-						{lashtips.map((lashTip, k) => (
-							<Card
-								id={lashTip.id}
-								colWidth='col-md-4'
-								title={lashTip.title()}
-								imgUrl={lashTip.featuredImage.node.sourceUrl()}
-								imgAlt={lashTip.featuredImage.node.alt}
-								content={lashTip.content()}
-								key={k}
-							/>
-						))}
+						{lashtips.map((lashTip, k) => {
+							const href = lashTip?.uri;
+
+							return (
+								<Card
+									id={lashTip.id}
+									colWidth='col-md-4'
+									title={lashTip.title()}
+									imgUrl={lashTip.featuredImage.node.sourceUrl()}
+									imgAlt={lashTip.featuredImage.node.alt}
+									content={lashTip.content()}
+									url={href}
+									key={k}
+								/>
+							);
+						})}
 						<Pagination pageInfo={lashtipsInfo} basePath='/lashtips' />
 					</div>
 				</section>

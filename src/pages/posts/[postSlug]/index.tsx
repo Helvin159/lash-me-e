@@ -52,6 +52,8 @@ export default function Page() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
+	console.log(context, 'ctx');
+
 	return getNextStaticProps(context, {
 		Page,
 		client,

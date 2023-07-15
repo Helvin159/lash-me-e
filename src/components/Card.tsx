@@ -1,5 +1,6 @@
 import React from 'react';
 import style from '../scss/components/Cards.module.scss';
+import { useRouter } from 'next/router';
 
 interface CardProps {
 	id: string;
@@ -7,6 +8,7 @@ interface CardProps {
 	colWidth: string;
 	imgAlt: string;
 	imgUrl: string;
+	url?: string;
 	content: TrustedHTML;
 }
 
@@ -17,6 +19,7 @@ const Card = ({
 	imgAlt,
 	imgUrl,
 	content,
+	url,
 }: CardProps): JSX.Element => {
 	// Inline Style
 	const bgStyles = {
@@ -27,7 +30,8 @@ const Card = ({
 		height: '200px',
 	};
 
-	// const handler =
+	const router = useRouter();
+	const handler = (href) => router.push(href);
 
 	return (
 		<div id={id} className={`${colWidth} pb-5 `}>
@@ -39,13 +43,17 @@ const Card = ({
 						tabIndex={0}
 						aria-label={imgAlt}
 						style={{ ...bgStyles }}
+						onClick={() => handler(url)}
 					/>
 				</div>
 				<div className={`${style.cardTitleWrapper} pt-3`}>
-					<h4 tabIndex={0}>{title}</h4>
+					<h4 tabIndex={0} onClick={() => handler(url)}>
+						{title}
+					</h4>
 				</div>
 				<div
 					className={style.contentWrapper}
+					onClick={() => handler(url)}
 					dangerouslySetInnerHTML={{ __html: content }}
 				/>
 			</div>

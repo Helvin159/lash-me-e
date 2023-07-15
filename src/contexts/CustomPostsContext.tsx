@@ -64,13 +64,15 @@ export const CustomPostProvider = ({ children }) => {
 	const service = useQuery().services();
 
 	useEffect(() => {
+		// () => {
 		setPreviousWork(prevWork.nodes);
 		setLashtips(lashes.nodes);
 		setServices(service.nodes);
 		setPreviousWorkInfo(pageInfo);
 		setLashInfo(lashInfo);
+		// };
 
-		setLoading(!load);
+		setLoading(false);
 	}, [prevWork, lashes, service, pageInfo, lashInfo, load]);
 
 	const value = {

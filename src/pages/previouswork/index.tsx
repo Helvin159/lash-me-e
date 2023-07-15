@@ -1,5 +1,6 @@
 import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
+import { useRouter } from 'next/router';
 
 import { useContext } from 'react';
 import { client } from 'client';
@@ -17,7 +18,6 @@ import CustomHead from 'components/CustomHead';
 import Hero from 'components/Hero';
 // import Pagination from 'components/Pagination';
 import LoadingComponent from 'components/Loading';
-import { useRouter } from 'next/router';
 import Pagination from 'components/Pagination';
 
 export default function Page() {
@@ -48,6 +48,7 @@ export default function Page() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
+	console.log(context, 'ctx archive');
 	return getNextStaticProps(context, {
 		Page,
 		client,

@@ -7,7 +7,7 @@ export default Page;
 
 export async function getStaticProps(context: GetStaticPropsContext) {
 	const { postSlug } = context.params;
-	console.log(context.params);
+	console.log(context.params, 'ctx 2');
 
 	if (!(postSlug === 'after' || postSlug === 'before')) {
 		return {

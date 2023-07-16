@@ -41,7 +41,7 @@ export default function Page() {
 									title={lashTip.title()}
 									imgUrl={lashTip.featuredImage.node.sourceUrl()}
 									imgAlt={lashTip.featuredImage.node.alt}
-									content={lashTip.content()}
+									content={lashTip.excerpt()}
 									url={href}
 									key={k}
 								/>

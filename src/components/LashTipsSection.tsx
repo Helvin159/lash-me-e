@@ -45,7 +45,7 @@ function LashTipsSection({ tips, id }) {
 									<div
 										className={styles.lash__tips__cols__content__copy}
 										dangerouslySetInnerHTML={{
-											__html: tip.content(),
+											__html: tip.excerpt(),
 										}}
 									/>
 								</div>

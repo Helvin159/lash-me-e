@@ -12,12 +12,12 @@ function PreviousWorkCard({ sourceUrl, href, work }) {
 			role='img'
 			key={work.id}
 			tabIndex={0}
-			onKeyDown={(e) => {
-				e.key === 'Enter' && handleClick(href);
-			}}
-			onClick={() => {
-				handleClick(href);
-			}}
+			// onKeyDown={(e) => {
+			// 	e.key === 'Enter' && handleClick(href);
+			// }}
+			// onClick={() => {
+			// 	handleClick(href);
+			// }}
 			style={{
 				background: `url(${sourceUrl})`,
 				backgroundSize: 'cover',

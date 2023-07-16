@@ -8,9 +8,6 @@
 	top: 0;
 	z-index: auto;
 	transition: 0.32s ease-out;
-	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-	z-index: 2;
-	backdrop-filter: blur(15px);
 }
 
 @media (min-width: 768px) {

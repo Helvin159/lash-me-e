@@ -39,6 +39,11 @@
 	text-overflow: ellipsis;
 }
 
+.lash__tips__cols__content__copy {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
 .lash__tips__cols__content__link__text:hover,
 .lash__tips__cols__content__copy:hover {
 	cursor: pointer !important;

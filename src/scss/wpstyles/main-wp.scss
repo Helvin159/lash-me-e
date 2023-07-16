@@ -15,6 +15,31 @@
 // Components
 @import './components/style';
 
+// Customize Widgets
+@import './customize-widgets/style';
+
+// Edit Post
+@import './edit-post/classic';
+@import './edit-post/style';
+
+// Edit Style
+@import './edit-site/style';
+
+// Format Library
+@import './format-library/style';
+
+// List reusable blocks
+@import './list-reusable-blocks/style';
+
 // Media Text
 @import './media-text/editor';
 @import './media-text/style';
+
+// Nux
+@import './nux/style';
+
+// Reusable blocks
+@import './reusable-blocks/style';
+
+// Widgets
+@import './widgets/style';

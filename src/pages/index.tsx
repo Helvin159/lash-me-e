@@ -17,6 +17,8 @@ import PreviousWork from 'components/PreviousWork/PreviousWork';
 import LoadingComponent from 'components/Loading';
 import ServicesSection from 'components/ServicesSection';
 
+import bg from '../assets/lashmee.jpeg';
+
 export default function Page() {
 	const { iframeModalHandler } = useContext(ModalConext);
 	const { title, description } = useContext(GeneralSettingsContext);
@@ -30,8 +32,14 @@ export default function Page() {
 
 			{/* Main Content */}
 			<main className='content'>
-				<Hero title={title} showButton={true} handler={iframeModalHandler} />
-				<PreviousWork work={previousWork.slice(0, 6)} />
+				<Hero
+					title={title}
+					showButton={true}
+					featuredImage={bg.src}
+					handler={iframeModalHandler}
+				/>
+
+				<PreviousWork work={previousWork.slice(0, 6)} cardSize={'4'} />
 
 				<ServicesSection />
 				<LashTipsSection id='lashtipsComponent' tips={lashtips} />

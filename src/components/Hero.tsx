@@ -23,7 +23,7 @@ function Hero({
 			<div
 				className={styles.hero}
 				style={{
-					backgroundImage: `linear-gradient(rgba(255, 255, 255, .65),rgba(255,255,255,.65)),url(${featuredImage}) 
+					backgroundImage: `linear-gradient(rgba(255, 255, 255, .9),rgba(255,255,255,.9)),url(${featuredImage}) 
 					`,
 				}}>
 				<div className={styles.heroContentWrapper}>

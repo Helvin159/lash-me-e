@@ -36,7 +36,7 @@ export default function Page() {
 
 			<main className='content'>
 				<Hero title='My Work' />
-				<PreviousWork work={previousWork} />
+				<PreviousWork work={previousWork} cardSize={'6'} />
 				{previousWork.length > 5 && (
 					<Pagination pageInfo={previousWorkInfo} basePath='/previouswork' />
 				)}

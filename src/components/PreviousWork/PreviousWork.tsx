@@ -2,8 +2,14 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import PreviousWorkCard from './PreviousWorkCard';
+import { PreviousWork } from 'client';
 
-function PreviousWork({ work }) {
+interface PreviousWorkProps {
+	work: PreviousWork | undefined;
+	cardSize: string;
+}
+
+function PreviousWork({ work, cardSize }) {
 	return (
 		<section>
 			<div className='row '>
@@ -17,6 +23,7 @@ function PreviousWork({ work }) {
 							sourceUrl={sourceUrl}
 							href={href}
 							key={`${workItem.id}_${k}`}
+							cardSize={cardSize}
 						/>
 					);
 				})}

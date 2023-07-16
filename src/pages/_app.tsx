@@ -8,6 +8,7 @@ import { MenuProvider } from 'contexts/MenuContext';
 import { CustomPostProvider } from 'contexts/CustomPostsContext';
 import { ModalProvider } from 'contexts/ModalContext';
 import CaldendarModal from 'components/Modals/CaldendarModal';
+import IframModal from 'components/Modals/IframModal';
 
 // React Import
 import React from 'react';
@@ -17,7 +18,7 @@ import type { AppProps } from 'next/app';
 
 // CSS
 import 'scss/main.scss';
-import IframModal from 'components/Modals/IframModal';
+import 'scss/wpstyles/main-wp.scss';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (

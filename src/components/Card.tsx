@@ -27,27 +27,36 @@ const Card = ({
 		backgroundSize: 'cover',
 		backgroundPosition: 'center center',
 		backgroundRepeat: 'no-repeat',
-		height: '200px',
+		height: '250px',
 	};
 
 	const router = useRouter();
 	const handler = (href) => router.push(href);
+	const properties = {
+		onClick: () => handler(url),
+		onKeyDown: (e) => {
+			e.key === 'Enter' && handler(url);
+		},
+		style: { ...bgStyles },
+		'aria-label': imgAlt,
+		tabIndex: 0,
+		role: 'img',
+		className: style.cardImg,
+	};
 
 	return (
 		<div id={id} className={`${colWidth} pb-5 `}>
 			<div className={style.card}>
 				<div className={style.cardImgWrapper}>
-					<div
-						className={style.cardImg}
-						role='img'
-						tabIndex={0}
-						aria-label={imgAlt}
-						style={{ ...bgStyles }}
-						onClick={() => handler(url)}
-					/>
+					<div {...properties} />
 				</div>
 				<div className={`${style.cardTitleWrapper} pt-3`}>
-					<h4 tabIndex={0} onClick={() => handler(url)}>
+					<h4
+						tabIndex={0}
+						onClick={() => handler(url)}
+						onKeyDown={(e) => {
+							e.key === 'Enter' && handler(url);
+						}}>
 						{title}
 					</h4>
 				</div>

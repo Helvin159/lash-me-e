@@ -30,24 +30,26 @@ export default function Page() {
 			<main className='content content-index'>
 				<Hero title={'Lash Care Tips'} />
 				<section className='text-center'>
-					<div className='row'>
-						{lashtips.map((lashTip, k) => {
-							const href = lashTip?.uri;
+					<div className='container-fluid mx-auto pt-5'>
+						<div className='row'>
+							{lashtips.map((lashTip, k) => {
+								const href = lashTip?.uri;
 
-							return (
-								<Card
-									id={lashTip.id}
-									colWidth='col-md-4'
-									title={lashTip.title()}
-									imgUrl={lashTip.featuredImage.node.sourceUrl()}
-									imgAlt={lashTip.featuredImage.node.alt}
-									content={lashTip.excerpt()}
-									url={href}
-									key={k}
-								/>
-							);
-						})}
-						<Pagination pageInfo={lashtipsInfo} basePath='/lashtips' />
+								return (
+									<Card
+										id={lashTip.id}
+										colWidth='col-md-4'
+										title={lashTip.title()}
+										imgUrl={lashTip.featuredImage.node.sourceUrl()}
+										imgAlt={lashTip.featuredImage.node.alt}
+										content={lashTip.excerpt()}
+										url={href}
+										key={k}
+									/>
+								);
+							})}
+							<Pagination pageInfo={lashtipsInfo} basePath='/lashtips' />
+						</div>
 					</div>
 				</section>
 			</main>

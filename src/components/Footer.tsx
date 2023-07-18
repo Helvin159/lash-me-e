@@ -26,7 +26,7 @@ function Footer({ copyrightHolder = 'Company Name' }: Props): JSX.Element {
 					</div>
 				</div>
 				<div className='col-md-6'>
-					<div className='p-5'>
+					<div className={`${styles.footermenu} p-5`}>
 						<ul style={{ listStyleType: 'none' }}>
 							{links.map((link, k) => (
 								<li key={`footer-menu-${k}`}>

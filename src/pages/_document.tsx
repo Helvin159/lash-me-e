@@ -13,6 +13,17 @@ class MyDocument extends Document {
 						cross-origin={false}
 					/>
 					<link
+						rel='stylesheet'
+						type='text/css'
+						charSet='UTF-8'
+						href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
+					/>
+					<link
+						rel='stylesheet'
+						type='text/css'
+						href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
+					/>
+					<link
 						href='https://fonts.googleapis.com/css2?family=GFS+Didot&family=Roboto:wght@400;700&display=swap'
 						rel='stylesheet'
 					/>
@@ -25,11 +36,11 @@ class MyDocument extends Document {
 				</Head>
 				<body>
 					<Main />
+					<NextScript />
 					<Script
 						src='https://embed.acuityscheduling.com/js/embed.js'
 						type='text/javascript'
 					/>
-					<NextScript />
 				</body>
 			</Html>
 		);

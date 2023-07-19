@@ -28,9 +28,9 @@ function PreviousWorkCard({
 			// onKeyDown={(e) => {
 			// 	e.key === 'Enter' && handleClick(href);
 			// }}
-			// onClick={() => {
-			// 	handleClick(href);
-			// }}
+			onClick={() => {
+				handleClick(href);
+			}}
 			style={{
 				background: `url(${sourceUrl})`,
 				backgroundSize: 'cover',

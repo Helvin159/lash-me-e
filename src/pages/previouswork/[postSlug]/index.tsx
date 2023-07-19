@@ -10,17 +10,29 @@ import { CustomPostContext } from 'contexts/CustomPostsContext';
 import CustomHead from 'components/CustomHead';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import Hero from 'components/Hero';
 import LoadingComponent from 'components/Loading';
+import Slider from 'react-slick';
+import Image from 'next/image';
+
+import styles from '../../../scss/components/PreviousWorkHero.module.scss';
+
+import bg from '../../../assets/lashmee.jpeg';
 
 export interface PageProps {
 	workItem: PreviousWork | PreviousWork['preview']['node'] | null | undefined;
+	imgSrc: string;
 }
 
-export function PostComponent({ workItem }: PageProps) {
+export function PostComponent({ workItem, imgSrc }: PageProps) {
 	const { title, description } = useContext(GeneralSettingsContext);
 	const { sourceUrl } = workItem?.featuredImage?.node;
 	const { loading } = useContext(CustomPostContext);
+
+	const bgStyle = {
+		backgroundImage: `url(${imgSrc})`,
+	};
+
+	const multipleImgs = false;
 
 	if (loading) return <LoadingComponent />;
 	return (
@@ -29,13 +41,20 @@ export function PostComponent({ workItem }: PageProps) {
 			<Header title={title} description={description} />
 
 			<main className='content content-single'>
-				<Hero title={workItem?.title()} featuredImage={sourceUrl()} />
-				<p>[previousWork]</p>
-				{workItem?.content() && (
-					<div className='wrap' style={{ maxWidth: '850px' }}>
+				<div className={`${styles.previousWorkHero}`} style={{ ...bgStyle }}>
+					<div className={`${styles.previousWorkHeroBlur}`}></div>
+				</div>
+
+				{/* Placeholder */}
+				{multipleImgs && <SlickSlider />}
+
+				<div className='wrap' style={{ maxWidth: '850px' }}>
+					{/* <Image src={imgSrc} alt='image' height={'300px'} width={'300px'} /> */}
+					{/* <img src={imgSrc} alt='image' /> */}
+					{workItem?.content() && (
 						<div dangerouslySetInnerHTML={{ __html: workItem?.content() }} />
-					</div>
-				)}
+					)}
+				</div>
 			</main>
 
 			<Footer copyrightHolder={title} />
@@ -44,22 +63,21 @@ export function PostComponent({ workItem }: PageProps) {
 }
 
 export default function Page() {
-	const { useQuery, usePost } = client;
+	const { useQuery } = client;
 
 	const { asPath } = useRouter();
 
 	const workItem = useQuery().previousWorkBy({
-		uri: '/work-four',
+		uri: asPath,
 	});
-	const l = usePost();
 
-	useEffect(() => {
-		console.log(l?.title(), 'L');
-		console.log(workItem?.title(), 'URI');
-		console.log('rendered');
-	}, [workItem, l]);
+	useEffect(() => {}, [asPath, workItem]);
 
-	return <PostComponent workItem={workItem} />;
+	const imgSrc = workItem?.featuredImage?.node?.sourceUrl();
+
+	console.log(workItem, 'workItem');
+
+	return <PostComponent workItem={workItem} imgSrc={imgSrc} />;
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
@@ -68,7 +86,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 	return getNextStaticProps(context, {
 		Page,
 		client,
-		notFound: await is404(context, { client }),
+		// notFound: await is404(context, { client }),
 	});
 }
 
@@ -78,3 +96,19 @@ export function getStaticPaths() {
 		fallback: 'blocking',
 	};
 }
+
+const SlickSlider = () => {
+	const settings = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+	};
+
+	return (
+		<Slider {...settings}>
+			<Image src={bg} alt='bg' />
+		</Slider>
+	);
+};

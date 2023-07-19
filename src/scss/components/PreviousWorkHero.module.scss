@@ -1,0 +1,19 @@
+.previousWorkHero {
+	height: 70vh;
+	height: 70dvh;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+
+.previousWorkHeroBlur {
+	height: 100%;
+	width: 100%;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	backdrop-filter: blur(5px);
+	z-index: 5;
+}

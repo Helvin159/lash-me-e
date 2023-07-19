@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import type { WPPageInfo } from 'client';
 
 interface NextPageNavigationProps {
 	href: string;
@@ -35,21 +34,18 @@ export default function Pagination({ pageInfo, basePath }: PaginationProps) {
 	const nextPageUrl = `${basePath}/after/${pageInfo?.endCursor}`;
 
 	return (
-		<nav className='pagination' aria-label='Pagination'>
-			<div className='wrap p-5 m-auto'>
-				<ul>
+		<nav
+			// className='pagination'
+			aria-label='Pagination'>
+			<div className='row p-5 m-auto'>
+				<div className='col-6 py-3 text-center '>
 					{pageInfo.hasPreviousPage && (
-						<li className='pagination-previous'>
-							<PreviousPageNavigation href={previousPageUrl} />
-						</li>
+						<PreviousPageNavigation href={previousPageUrl} />
 					)}
-
-					{pageInfo.hasNextPage && (
-						<li className='pagination-next'>
-							<NextPageNavigation href={nextPageUrl} />
-						</li>
-					)}
-				</ul>
+				</div>
+				<div className='col-6 py-3 text-center'>
+					{pageInfo.hasNextPage && <NextPageNavigation href={nextPageUrl} />}
+				</div>
 			</div>
 		</nav>
 	);

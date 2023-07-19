@@ -35,14 +35,8 @@ footer.main p {
 	padding: 0 1em;
 }
 
-.footermenu li:first-of-type {
+.footermenu li {
 	padding-left: 0;
-}
-
-@media screen and (min-width: $breakpoint-small) {
-	.footermenu li:first-of-type {
-		padding-left: 1em;
-	}
 }
 
 .footermenu li a {
